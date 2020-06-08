@@ -3,3 +3,9 @@
 .env
 /node_modules
 /dist
+
+/.sync-config.cson
+/app/node_modules
+/app/src/setupProxy.js
+/npm-debug.log
+/vendor
