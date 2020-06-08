@@ -1,4 +1,0 @@
-MYSQL_RANDOM_ROOT_PASSWORD=yes
-MYSQL_DATABASE=databasename
-MYSQL_USER=databaseusername
-MYSQL_PASSWORD=databasepassword
