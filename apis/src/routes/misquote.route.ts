@@ -1,6 +1,6 @@
 
 import {Router} from "express";
-import {getAllMisquoteController, insertMisquoteController} from "../controllers/misquote.contoller";
+import {getAllMisquoteController, insertMisquoteController} from "../controllers/misquote.controller";
 
 export const MisquoteRoute = Router()
 
