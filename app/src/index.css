@@ -1,13 +1,125 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/***
+* Meow App 7.0 Theme
+* ...in progress :P
+* @author rlewis37@cnm.edu
+***/
+
+/* GLOBAL */
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+.navbar-brand {
+  font-family: 'Audiowide', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button {
+  cursor: pointer;
+}
+
+hr {
+  border-color: rgba(0,0,0,0.15);
+}
+
+/* UTILS */
+.mh-80 {
+  min-height: 80vh;
+}
+
+.mh-100 {
+  min-height: 100vh;
+}
+
+.bg-shadow-light {
+  background-color: rgba(255,255,255,0.15);
+}
+
+.bg-shadow-dark {
+  background-color: rgba(0,0,0,0.3);
+}
+
+.text-shadow-dark {
+  text-shadow: 1px 1px #000;
+}
+
+.bg-transparent-90 {
+  background-color: rgba(255,255,255,0.9);
+}
+
+@media screen and (min-width: 768px) {
+  .position-fixed-md {
+    position: fixed;
+  }
+}
+
+/***
+* Flexbox Sticky Footer
+* http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+***/
+
+/*corrects IE min-height bug*/
+html { display: flex;}
+body { width: 100%;}
+
+.sfooter {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sfooter-content {
+  flex: 1 0 auto;
+}
+
+/* GLOBAL */
+/* this is how to apply a background image */
+#root {
+  background: url("shared/img/bg-cat.jpg") no-repeat center left fixed;
+  background-size: cover;
+}
+
+/* HEADER */
+nav {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+div.dropdown-item.sign-out-dropdown:active,
+div.dropdown-item.sign-out-dropdown:hover,
+.dropdown-item.active, .dropdown-item:active {
+  background-color: transparent;
+}
+
+/* POSTS */
+.posts-form-panel {
+  z-index: 999;
+}
+
+.posts-panel {
+  margin-top: 60px;
+}
+
+/* no pointer on disabled like button! */
+button.post-like-btn:disabled {
+  cursor: unset;
+}
+
+@media only screen and (min-width: 768px){
+  .posts-panel {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .posts-form-panel.panel-position-reset {
+    position: static !important;
+  }
+}
+
+button,
+.card,
+.modal-content {
+  border-radius: 0 !important;
+  border: none;
 }
