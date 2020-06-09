@@ -1,8 +1,8 @@
 import {NextFunction, Request, Response} from "express";
-import {Status} from "../../utils/interfaces/status";
-import {getAllMisquotes} from "../../utils/misquote/getAllMisquotes";
-import {Misquote} from "../../utils/interfaces/misquote";
-import {insertMisquote} from "../../utils/misquote/insertMisquote";
+import {Status} from "../utils/interfaces/status";
+import {getAllMisquotes} from "../utils/misquote/getAllMisquotes";
+import {Misquote} from "../utils/interfaces/misquote";
+import {insertMisquote} from "../utils/misquote/insertMisquote";
 
 
 export async function getAllMisquoteController(request: Request, response: Response, nextFunction: NextFunction) {
