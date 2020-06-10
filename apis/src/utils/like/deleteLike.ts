@@ -4,16 +4,17 @@ import {connect} from "../../database";
 /**
  * Deletes a like mySQL
  *
- * @param {Like} like object to be deleted from mysql
+ * @param {string} likePostId - post id of the like to be deleted
+ * @param {string} likeProfileId - profile id that created the like to be deleted
  **/
-export async function deleteLike(like: Like) {
+export async function deleteLike(likePostId: string, likeProfileId: string) {
 	try {
 
 		const mySqlConnection = await connect();
 
 		const mySqlQuery = "DELETE FROM `like` WHERE likePostId = UUID_TO_BIN(:likePostId) AND likeProfileId = UUID_TO_BIN(:likeProfileId)";
 
-		const [rows] = await mySqlConnection.execute(mySqlQuery, like)
+		const [rows] = await mySqlConnection.execute(mySqlQuery, [likePostId, likeProfileId])
 		return "Like deleted successfully! :|"
 
 	} catch(error) {
