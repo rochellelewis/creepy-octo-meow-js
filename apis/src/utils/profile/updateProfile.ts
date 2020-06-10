@@ -1,6 +1,11 @@
 import {Profile} from "../interfaces/profile";
 import {connect} from "../../database";
 
+/**
+ * Updates an existing profile
+ *
+ * @param {Profile} profile to be updated
+ **/
 export async function updateProfile(profile: Profile) {
 	try {
 

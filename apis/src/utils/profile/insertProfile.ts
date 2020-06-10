@@ -1,6 +1,11 @@
 import {Profile} from "../interfaces/profile";
 import {connect} from "../../database";
 
+/**
+ * Inserts a profile into mysql
+ *
+ * @param {Profile} profile to insert into mysql
+ **/
 export async function insertProfile(profile: Profile) {
 	try {
 

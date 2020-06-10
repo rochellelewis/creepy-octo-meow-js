@@ -1,6 +1,12 @@
 import {Profile} from "../interfaces/profile";
 import {connect} from "../../database";
 
+/**
+ * Gets a profile by profile id
+ *
+ * @param {string} profileId - id of the profile to select from mysql
+ * @return {(Array | undefined)} rows - array that contains the profile data found, or undefined if errors occur
+ **/
 async function getProfileByProfileId(profileId : string) {
 	try {
 
