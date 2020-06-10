@@ -1,4 +1,3 @@
-import {Profile} from "../interfaces/profile";
 import {connect} from "../../database";
 
 /**
@@ -7,7 +6,7 @@ import {connect} from "../../database";
  * @param {(string | null)} profileActivationToken - activation token of profile to select from mySQL
  * @return {(Array | undefined)} rows - array that contains the profile data found, or undefined if errors occur
  **/
-async function getProfileByProfileActivationToken(profileActivationToken : string | null) {
+async function selectProfileByProfileActivationToken(profileActivationToken : string | null) {
 	try {
 
 		const mysqlConnection = await connect();

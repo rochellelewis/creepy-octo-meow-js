@@ -1,4 +1,3 @@
-import {Post} from "../interfaces/post";
 import {connect} from "../../database";
 
 /**
@@ -6,7 +5,7 @@ import {connect} from "../../database";
  *
  * @return {(Array | undefined)} rows - array that contains the post data found, or undefined if errors occur
  **/
-async function getAllPosts() {
+async function selectAllPosts() {
 	try {
 
 		const mysqlConnection = await connect();

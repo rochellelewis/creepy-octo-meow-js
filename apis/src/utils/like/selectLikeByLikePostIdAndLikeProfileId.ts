@@ -1,4 +1,3 @@
-import {Like} from "../interfaces/like";
 import {connect} from "../../database";
 
 /**
@@ -8,7 +7,7 @@ import {connect} from "../../database";
  * @param {string} likeProfileId - the id of the profile that liked the post
  * @return {(Array | undefined)} rows - array that contains the like data found, or undefined if errors occur
  **/
-export async function getLikeByLikePostIdAndLikeProfileId(likePostId: string, likeProfileId: string) {
+export async function selectLikeByLikePostIdAndLikeProfileId(likePostId: string, likeProfileId: string) {
 	try {
 
 		const mySqlConnection = await connect();
