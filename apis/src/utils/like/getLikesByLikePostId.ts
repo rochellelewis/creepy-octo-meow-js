@@ -5,6 +5,7 @@ import {connect} from "../../database";
  * Gets likes by post id.
  *
  * @param {string} likePostId - id of the post that has likes
+ * @return {(Array | undefined)} rows - array that contains the like data found, or undefined if errors occur
  **/
 export async function getLikesByLikePostId(likePostId: string) {
 	try {

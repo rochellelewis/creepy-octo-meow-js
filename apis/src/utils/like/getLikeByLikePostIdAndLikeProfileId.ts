@@ -6,6 +6,7 @@ import {connect} from "../../database";
  *
  * @param {string} likePostId - the id of the post that has been liked
  * @param {string} likeProfileId - the id of the profile that liked the post
+ * @return {(Array | undefined)} rows - array that contains the like data found, or undefined if errors occur
  **/
 export async function getLikeByLikePostIdAndLikeProfileId(likePostId: string, likeProfileId: string) {
 	try {
