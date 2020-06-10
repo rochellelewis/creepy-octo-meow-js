@@ -1,5 +1,5 @@
 import {Like} from "../interfaces/like";
-import {connect} from "../../database";
+import {connect} from "../../src/database";
 
 /**
 * Inserts a Like into mySQL

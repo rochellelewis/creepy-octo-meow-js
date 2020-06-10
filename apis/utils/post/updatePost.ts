@@ -1,5 +1,5 @@
 import {Post} from "../interfaces/post";
-import {connect} from "../../database";
+import {connect} from "../../src/database";
 
 /**
  * Updates an existing post

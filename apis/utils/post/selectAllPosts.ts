@@ -1,4 +1,4 @@
-import {connect} from "../../database";
+import {connect} from "../../src/database";
 
 /**
  * Gets all posts from mySQL

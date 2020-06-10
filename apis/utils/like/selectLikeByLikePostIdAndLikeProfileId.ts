@@ -1,4 +1,4 @@
-import {connect} from "../../database";
+import {connect} from "../../src/database";
 
 /**
  * Gets a like by post id and profile id.
