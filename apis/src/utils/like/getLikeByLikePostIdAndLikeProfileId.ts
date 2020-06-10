@@ -6,7 +6,7 @@ export async function getLikeByLikePostIdAndLikeProfileId(likePostId: string, li
 
 		const mySqlConnection = await connect();
 
-		const mySqlQuery = "SELECT likePostId, likeProfileId FROM `like` WHERE likePostId = UUID_TO_BIN(:likePostId) AND likeProfileId = UUID_TO_BIN(:likeProfileId)";
+		const mySqlQuery = "SELECT BIN_TO_UUID(likePostId) as likePostId, BIN_TO_UUID(likeProfileId) as likeProfileId FROM `like` WHERE likePostId = UUID_TO_BIN(:likePostId) AND likeProfileId = UUID_TO_BIN(:likeProfileId)";
 
 		const [rows] = await mySqlConnection.execute(mySqlQuery, [likePostId, likeProfileId])
 		return rows
