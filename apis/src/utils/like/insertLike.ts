@@ -1,7 +1,7 @@
 import {Like} from "../interfaces/like";
 import {connect} from "../../database";
 
-export async function insertPost(like: Like) {
+export async function insertLike(like: Like) {
 	try {
 
 		const mySqlConnection = await connect();
