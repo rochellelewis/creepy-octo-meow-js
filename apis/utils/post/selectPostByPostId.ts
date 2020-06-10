@@ -6,7 +6,7 @@ import {connect} from "../../src/database";
  * @param {string} postId - id of the post to be retrieved from mySQL
  * @return {(Array | undefined)} rows - array that contains the post data found, or undefined if errors occur
  **/
-async function selectPostByPostId(postId : string) {
+export async function selectPostByPostId(postId : string) {
 	try {
 
 		const mysqlConnection = await connect();

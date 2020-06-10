@@ -6,7 +6,7 @@ import {connect} from "../../src/database";
  * @param {string} profileId - id of the profile to select from mysql
  * @return {(Array | undefined)} rows - array that contains the profile data found, or undefined if errors occur
  **/
-async function selectProfileByProfileId(profileId : string) {
+export async function selectProfileByProfileId(profileId : string) {
 	try {
 
 		const mysqlConnection = await connect();

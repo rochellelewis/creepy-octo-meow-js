@@ -6,7 +6,7 @@ import {connect} from "../../src/database";
  * @param {(string | null)} profileActivationToken - activation token of profile to select from mySQL
  * @return {(Array | undefined)} rows - array that contains the profile data found, or undefined if errors occur
  **/
-async function selectProfileByProfileActivationToken(profileActivationToken : string | null) {
+export async function selectProfileByProfileActivationToken(profileActivationToken : string | null) {
 	try {
 
 		const mysqlConnection = await connect();

@@ -5,7 +5,7 @@ import {connect} from "../../src/database";
  *
  * @return {(Array | undefined)} rows - array that contains the post data found, or undefined if errors occur
  **/
-async function selectAllPosts() {
+export async function selectAllPosts() {
 	try {
 
 		const mysqlConnection = await connect();
