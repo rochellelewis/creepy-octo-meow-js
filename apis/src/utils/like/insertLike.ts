@@ -1,6 +1,11 @@
 import {Like} from "../interfaces/like";
 import {connect} from "../../database";
 
+/**
+* Inserts a Like into mySQL
+*
+* @param {Like} like object to be inserted into mySQL
+**/
 export async function insertLike(like: Like) {
 	try {
 

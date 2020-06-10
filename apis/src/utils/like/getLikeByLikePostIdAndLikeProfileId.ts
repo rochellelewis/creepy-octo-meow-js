@@ -1,6 +1,12 @@
 import {Like} from "../interfaces/like";
 import {connect} from "../../database";
 
+/**
+ * Gets a like by post id and profile id.
+ *
+ * @param {string} likePostId - the id of the post that has been liked
+ * @param {string} likeProfileId - the id of the profile that liked the post
+ **/
 export async function getLikeByLikePostIdAndLikeProfileId(likePostId: string, likeProfileId: string) {
 	try {
 

@@ -1,6 +1,11 @@
 import {Like} from "../interfaces/like";
 import {connect} from "../../database";
 
+/**
+ * Deletes a like mySQL
+ *
+ * @param {Like} like object to be deleted from mysql
+ **/
 export async function deleteLike(like: Like) {
 	try {
 

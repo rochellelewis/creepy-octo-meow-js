@@ -1,6 +1,11 @@
 import {Like} from "../interfaces/like";
 import {connect} from "../../database";
 
+/**
+ * Gets likes by post id.
+ *
+ * @param {string} likePostId - id of the post that has likes
+ **/
 export async function getLikesByLikePostId(likePostId: string) {
 	try {
 
