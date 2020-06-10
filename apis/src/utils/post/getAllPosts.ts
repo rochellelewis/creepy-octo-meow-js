@@ -3,6 +3,8 @@ import {connect} from "../../database";
 
 /**
  * Gets all posts from mySQL
+ *
+ * @return {(Array | undefined)} rows - array that contains the post data found, or undefined if errors occur
  **/
 async function getAllPosts() {
 	try {

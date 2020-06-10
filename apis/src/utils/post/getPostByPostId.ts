@@ -5,6 +5,7 @@ import {connect} from "../../database";
  * Gets a post from mySQL by post id
  *
  * @param {string} postId - id of the post to be retrieved from mySQL
+ * @return {(Array | undefined)} rows - array that contains the post data found, or undefined if errors occur
  **/
 async function getPostByPostId(postId : string) {
 	try {
