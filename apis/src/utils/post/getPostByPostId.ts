@@ -1,6 +1,11 @@
 import {Post} from "../interfaces/post";
 import {connect} from "../../database";
 
+/**
+ * Gets a post from mySQL by post id
+ *
+ * @param {string} postId - id of the post to be retrieved from mySQL
+ **/
 async function getPostByPostId(postId : string) {
 	try {
 

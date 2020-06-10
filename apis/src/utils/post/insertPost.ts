@@ -1,6 +1,11 @@
 import {Post} from "../interfaces/post";
 import {connect} from "../../database";
 
+/**
+ * Inserts a post into mySQL
+ *
+ * @param {Post} post object to be inserted
+ **/
 export async function insertPost(post: Post) {
 	try {
 

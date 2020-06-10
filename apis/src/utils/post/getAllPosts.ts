@@ -1,6 +1,9 @@
 import {Post} from "../interfaces/post";
 import {connect} from "../../database";
 
+/**
+ * Gets all posts from mySQL
+ **/
 async function getAllPosts() {
 	try {
 
