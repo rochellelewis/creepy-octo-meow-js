@@ -39,9 +39,11 @@ export async function postProfileController(request: Request, response: Response
 export async function updateProfileController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
+		// grab the profile id off of the request parameters
+		const {profileId} = request.params;
+
 		// grab the profile data off of the request body
 		const {
-			profileId,
 			profileActivationToken,
 			profileEmail,
 			profileHash,
@@ -50,7 +52,7 @@ export async function updateProfileController(request: Request, response: Respon
 
 		// create the Profile object to be inserted
 		const profile: Profile = {
-			profileId: profileId,
+			profileId,
 			profileActivationToken,
 			profileEmail,
 			profileHash,
