@@ -1,7 +1,7 @@
 /**
  * Validates and sanitizes sign in data from end user
  **/
-export const signInValidator = {
+export const signinValidator = {
 	profilePassword: {
 		isLength: {
 			errorMessage: 'Password must be at least eight characters',
