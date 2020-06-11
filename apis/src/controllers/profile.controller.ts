@@ -50,7 +50,7 @@ export async function postProfileController(request: Request, response: Response
  * @param response
  * @param nextFunction
  **/
-export async function updateProfileController(request: Request, response: Response, nextFunction: NextFunction) {
+export async function putProfileController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
 		// grab the profile id off of the request parameters
