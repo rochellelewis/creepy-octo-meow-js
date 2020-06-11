@@ -53,7 +53,7 @@ export async function postPostController(request: Request, response: Response, n
 export async function deletePostController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
-		// grab the post id off the request body
+		// grab the post id off the request parameters
 		const {postId} = request.params;
 
 		const result = await deletePost(postId)
