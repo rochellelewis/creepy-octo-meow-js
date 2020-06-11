@@ -8,6 +8,13 @@ import {updateProfile} from "../../utils/profile/updateProfile";
 import {selectProfileByProfileActivationToken} from "../../utils/profile/selectProfileByProfileActivationToken"
 import {selectProfileByProfileId} from "../../utils/profile/selectProfileByProfileId";
 
+/**
+ * Handles POST request to insert a new profile into mysql
+ *
+ * @param request
+ * @param response
+ * @param nextFunction
+ **/
 export async function postProfileController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
@@ -36,6 +43,13 @@ export async function postProfileController(request: Request, response: Response
 	}
 }
 
+/**
+ * Handles PUT request to update a profile in mysql
+ *
+ * @param request
+ * @param response
+ * @param nextFunction
+ **/
 export async function updateProfileController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
@@ -67,6 +81,13 @@ export async function updateProfileController(request: Request, response: Respon
 	}
 }
 
+/**
+ * Handles GET request to select a profile by activation token
+ *
+ * @param request
+ * @param response
+ * @param nextFunction
+ **/
 export async function getProfileByProfileActivationTokenController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
@@ -83,6 +104,13 @@ export async function getProfileByProfileActivationTokenController(request: Requ
 	}
 }
 
+/**
+ * Handles GET request to select a profile by id
+ *
+ * @param request
+ * @param response
+ * @param nextFunction
+ **/
 export async function getProfileByProfileIdController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
