@@ -1,8 +1,8 @@
 import {NextFunction, Request, Response} from 'express';
 import {JsonWebTokenError, TokenExpiredError, verify, } from "jsonwebtoken";
 
-import {Status} from "../utils/interfaces/status";
-import {Profile} from "../utils/interfaces/profile";
+import {Status} from "../../utils/interfaces/status";
+import {Profile} from "../../utils/interfaces/profile";
 
 /**
  * Checks for active user session
