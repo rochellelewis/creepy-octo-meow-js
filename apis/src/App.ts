@@ -3,11 +3,9 @@ import morgan from 'morgan';
 
 // Routes
 import {indexRoutes} from './routes/index.route';
-import {MisquoteRoute} from "./routes/misquote.route";
 import {ProfileRoute} from "./routes/profile.route";
 import {PostRoute} from "./routes/post.route";
 import {LikeRoute} from "./routes/like.route";
-
 
 // The following class creates the app and instantiates the server
 export class App {
@@ -39,7 +37,6 @@ export class App {
 	// private method for setting up routes in their basic sense (ie. any route that performs an action on profiles starts with /profiles)
 	private routes () {
 		this.app.use(indexRoutes);
-		this.app.use("/apis/misquote", MisquoteRoute);
 		this.app.use("/apis/profile", ProfileRoute);
 		this.app.use("/apis/post", PostRoute);
 		this.app.use("/apis/like", LikeRoute);
