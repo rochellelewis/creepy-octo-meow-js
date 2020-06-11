@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import {indexRoutes} from './routes/index.route';
 import {MisquoteRoute} from "./routes/misquote.route";
 import {ProfileRoute} from "./routes/profile.route";
+import {PostRoute} from "./routes/post.route";
 
 
 // The following class creates the app and instantiates the server
@@ -39,6 +40,7 @@ export class App {
 		this.app.use(indexRoutes);
 		this.app.use("/apis/misquote", MisquoteRoute);
 		this.app.use("/apis/profile", ProfileRoute);
+		this.app.use("/apis/post", PostRoute);
 	}
 
 	// starts the server and tells the terminal to post a message that the server is running and on what port
