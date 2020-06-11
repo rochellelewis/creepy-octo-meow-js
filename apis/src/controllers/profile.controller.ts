@@ -65,7 +65,7 @@ export async function updateProfileController(request: Request, response: Respon
 	}
 }
 
-export async function getProfileByProfileActivationToken(request: Request, response: Response, nextFunction: NextFunction) {
+export async function getProfileByProfileActivationTokenController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
 		// grab the profile id off the request parameters
@@ -81,7 +81,7 @@ export async function getProfileByProfileActivationToken(request: Request, respo
 	}
 }
 
-export async function getProfileByProfileId(request: Request, response: Response, nextFunction: NextFunction) {
+export async function getProfileByProfileIdController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
 		// grab the profile id off the request parameters
