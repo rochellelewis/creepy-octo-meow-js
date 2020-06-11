@@ -1,7 +1,7 @@
 import {connect} from "../../src/database";
 
 /**
- * Gets a profile by profile id
+ * Gets a profile by profile email
  *
  * @param {string} profileEmail - id of the profile to select from mysql
  * @return {(Array | undefined)} rows - array that contains the profile data found, or undefined if errors occur
