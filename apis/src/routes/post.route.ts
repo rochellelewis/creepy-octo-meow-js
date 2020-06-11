@@ -1,4 +1,9 @@
 import {Router} from "express";
+
+import {asyncValidator} from "../lib/asyncValidator";
+import {postValidator} from "../validators/post.validator";
+import {isLoggedIn} from "../validators/isLoggedIn.validator";
+
 import {
 	getAllPostsController,
 	getPostByPostIdController,
@@ -7,11 +12,14 @@ import {
 	deletePostController
 } from "../controllers/post.controller";
 
+const {checkSchema} = require("express-validator");
+
 export const PostRoute = Router()
 
 PostRoute.route("/")
 	.get(getAllPostsController)
 	.post(postPostController)
+	//.post(asyncValidator(checkSchema(postValidator)), postPostController)
 
 PostRoute.route("/:postId")
 	.get(getPostByPostIdController)
