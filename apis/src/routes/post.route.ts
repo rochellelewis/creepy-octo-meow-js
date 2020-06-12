@@ -21,6 +21,7 @@ PostRoute.route("/")
 	.post(postPostController)
 	//.post(asyncValidator(checkSchema(postValidator)), postPostController)
 
+// todo: this route may not be necessary? Maybe.
 PostRoute.route("/:postId")
 	.get(getPostByPostIdController)
 	.put(putPostController)
