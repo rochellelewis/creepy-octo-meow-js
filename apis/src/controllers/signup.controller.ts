@@ -13,7 +13,7 @@ const { validationResult } = require('express-validator');
  * @param request
  * @param response
  **/
-export async function signupProfile (request: Request, response: Response) {
+export async function signUpProfile (request: Request, response: Response) {
 	try {
 
 		validationResult(request).throw();
