@@ -74,9 +74,9 @@ export class App {
 		this.app.use("/apis/profile", ProfileRoute);
 		this.app.use("/apis/post", PostRoute);
 		this.app.use("/apis/like", LikeRoute); // todo: this route isn't needed
-		this.app.use("apis/signin", SignInRoute);
-		this.app.use("apis/signup", SignUpRoute);
-		this.app.use("apis/signout", SignOutRoute);
+		this.app.use("/apis/signin", SignInRoute);
+		this.app.use("/apis/signup", SignUpRoute);
+		this.app.use("/apis/signout", SignOutRoute);
 	}
 
 	// starts the server and tells the terminal to post a message that the server is running and on what port
