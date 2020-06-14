@@ -14,7 +14,7 @@ export async function deleteLike(likePostId: string, likeProfileId: string) {
 
 		const mySqlQuery = "DELETE FROM `like` WHERE likePostId = UUID_TO_BIN(:likePostId) AND likeProfileId = UUID_TO_BIN(:likeProfileId)";
 
-		const [rows] = await mySqlConnection.execute(mySqlQuery, [likePostId, likeProfileId])
+		const [rows] = await mySqlConnection.execute(mySqlQuery, {likePostId, likeProfileId})
 		return "Like deleted successfully! :|"
 
 	} catch(error) {

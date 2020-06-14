@@ -50,11 +50,11 @@ export async function postLikeController(request: Request, response: Response, n
 export async function deleteLikeController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
-		// grab the like data off the request body
+		// grab the like data off the request parameters
 		const {
 			likePostId,
 			likeProfileId
-		} = request.body;
+		} = request.params;
 
 		const result = await deleteLike(likePostId, likeProfileId)
 		return response.json({status: 200, data: null, message: result})
