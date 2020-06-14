@@ -11,7 +11,8 @@ export async function updatePost(post: Post) {
 
 		const mySqlConnection = await connect();
 
-		const mySqlQuery = "UPDATE post SET postProfileId = UUID_TO_BIN(:postProfileId), postContent = :postContent, postDate = :postDate, postTitle = :postTitle WHERE postId = UUID_TO_BIN(:postId)";
+		// only set/update the proper data! (NEVER update primary keys, etc.)
+		const mySqlQuery = "UPDATE post SET postContent = :postContent, postDate = :postDate, postTitle = :postTitle WHERE postId = UUID_TO_BIN(:postId)";
 
 		const [rows] = await mySqlConnection.execute(mySqlQuery, post)
 		return "Meow updated successfully! :D"
