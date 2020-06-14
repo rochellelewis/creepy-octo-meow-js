@@ -3,47 +3,11 @@ import {NextFunction, Request, Response} from "express";
 import {Status} from "../../utils/interfaces/status";
 import {Profile} from "../../utils/interfaces/profile";
 
-import {insertProfile} from "../../utils/profile/insertProfile";
 import {updateProfile} from "../../utils/profile/updateProfile";
 import {selectProfileByProfileActivationToken} from "../../utils/profile/selectProfileByProfileActivationToken"
 import {selectProfileByProfileId} from "../../utils/profile/selectProfileByProfileId";
 import {selectAllProfiles} from "../../utils/profile/selectAllProfiles";
 import {selectProfileByProfileEmail} from "../../utils/profile/selectProfileByProfileEmail";
-
-/**
- * Handles POST request to insert a new profile into mysql
- *
- * @param request
- * @param response
- * @param nextFunction
- **/
-export async function postProfileController(request: Request, response: Response, nextFunction: NextFunction) {
-	try {
-
-		// grab the profile data off of the request body
-		const {
-			profileActivationToken,
-			profileEmail,
-			profileHash,
-			profileUsername
-		} = request.body;
-
-		// create the Profile object to be inserted
-		const profile: Profile = {
-			profileId: null,
-			profileActivationToken,
-			profileEmail,
-			profileHash,
-			profileUsername
-		}
-
-		const result = await insertProfile(profile)
-		return response.json({status: 200, data: null, message: result})
-
-	} catch(error) {
-		console.log(error)
-	}
-}
 
 /**
  * Handles PUT request to update a profile in mysql
