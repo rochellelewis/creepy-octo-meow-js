@@ -8,6 +8,7 @@ import {updateProfile} from "../../utils/profile/updateProfile";
 import {selectProfileByProfileActivationToken} from "../../utils/profile/selectProfileByProfileActivationToken"
 import {selectProfileByProfileId} from "../../utils/profile/selectProfileByProfileId";
 import {selectAllProfiles} from "../../utils/profile/selectAllProfiles";
+import {selectProfileByProfileEmail} from "../../utils/profile/selectProfileByProfileEmail";
 
 /**
  * Handles POST request to insert a new profile into mysql
@@ -119,6 +120,29 @@ export async function getProfileByProfileIdController(request: Request, response
 		const {profileId} = request.params;
 
 		const data = await selectProfileByProfileId(profileId)
+		console.log(data)
+		const status: Status = {status: 200, data, message: null}
+		return response.json(status)
+
+	} catch(error) {
+		console.log(error)
+	}
+}
+
+/**
+ * Handles GET request to select a profile by email address
+ *
+ * @param request
+ * @param response
+ * @param nextFunction
+ **/
+export async function getProfileByProfileEmailController(request: Request, response: Response, nextFunction: NextFunction) {
+	try {
+
+		// grab the profile id off the request parameters
+		const {profileEmail} = request.params;
+
+		const data = await selectProfileByProfileEmail(profileEmail)
 		console.log(data)
 		const status: Status = {status: 200, data, message: null}
 		return response.json(status)
