@@ -22,5 +22,5 @@ ProfileRoute.route("/:profileId")
 ProfileRoute.route("/profileEmail/:profileEmail")
 	.get(getProfileByProfileEmailController)
 
-// ProfileRoute.route("/profileActivation/:profileActivationToken")
-// 	.get(getProfileByProfileActivationTokenController)
+ProfileRoute.route("/profileActivation/:profileActivationToken")
+	.get(getProfileByProfileActivationTokenController)

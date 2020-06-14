@@ -13,7 +13,7 @@ export async function selectProfileByProfileActivationToken(profileActivationTok
 
 		const mySqlQuery = 'SELECT BIN_TO_UUID(profileId) as profileId, profileActivationToken, profileEmail, profileHash, profileUsername FROM profile WHERE profileActivationToken = :profileActivationToken'
 
-		const [rows] =  await mysqlConnection.execute(mySqlQuery, profileActivationToken)
+		const [rows] =  await mysqlConnection.execute(mySqlQuery, {profileActivationToken})
 		return rows
 
 	} catch(error) {
