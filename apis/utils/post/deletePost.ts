@@ -13,7 +13,7 @@ export async function deletePost(postId: string) {
 
 		const mySqlQuery = "DELETE FROM post WHERE postId = UUID_TO_BIN(:postId)";
 
-		const [rows] = await mySqlConnection.execute(mySqlQuery, postId)
+		const [rows] = await mySqlConnection.execute(mySqlQuery, {postId})
 		return "Meow deleted successfully! :("
 
 	} catch(error) {
