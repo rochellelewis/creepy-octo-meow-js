@@ -3,18 +3,20 @@ import {
 	getProfileByProfileActivationTokenController,
 	getProfileByProfileIdController,
 	postProfileController,
-	putProfileController
+	putProfileController,
+	getAllProfilesController
 } from "../controllers/profile.controller";
 
 export const ProfileRoute = Router()
 
 ProfileRoute.route("/")
-	// .get((req, res) => res.json("Is this thing on?"))
+	// .get((req, res) => res.json("Profile: Is this thing on?"))
+	.get(getAllProfilesController)
 	.post(postProfileController)
 
 ProfileRoute.route("/:profileId")
 	.get(getProfileByProfileIdController)
 	.put(putProfileController)
 
-ProfileRoute.route("/:profileActivationToken")
-	.get(getProfileByProfileActivationTokenController)
+// ProfileRoute.route("/profileActivation/:profileActivationToken")
+// 	.get(getProfileByProfileActivationTokenController)
