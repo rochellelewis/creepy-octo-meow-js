@@ -3,12 +3,14 @@ import {
 	getLikeByLikePostIdAndLikeProfileIdController,
 	getLikesByLikePostIdController,
 	deleteLikeController,
-	postLikeController
+	postLikeController,
+	getAllLikesController
 } from "../controllers/like.controller";
 
 export const LikeRoute = Router()
 
 LikeRoute.route("/")
+	.get(getAllLikesController) // for testing only
 	.post(postLikeController)
 
 // todo: this just looks ridiculous

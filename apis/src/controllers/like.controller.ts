@@ -7,6 +7,7 @@ import {insertLike} from "../../utils/like/insertLike";
 import {deleteLike} from "../../utils/like/deleteLike";
 import {selectLikeByLikePostIdAndLikeProfileId} from "../../utils/like/selectLikeByLikePostIdAndLikeProfileId";
 import {selectLikesByLikePostId} from "../../utils/like/selectLikesByLikePostId";
+import {selectAllLikes} from "../../utils/like/selectAllLikes";
 
 
 /**
@@ -104,6 +105,26 @@ export async function getLikesByLikePostIdController(request: Request, response:
 
 		const data = await selectLikesByLikePostId(likePostId)
 		console.log(data)
+		const status: Status = {status: 200, data, message: null}
+		return response.json(status)
+
+	} catch(error) {
+		console.log(error)
+	}
+}
+
+/**
+ * Handles GET request to select all Likes from mysql - for testing purposes only
+ *
+ * @param request
+ * @param response
+ * @param nextFunction
+ **/
+export async function getAllLikesController(request: Request, response: Response, nextFunction: NextFunction) {
+	try {
+		const data = await selectAllLikes()
+		console.log(data)
+
 		const status: Status = {status: 200, data, message: null}
 		return response.json(status)
 
