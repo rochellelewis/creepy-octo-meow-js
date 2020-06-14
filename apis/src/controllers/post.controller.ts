@@ -81,7 +81,6 @@ export async function putPostController(request: Request, response: Response, ne
 		const {
 			postProfileId,
 			postContent,
-			postDate,
 			postTitle
 		} = request.body;
 
@@ -90,7 +89,7 @@ export async function putPostController(request: Request, response: Response, ne
 			postId,
 			postProfileId,
 			postContent,
-			postDate,
+			postDate: new Date,
 			postTitle
 		}
 
