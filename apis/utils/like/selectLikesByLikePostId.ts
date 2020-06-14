@@ -13,7 +13,7 @@ export async function selectLikesByLikePostId(likePostId: string) {
 
 		const mySqlQuery = "SELECT BIN_TO_UUID(likePostId) as likePostId, BIN_TO_UUID(likeProfileId) as likeProfileId FROM `like` WHERE likePostId = UUID_TO_BIN(:likePostId)";
 
-		const [rows] = await mySqlConnection.execute(mySqlQuery, likePostId)
+		const [rows] = await mySqlConnection.execute(mySqlQuery, {likePostId})
 		return rows
 
 	} catch(error) {
