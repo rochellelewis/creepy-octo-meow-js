@@ -1,4 +1,5 @@
 import {connect} from "../../src/database";
+import {Profile} from "../interfaces/profile";
 
 /**
  * Gets a profile by profile email
@@ -6,17 +7,20 @@ import {connect} from "../../src/database";
  * @param {string} profileEmail - id of the profile to select from mysql
  * @return {(Array | undefined)} rows - array that contains the profile data found, or undefined if errors occur
  **/
-export async function selectProfileByProfileEmail(profileEmail : string) {
+export async function selectProfileByProfileEmail(profileEmail : string) : Promise<Profile | undefined> {
 	try {
 
 		const mysqlConnection = await connect();
 
 		// mysql prepared statement
-		const mySqlQuery = 'SELECT BIN_TO_UUID(profileId) as profileId, profileActivationToken, profileEmail, profileHash, profileUsername FROM profile WHERE profileEmail = :profileEmail'
+		// const mySqlQuery = 'SELECT BIN_TO_UUID(profileId) as profileId, profileActivationToken, profileEmail, profileHash, profileUsername FROM profile WHERE profileEmail = :profileEmail'
 
 		// return the rows from DB
-		const [rows] =  await mysqlConnection.execute(mySqlQuery, profileEmail)
-		return rows
+		const [rows] =  await mysqlConnection.execute('SELECT BIN_TO_UUID(profileId) as profileId, profileActivationToken, profileEmail, profileHash, profileUsername FROM profile WHERE profileEmail = :profileEmail', {profileEmail});
+
+		// return rows
+		// @ts-ignore is required so that rows can be interacted with like the array it is
+		return rows.length !== 0 ? {...rows[0]} : undefined;
 
 	} catch(error) {
 		console.log(error)
