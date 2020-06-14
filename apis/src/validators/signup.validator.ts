@@ -6,7 +6,7 @@ export const signUpValidator = {
 		escape: true,
 		trim: true,
 		isLength: {
-			errorMessage: 'profileAtHandle must be between seven and thirty two characters',
+			errorMessage: 'Username must be between seven and thirty two characters',
 			options: { min: 7, max: 32 }
 		}
 	},
@@ -27,7 +27,7 @@ export const signUpValidator = {
 	},
 	profilePasswordConfirm: {
 		isLength: {
-			errorMessage: 'Password does not match',
+			errorMessage: 'Passwords do not match',
 			options: { min: 8 }
 		},
 		trim: true,
