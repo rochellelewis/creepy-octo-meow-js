@@ -4,7 +4,7 @@
 export const postValidator = {
 	postProfileId: {
 		isUUID: {
-			errorMessage: 'postProfileId is invalid'
+			errorMessage: 'profile id is invalid'
 		}
 	},
 	postContent: {
@@ -17,12 +17,10 @@ export const postValidator = {
 	},
 	postTitle: {
 		isLength: {
-			errorMessage: 'Title is too long! Limit it to 64 chars pls.'
+			errorMessage: 'Title is too long! Limit it to 64 chars pls.',
+			options: { max: 64 }
 		},
 		trim: true,
 		escape: true
-	},
-	postDate: {
-		toDate: true
 	}
 };

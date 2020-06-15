@@ -9,6 +9,8 @@ import {updatePost} from "../../utils/post/updatePost";
 import {selectAllPosts} from "../../utils/post/selectAllPosts";
 import {selectPostByPostId} from "../../utils/post/selectPostByPostId";
 
+const {validationResult} = require('express-validator');
+
 /**
  * Handles POST request to insert a new Post into mysql
  *
@@ -18,6 +20,8 @@ import {selectPostByPostId} from "../../utils/post/selectPostByPostId";
  **/
 export async function postPostController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
+
+		validationResult(request).throw();
 
 		// grab the post data off the request body
 		const {
