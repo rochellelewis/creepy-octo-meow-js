@@ -1,4 +1,9 @@
 import {Router} from "express";
+
+import {asyncValidator} from "../lib/asyncValidator";
+import {likeValidator} from "../validators/like.validator";
+import {isLoggedIn} from "../validators/isLoggedIn.validator";
+
 import {
 	getLikeByLikePostIdAndLikeProfileIdController,
 	getLikesByLikePostIdController,
@@ -7,11 +12,14 @@ import {
 	getAllLikesController
 } from "../controllers/like.controller";
 
+const {checkSchema} = require("express-validator");
+
 export const LikeRoute = Router()
 
 LikeRoute.route("/")
 	.get(getAllLikesController) // for testing only
-	.post(postLikeController)
+	.post(asyncValidator(checkSchema(likeValidator)), postLikeController)
+	// .post(postLikeController)
 
 // todo: this just looks ridiculous
 LikeRoute.route("/post/:likePostId")
