@@ -19,7 +19,6 @@ export const LikeRoute = Router()
 LikeRoute.route("/")
 	.get(getAllLikesController) // for testing only
 	.post(asyncValidator(checkSchema(likeValidator)), postLikeController)
-	// .post(postLikeController)
 
 // todo: this just looks ridiculous
 LikeRoute.route("/post/:likePostId")
