@@ -23,5 +23,5 @@ PostRoute.route("/")
 // todo: this route may not be necessary? Maybe.
 PostRoute.route("/:postId")
 	.get(getPostByPostIdController)
-	.put(putPostController)
+	.put(asyncValidator(checkSchema(postValidator)), putPostController)
 	.delete(deletePostController)
