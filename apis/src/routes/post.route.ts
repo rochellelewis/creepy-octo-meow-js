@@ -1,6 +1,6 @@
 import {Router} from "express";
 
-import {asyncValidator} from "../lib/asyncValidator";
+import {asyncValidatorController} from "../controllers/asyncValidator.controller";
 import {postValidator} from "../validators/post.validator";
 import {isLoggedIn} from "../validators/isLoggedIn.validator";
 
@@ -18,10 +18,10 @@ export const PostRoute = Router()
 
 PostRoute.route("/")
 	.get(getAllPostsController)
-	.post(asyncValidator(checkSchema(postValidator)), postPostController)
+	.post(asyncValidatorController(checkSchema(postValidator)), postPostController)
 
 // todo: this route may not be necessary? Maybe.
 PostRoute.route("/:postId")
 	.get(getPostByPostIdController)
-	.put(asyncValidator(checkSchema(postValidator)), putPostController)
+	.put(asyncValidatorController(checkSchema(postValidator)), putPostController)
 	.delete(deletePostController)

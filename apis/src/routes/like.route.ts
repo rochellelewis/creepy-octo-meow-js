@@ -1,6 +1,6 @@
 import {Router} from "express";
 
-import {asyncValidator} from "../lib/asyncValidator";
+import {asyncValidatorController} from "../controllers/asyncValidator.controller";
 import {likeValidator} from "../validators/like.validator";
 import {isLoggedIn} from "../validators/isLoggedIn.validator";
 
@@ -18,7 +18,7 @@ export const LikeRoute = Router()
 
 LikeRoute.route("/")
 	.get(getAllLikesController) // for testing only
-	.post(asyncValidator(checkSchema(likeValidator)), postLikeController)
+	.post(asyncValidatorController(checkSchema(likeValidator)), postLikeController)
 
 // todo: this just looks ridiculous
 LikeRoute.route("/post/:likePostId")
