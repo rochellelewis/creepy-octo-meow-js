@@ -7,7 +7,7 @@ export async function insertProfile(profile: Profile) {
 		const mysqlConnection = await connect();
 		const query : string = "INSERT INTO profile(profileId, profileActivationToken, profileEmail, profileHash, profileUsername) VALUES(UUID_TO_BIN(UUID()), :profileActivationToken, :profileEmail, :profileHash, :profileUsername)";
 
-		const [rows] = await mysqlConnection.execute(query, {profile});
+		const [rows] = await mysqlConnection.execute(query, profile);
 		return 'Profile Successfully Created'
 
 	} catch (e) {

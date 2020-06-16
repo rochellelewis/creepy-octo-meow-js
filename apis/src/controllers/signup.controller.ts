@@ -1,9 +1,10 @@
-import { Request, Response } from 'express';
-import { connect } from '../database';
+import {Request, Response} from 'express';
 
-import { setActivationToken, setHash } from '../lib/auth.utils';
 import { Profile } from '../../utils/interfaces/profile';
 import { Status } from '../../utils/interfaces/status';
+
+import { setActivationToken, setHash } from '../lib/auth.utils';
+import { insertProfile } from "../../utils/profile/insertProfile";
 
 const { validationResult } = require('express-validator');
 
@@ -13,7 +14,7 @@ const { validationResult } = require('express-validator');
  * @param request
  * @param response
  **/
-export async function signUpProfile (request: Request, response: Response) {
+export async function signUpProfileController (request: Request, response: Response) {
 	try {
 
 		validationResult(request).throw();
@@ -25,11 +26,11 @@ export async function signUpProfile (request: Request, response: Response) {
 			profileUsername
 		} = request.body;
 
-		const mysqlConnection = await connect();
+		// hash the user's password and create the activation token
 		const profileHash = await setHash(profilePassword);
 		const profileActivationToken = setActivationToken();
 
-		// create Profile to be inserted
+		// create Profile object to be inserted
 		const profile : Profile = {
 			profileId: null,
 			profileActivationToken,
@@ -38,17 +39,9 @@ export async function signUpProfile (request: Request, response: Response) {
 			profileUsername
 		};
 
-		const query : string = "INSERT INTO profile(profileId, profileActivationToken, profileEmail, profileHash, profileUsername) VALUES(UUID_TO_BIN(UUID()), :profileActivationToken, :profileEmail, :profileHash, :profileUsername)";
+		const result = await insertProfile(profile);
 
-		await mysqlConnection.execute(query, profile);
-
-		const status: Status = {
-			status: 200,
-			message: 'Profile successfully created! :D',
-			data: null
-		};
-
-		return response.json(status);
+		return response.json({status: 200, data: null, message: result})
 
 	} catch (error) {
 		const status : Status = {
