@@ -27,10 +27,20 @@ export const signUpValidator = {
 	},
 	profilePasswordConfirm: {
 		isLength: {
-			errorMessage: 'Passwords do not match',
+			errorMessage: 'Password must be at least eight characters',
 			options: { min: 8 }
 		},
 		trim: true,
 		escape: true
+		// todo: get password match functionality to work
+		// custom: {
+		// 	options: (value:string, {req}) => {
+		// 		if (value !== req.body.profilePasswordConfirm) {
+		// 			throw new Error("Passwords do not match")
+		// 		} else {
+		// 			return true
+		// 		}
+		// 	}
+		// }
 	}
 };
