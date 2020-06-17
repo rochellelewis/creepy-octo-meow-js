@@ -16,7 +16,10 @@ export async function selectProfileByProfileEmail(profileEmail : string) {
 
 		// return the rows from DB
 		const [rows] =  await mysqlConnection.execute(mySqlQuery, {profileEmail});
-		return rows
+		// return rows
+
+		// @ts-ignore is required so that rows can be interacted with like the array it is
+		return rows.length !== 0 ? {...rows[0]} : undefined;
 
 	} catch(error) {
 		console.log(error)
