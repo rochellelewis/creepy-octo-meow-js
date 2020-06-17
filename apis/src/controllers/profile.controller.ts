@@ -104,7 +104,9 @@ export async function getProfileByProfileEmailController(request: Request, respo
 	try {
 
 		// grab the profile id off the request parameters
-		const {profileEmail} = request.params;
+		// const {profileEmail} = request.params;
+		const {profileEmail} = request.body;
+
 
 		const data = await selectProfileByProfileEmail(profileEmail)
 		console.log(data)

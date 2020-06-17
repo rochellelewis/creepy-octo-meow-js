@@ -17,8 +17,8 @@ ProfileRoute.route("/:profileId")
 	.get(getProfileByProfileIdController)
 	.put(putProfileController)
 
-ProfileRoute.route("/profileEmail/:profileEmail")
-	.get(getProfileByProfileEmailController)
+ProfileRoute.route("/profileEmail")
+	.post(getProfileByProfileEmailController)
 
 ProfileRoute.route("/profileActivation/:profileActivationToken")
 	.get(getProfileByProfileActivationTokenController)
