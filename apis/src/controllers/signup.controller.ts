@@ -3,7 +3,7 @@ import {Request, Response} from 'express';
 import { Profile } from '../../utils/interfaces/profile';
 import { Status } from '../../utils/interfaces/status';
 
-import { setActivationToken, setHash } from '../lib/auth.utils';
+import { setActivationToken, setHash } from '../../utils/auth.utils';
 import { insertProfile } from "../../utils/profile/insertProfile";
 
 const { validationResult } = require('express-validator');

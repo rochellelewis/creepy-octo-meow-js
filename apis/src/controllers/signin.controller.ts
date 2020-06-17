@@ -2,7 +2,7 @@ import {NextFunction, Response, Request} from 'express';
 import  "express-session";
 import uuid from "uuid";
 
-import {generateJwt, validatePassword} from "../lib/auth.utils";
+import {generateJwt, validatePassword} from "../../utils/auth.utils";
 import {Profile} from "../../utils/interfaces/profile";
 
 const passport = require("passport");
