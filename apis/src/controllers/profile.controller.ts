@@ -8,6 +8,7 @@ import {selectProfileByProfileActivationToken} from "../../utils/profile/selectP
 import {selectProfileByProfileId} from "../../utils/profile/selectProfileByProfileId";
 import {selectAllProfiles} from "../../utils/profile/selectAllProfiles";
 import {selectProfileByProfileEmail} from "../../utils/profile/selectProfileByProfileEmail";
+import {setHash} from "../../utils/auth.utils";
 
 /**
  * Handles PUT request to update a profile in mysql
@@ -26,9 +27,12 @@ export async function putProfileController(request: Request, response: Response,
 		const {
 			profileActivationToken,
 			profileEmail,
-			profileHash,
+			profilePassword,
 			profileUsername
 		} = request.body;
+
+		// create new hash value for updated password
+		const profileHash = await setHash(profilePassword);
 
 		// create the Profile object to be inserted
 		const profile: Profile = {

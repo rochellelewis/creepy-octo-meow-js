@@ -1,4 +1,8 @@
 import {Router} from "express";
+
+import {asyncValidatorController} from "../controllers/asyncValidator.controller";
+import {profileValidator} from "../validators/profile.validator";
+
 import {
 	getProfileByProfileActivationTokenController,
 	getProfileByProfileIdController,
@@ -7,15 +11,16 @@ import {
 	getProfileByProfileEmailController
 } from "../controllers/profile.controller";
 
+const {checkSchema} = require('express-validator');
+
 export const ProfileRoute = Router()
 
 ProfileRoute.route("/")
-	// .get((req, res) => res.json("Profile: Is this thing on?"))
 	.get(getAllProfilesController)
 
 ProfileRoute.route("/:profileId")
 	.get(getProfileByProfileIdController)
-	.put(putProfileController)
+	.put(asyncValidatorController(checkSchema(profileValidator)), putProfileController)
 
 ProfileRoute.route("/profileEmail")
 	.post(getProfileByProfileEmailController)
