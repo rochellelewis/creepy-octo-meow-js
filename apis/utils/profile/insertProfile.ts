@@ -1,6 +1,11 @@
 import {connect} from "../../src/database";
 import {Profile} from "../interfaces/profile";
 
+/**
+ * Inserts a new user Profile
+ *
+ * @param {Profile} profile to be inserted
+ **/
 export async function insertProfile(profile: Profile) {
 	try {
 
