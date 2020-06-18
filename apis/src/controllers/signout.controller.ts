@@ -7,11 +7,10 @@ import {Status} from '../../utils/interfaces/status';
  * @param request
  * @param response
  **/
-export function signOut(request: Request, response : Response) {
+export function signOutController(request: Request, response : Response) {
 
+	const {session} = request;
 	let status : Status = {status: 200, message: "sign out successful", data: null};
-
-	const {session}  = request;
 
 	const executeSignOut = () => {
 		// @ts-ignore: broken typing is requiring a callback function that is optional.
