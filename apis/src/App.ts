@@ -1,12 +1,12 @@
-import express, {Application, Errback, ErrorRequestHandler, NextFunction, Request, Response} from 'express';
+import express, {Application} from 'express';
 import morgan from 'morgan';
-import csrf from "csurf";
 
-import {passportMiddleware} from "./lib/auth.controller";
 import passport = require("passport");
+import {passportMiddleware} from "./controllers/signin.controller";
 
 const session = require("express-session");
 const MemoryStore = require("memorystore")(session);
+const cookieParser = require('cookie-parser');
 
 // Routes
 import {IndexRoute} from './routes/index.route';
@@ -27,7 +27,7 @@ export class App {
 	constructor (
 		private port?: number | string
 	) {
-		// passportMiddleware; // eslint-disable-line
+		passportMiddleware; // eslint-disable-line
 		this.app = express();
 		this.settings();
 		this.middlewares();
@@ -42,21 +42,23 @@ export class App {
 	// private method to setting up the middleware to handle json responses, one for dev and one for prod
 	private middlewares () {
 
-		// const sessionConfig  =  {
-		// 	store: new MemoryStore({
-		// 		checkPeriod: 10800
-		// 	}),
-		// 	secret:"secret",
-		// 	saveUninitialized: true,
-		// 	resave: true,
-		// 	maxAge: "3h"
-		// };
-
 		this.app.use(morgan('dev'));
 		this.app.use(express.json());
-		// this.app.use(session(sessionConfig));
-		// this.app.use(passport.initialize());
-		// this.app.use(passport.session());
+
+		const sessionConfig  =  {
+			store: new MemoryStore({
+				checkPeriod: 10800
+			}),
+			secret: process.env.sessionSecret,
+			saveUninitialized: true,
+			resave: true,
+			maxAge: "3h"
+		};
+
+		this.app.use(session(sessionConfig));
+		this.app.use(passport.initialize());
+		this.app.use(passport.session());
+
 		// this.app.use(csrf({cookie:false}));
 		// this.app.use(function (error: any, request : Request, response : Response, next: NextFunction ) {
 		// 	if (error.code !== 'EBADCSRFTOKEN') return next(error)
