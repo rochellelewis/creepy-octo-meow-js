@@ -6,6 +6,7 @@ import {activationController} from "../controllers/activation.controller";
 import {asyncValidatorController} from "../controllers/asyncValidator.controller";
 
 import {signUpValidator} from '../validators/signup.validator';
+import {activationValidator} from "../validators/activation.validator";
 
 const { checkSchema } = require('express-validator');
 
@@ -14,5 +15,7 @@ export const SignUpRoute = Router()
 SignUpRoute.route("/")
 	.post(asyncValidatorController(checkSchema(signUpValidator)), signUpProfileController);
 
-SignUpRoute.route("/activation/:activationToken")
-	.get(asyncValidatorController(param("activation", "invalid activation link").isHexadecimal().notEmpty()), activationController)
+SignUpRoute.route("/activation/:activation")
+	// .get(asyncValidatorController(param("activation", "invalid activation link").isHexadecimal().notEmpty()), activationController) // this does not work
+	// .get(activationController) // this works
+	.get(asyncValidatorController(checkSchema(activationValidator)), activationController) // this works!
