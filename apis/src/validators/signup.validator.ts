@@ -31,16 +31,15 @@ export const signUpValidator = {
 			options: { min: 8 }
 		},
 		trim: true,
-		escape: true
-		// todo: get password match functionality to work
-		// custom: {
-		// 	options: (value:string, {req}) => {
-		// 		if (value !== req.body.profilePasswordConfirm) {
-		// 			throw new Error("Passwords do not match")
-		// 		} else {
-		// 			return true
-		// 		}
-		// 	}
-		// }
+		escape: true,
+		custom: {
+			options: (value:string, {req}:any) => {
+				if (value !== req.body.profilePassword) {
+					throw new Error("Passwords do not match")
+				} else {
+					return value
+				}
+			}
+		}
 	}
 };
