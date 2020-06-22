@@ -2,7 +2,7 @@ import React from "react"
 import {Link} from "react-router-dom";
 
 //import {UseJwt} from "../shared/misc/JwtHelpers";
-import {SignInForm} from "signin/SignInForm";
+import {SignInForm} from './signin/SignInForm'
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -14,7 +14,7 @@ export const Home = () => {
   return (
     <>
       <main className="d-flex align-items-center mh-100">
-        <Container fluid="true">
+        <Container fluid>
           <Row>
             <Col sm={6} lg={{span: 4, offset: 1}}>
 
