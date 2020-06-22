@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import {BrowserRouter} from "react-router-dom";
-import {Route, Switch} from "react-router";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import { configureStore } from '@reduxjs/toolkit'
 
-import thunk from "redux-thunk";
-import {applyMiddleware, createStore} from "redux";
-// import reducers from "./shared/reducers";
-import {Provider} from "react-redux";
+import reducer from "./store";
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -38,11 +36,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 library.add(fab, far, fas, faCat, faEllipsisH, faEnvelope, faHeart, faGithub, faKey, faPencilAlt, faSignInAlt, faSignOutAlt, faTrash, faUser);
 
-// const store = createStore(reducers, applyMiddleware(thunk));
+// In order to use redux a store must be initialized and passed to the Provider component.
+const store = configureStore({reducer})
 
-const Routing = () => (
+const Routing = (store) => (
   <>
-    {/*<Provider store={store}>*/}
+    <Provider store={store}>
       <BrowserRouter>
         <div className="sfooter-content">
           <NavBar/>
@@ -57,10 +56,9 @@ const Routing = () => (
         </div>
         <Footer/>
       </BrowserRouter>
-    {/*</Provider>*/}
-
+    </Provider>
   </>
 );
 
-// ReactDOM.render(Routing(store) , document.querySelector("#root"));
-ReactDOM.render(<Routing/>, document.querySelector('#root'));
+ReactDOM.render(Routing(store) , document.querySelector("#root"));
+// ReactDOM.render(<Routing/>, document.querySelector('#root'));
