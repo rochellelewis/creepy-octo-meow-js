@@ -11,14 +11,14 @@ import {Provider} from "react-redux";
 import 'bootstrap/dist/css/bootstrap.css';
 
 import "./index.css";
-import {NavBar} from "./shared/components/NavBar";
-import {Footer} from "./shared/components/Footer";
-import {Home} from "./pages/Home";
-import {About} from "./pages/About";
-import {Posts} from "./pages/posts/Posts";
-import {Profile} from "./pages/Profile";
-import {SignUp} from "./pages/signup/SignUp";
-import {FourOhFour} from "./pages/FourOhFour";
+import {NavBar} from "./ui/shared/components/NavBar";
+import {Footer} from "./ui/shared/components/Footer";
+import {Home} from "./ui/Home";
+import {About} from "./ui/About";
+import {Posts} from "./ui/posts/Posts";
+import {Profile} from "./ui/Profile";
+import {SignUp} from "./ui/signup/SignUp";
+import {FourOhFour} from "./ui/FourOhFour";
 
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {far} from "@fortawesome/free-regular-svg-icons";

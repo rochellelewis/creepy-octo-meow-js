@@ -76,7 +76,7 @@ body { width: 100%;}
 /* GLOBAL */
 /* this is how to apply a background image */
 #root {
-  background: url("shared/img/bg-cat.jpg") no-repeat center left fixed;
+  background: url("ui/shared/img/bg-cat.jpg") no-repeat center left fixed;
   background-size: cover;
 }
 
