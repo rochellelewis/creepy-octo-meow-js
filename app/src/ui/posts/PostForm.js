@@ -4,11 +4,14 @@ import * as Yup from "yup";
 import {Formik} from "formik";
 
 import {PostFormContent} from "./PostFormContent";
+import { UseJwt } from '../../utils/jwt-helpers'
 // import {handleSessionTimeout} from "../../shared/misc/handle-session-timeout";
 
 export const PostForm = () => {
 
 	const [status, setStatus] = useState(null);
+
+	const jwt = UseJwt();
 
 	const post = {
 		postTitle: "",
@@ -26,9 +29,7 @@ export const PostForm = () => {
 
 	const submitPost = (values, {resetForm, setStatus}) => {
 		// grab jwt token to pass in headers on post request
-		const headers = {
-			'X-JWT-TOKEN': window.localStorage.getItem("jwt-token")
-		};
+		const headers = {'authorization': jwt};
 
 		httpConfig.post("/apis/post/", values, {
 			headers: headers})

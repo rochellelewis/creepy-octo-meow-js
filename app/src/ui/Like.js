@@ -92,7 +92,7 @@ export const Like = ({profileId, postId}) => {
   * User posts a Like.
   * */
   const submitLike = () => {
-    const headers = {'X-JWT-TOKEN': jwt};
+    const headers = {'authorization': jwt};
     httpConfig.post("/apis/like/", data, {
       headers: headers})
       .then(reply => {
@@ -112,7 +112,7 @@ export const Like = ({profileId, postId}) => {
   * User deletes a Like.
   * */
   const deleteLike = () => {
-    const headers = {'X-JWT-TOKEN': jwt};
+    const headers = {'authorization': jwt};
     httpConfig.delete("/apis/like/", {
       headers, data})
       .then(reply => {
