@@ -10,7 +10,7 @@ export const About = () => {
   return (
     <>
       <main className="mh-100 d-flex align-items-center my-5 my-md-0">
-        <Container fluid="true" className="py-5">
+        <Container fluid className="py-5">
           <Row>
             <Col md={6} lg={5}>
               <h1>About Us</h1>
