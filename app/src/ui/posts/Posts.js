@@ -73,7 +73,7 @@ export const Posts = () => {
   return (
     <>
       <main className="my-5">
-        <Container fluid="true" className="py-5">
+        <Container fluid className="py-5">
           <Row className="py-3 mb-3">
             <Col md={4}>
               <h2 className="mb-0 d-none d-md-block">Post A Meow</h2>
