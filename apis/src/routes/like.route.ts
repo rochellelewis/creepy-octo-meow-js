@@ -16,15 +16,16 @@ const {checkSchema} = require("express-validator");
 
 export const LikeRoute = Router()
 
+// this is all the app requires:
 LikeRoute.route("/")
-	.get(getAllLikesController) // for testing only
+	.get(getAllLikesController)
 	.post(asyncValidatorController(checkSchema(likeValidator)), postLikeController)
+	.delete(asyncValidatorController(checkSchema(likeValidator)), deleteLikeController)
 
-// todo: this just looks ridiculous
+// This just looks ridiculous... it's an example :P
 LikeRoute.route("/post/:likePostId")
 	.get(getLikesByLikePostIdController)
 
-// todo: this route is not necessary IRL. pull profile id off of session
+// this route is not necessary IRL... it's just an example :P IRL... pull profile id off of session
 LikeRoute.route("/:likePostId/:likeProfileId")
 	.get(getLikeByLikePostIdAndLikeProfileIdController)
-	.delete(deleteLikeController)

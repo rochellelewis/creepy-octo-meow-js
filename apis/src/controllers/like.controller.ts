@@ -54,7 +54,7 @@ export async function deleteLikeController(request: Request, response: Response,
 		const {
 			likePostId,
 			likeProfileId
-		} = request.params;
+		} = request.body;
 
 		const result = await deleteLike(likePostId, likeProfileId)
 		return response.json({status: 200, data: null, message: result})
