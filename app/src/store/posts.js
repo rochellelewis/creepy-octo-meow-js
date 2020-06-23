@@ -13,14 +13,14 @@ const slice = createSlice({
   }
 })
 
-export const {getAllPosts, getPostsByPostProfileId} = slice.actions
+export const {getAllPosts} = slice.actions
 
 export const fetchAllPosts = () => async dispatch => {
   const {data} = await httpConfig(`/apis/post/`);
   dispatch(getAllPosts(data))
 }
 
-export const fetchAllPostsAndUsers = () => async (dispatch, getState) => {
+export const fetchAllPostsAndProfiles = () => async (dispatch, getState) => {
   await dispatch(fetchAllPosts())
   const profileIds = _.uniq(_.map(getState().posts, "postProfileId"));
   profileIds.forEach(id => dispatch(fetchProfileByProfileId(id)));
