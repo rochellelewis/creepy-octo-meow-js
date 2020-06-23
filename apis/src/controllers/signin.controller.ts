@@ -1,5 +1,5 @@
 import {NextFunction, Response, Request} from 'express';
-import  "express-session";
+import "express-session";
 import passport from "passport";
 import passportLocal, {Strategy} from 'passport-local';
 
@@ -21,16 +21,17 @@ export async function signInController(request: Request, response: Response, nex
 	try {
 
 		// grab the profile password from the request body
-		const {profilePassword} = request.body;
+		const {signinPassword} = request.body;
 
 		passport.authenticate(
 			'local',
 			{session: false},
 			async (err: any, passportUser: Profile) => {
 
-				const {profileId, profileEmail} = passportUser;
+				// not inserting profile email in jwt bc security. We'll be encoding the profileUsername instead.
+				const {profileId, profileUsername} = passportUser;
 				const signature : string = uuid();
-				const authorization : string = generateJwt({profileId, profileEmail}, signature);
+				const authorization : string = generateJwt({profileId, profileUsername}, signature);
 
 				const signInFailed = (message: string) => response.json({
 					status: 400,
@@ -53,7 +54,7 @@ export async function signInController(request: Request, response: Response, nex
 					return response.json({status: 200, data: null, message: "Sign in successful!"})
 				};
 
-				const isPasswordValid: boolean = passportUser && await validatePassword(passportUser.profileHash, profilePassword);
+				const isPasswordValid: boolean = passportUser && await validatePassword(passportUser.profileHash, signinPassword);
 				return isPasswordValid ? signInSuccessful() : signInFailed("Email or password invalid.");
 
 			})(request, response, nextFunction)
@@ -67,14 +68,16 @@ const LocalStrategy = passportLocal.Strategy;
 
 const passportStrategy : Strategy = new LocalStrategy(
 	{
-		usernameField: 'profileEmail',
-		passwordField: "profilePassword"
+		// these are passport.js set parameter names,
+		// followed by signin form field names - make sure these are correct!
+		usernameField: "signinEmail",
+		passwordField: "signinPassword"
 	},
 	async (email, password, done) => {
 		try {
 
 			const profile : Profile | undefined = await selectProfileByProfileEmail(email);
-			return profile ? done(null, profile) : done(undefined, undefined, { message: 'Incorrect username or password'});
+			return profile ? done(null, profile) : done(undefined, undefined, { message: 'Incorrect username or password :('});
 
 		} catch (error) {
 			return done(error);
