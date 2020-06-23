@@ -66,7 +66,8 @@ export const PostCard = ({post}) => {
 											<PostUsername profileId={post.postProfileId} />
 										</Badge>
 									</h6>
-									{formatDate.format(post.postDate)}
+									{/*{formatDate.format(post.postDate)}*/}
+									{post.postDate}
 								</div>
 
 								{/* conditional render del & edit buttons if logged into account that created them! */}
