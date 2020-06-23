@@ -11,7 +11,7 @@ export const Footer = () => {
   return (
     <>
       <footer className="py-2 fixed-bottom">
-        <Container fluid="true">
+        <Container fluid>
           <Row>
             <Col className="text-center text-md-right">
 							<span className="badge badge-light">
