@@ -16,7 +16,7 @@ export const Footer = () => {
             <Col className="text-center text-md-right">
 							<span className="badge badge-light">
 								<FontAwesomeIcon icon={['fab','github']}/>&nbsp;
-                <a href="https://github.com/rlewis2892/creepy-octo-meow-react" className="text-dark" target="_blank" rel="noopener noreferrer">View on GitHub</a> | <Link className="text-dark" to="/about">About Us</Link>
+                <a href="https://github.com/rlewis2892/creepy-octo-meow-js" className="text-dark" target="_blank" rel="noopener noreferrer">View on GitHub</a> | <Link className="text-dark" to="/about">About Us</Link>
 							</span>
             </Col>
           </Row>
