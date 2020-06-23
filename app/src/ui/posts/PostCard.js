@@ -13,6 +13,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { useSelector } from 'react-redux'
 
 export const PostCard = ({post}) => {
 
@@ -20,6 +21,21 @@ export const PostCard = ({post}) => {
 	const jwt = UseJwt();
 	const profileId = UseJwtProfileId();
 
+	// grab profiles from store
+	/*const profiles = useSelector((state) => state.profiles ? state.profiles : null)
+	const FindUsername = () => {
+		const profile = profiles.find(profile => post.postProfileId === profile.profileId)
+		return (
+			<>
+				{profile ? profile.profileUsername : "?"}
+			</>
+		)
+	}*/
+
+
+	/**
+	 * Handles the DELETE request to delete a post
+	 **/
 	const deletePost = () => {
 		const headers = {'X-JWT-TOKEN': jwt};
 		const params = {id: post.postId};
@@ -64,6 +80,7 @@ export const PostCard = ({post}) => {
 									<h6 className="d-sm-inline-block">
 										<Badge className="p-1 mr-2" variant="secondary">By:&nbsp;
 											<PostUsername profileId={post.postProfileId} />
+											{/*<FindUsername/>*/}
 										</Badge>
 									</h6>
 									{/*{formatDate.format(post.postDate)}*/}
