@@ -31,7 +31,7 @@ export const UseJwtUsername = () => {
     const token = window.localStorage.getItem("jwt");
     if(token !== null) {
       const decodedJwt = jwtDecode(token);
-      setUsername(decodedJwt.authorization.profileUsername);
+      setUsername(decodedJwt.profileUsername);
     }
   }, [username]);
 
@@ -48,7 +48,7 @@ export const UseJwtProfileId = () => {
     const token = window.localStorage.getItem("jwt");
     if(token !== null) {
       const decodedJwt = jwtDecode(token);
-      setProfileId(decodedJwt.authorization.profileId);
+      setProfileId(decodedJwt.profileId);
     }
   }, [profileId]);
 
