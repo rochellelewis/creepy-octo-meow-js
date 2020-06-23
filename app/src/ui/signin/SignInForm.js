@@ -36,9 +36,9 @@ export const SignInForm = () => {
     httpConfig.post("/apis/signin/", values)
       .then(reply => {
         let {message, type} = reply;
-        if(reply.status === 200 && reply.headers["x-jwt-token"]) {
-          window.localStorage.removeItem("jwt-token");
-          window.localStorage.setItem("jwt-token", reply.headers["x-jwt-token"]);
+        if(reply.status === 200 && reply.headers["authorization"]) {
+          window.localStorage.removeItem("jwt");
+          window.localStorage.setItem("jwt", reply.headers["authorization"]);
           resetForm();
           setTimeout(() => {
             // setToPosts(true);
