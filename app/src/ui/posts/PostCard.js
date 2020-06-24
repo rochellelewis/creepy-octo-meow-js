@@ -1,12 +1,15 @@
 import React from "react";
-import {httpConfig} from "../../utils/http-config";
+import { useDispatch } from 'react-redux'
 
+import {httpConfig} from "../../utils/http-config";
 import {UseJwt, UseJwtProfileId} from "../../utils/jwt-helpers";
 // import {handleSessionTimeout} from "../../shared/misc/handle-session-timeout";
 
 import {Like} from "../Like";
 import {PostEdit} from "./PostEdit";
 import {PostUsername} from "./PostUsername";
+
+import {fetchAllPostsAndProfiles} from '../../store/posts'
 
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -21,37 +24,23 @@ export const PostCard = ({post}) => {
 	const jwt = UseJwt();
 	const profileId = UseJwtProfileId();
 
-	// grab profiles from store
-	/*const profiles = useSelector((state) => state.profiles ? state.profiles : null)
-	const FindUsername = () => {
-		const profile = profiles.find(profile => post.postProfileId === profile.profileId)
-		return (
-			<>
-				{profile ? profile.profileUsername : "?"}
-			</>
-		)
-	}*/
-
+	const dispatch = useDispatch()
 
 	/**
 	 * Handles the DELETE request to delete a post
 	 **/
 	const deletePost = () => {
-		const headers = {'X-JWT-TOKEN': jwt};
-		const params = {id: post.postId};
+		const headers = {'authorization': jwt};
 		let confirm = window.confirm("Are you sure u wanna delete this?");
 		if(confirm){
-			httpConfig.delete("/apis/post/", {
-				headers, params})
+			httpConfig.delete(`/apis/post/${post.postId}`, {
+				headers})
 				.then(reply => {
 					let {message, type} = reply;
 					if(reply.status === 200) {
-						// TODO: fix this janky ass sh*t pls :poop:
-						window.location.reload();
-					}
-					// if there's an issue with a $_SESSION mismatch with xsrf or jwt, alert user and do a sign out
-					if(reply.status === 401) {
-						// handleSessionTimeout();
+						dispatch(fetchAllPostsAndProfiles())
+					} else {
+						window.confirm(message)
 					}
 				});
 		}
@@ -80,7 +69,6 @@ export const PostCard = ({post}) => {
 									<h6 className="d-sm-inline-block">
 										<Badge className="p-1 mr-2" variant="secondary">By:&nbsp;
 											<PostUsername profileId={post.postProfileId} />
-											{/*<FindUsername/>*/}
 										</Badge>
 									</h6>
 									{/*{formatDate.format(post.postDate)}*/}
