@@ -18,16 +18,28 @@ const mailgun = require("mailgun-js");
 export async function signUpProfileController (request: Request, response: Response) {
 	try {
 
-		// grab the profile data off of the request body
+		// grab the signup form data off of the request body
 		const {
-			profileEmail,
-			profilePassword,
-			profileUsername
+			signupEmail,
+			signupPassword,
+			signupUsername
 		} = request.body;
 
 		// hash the user's password and create the activation token
-		const profileHash = await setHash(profilePassword);
+		const profileHash = await setHash(signupPassword);
 		const profileActivationToken = setActivationToken();
+
+		// create Profile object to be inserted
+		const profile : Profile = {
+			profileId: null,
+			profileActivationToken,
+			profileEmail: signupEmail,
+			profileHash,
+			profileUsername: signupUsername
+		};
+
+		// insert profile into mysql
+		const result = await insertProfile(profile);
 
 		// set base path for account activation link
 		const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}activation/${profileActivationToken}`;
@@ -40,25 +52,13 @@ export async function signUpProfileController (request: Request, response: Respo
 		// create mailgun message
 		const mailgunMessage = {
 			from: `Mailgun Sandbox <postmaster@${process.env.MAILGUN_DOMAIN}>`,
-			to: profileEmail,
+			to: signupEmail,
 			subject: "One step closer to Sticky Head -- Account Activation",
 			text: 'Test email text',
 			html: message
 		}
 
-		// create Profile object to be inserted
-		const profile : Profile = {
-			profileId: null,
-			profileActivationToken,
-			profileEmail,
-			profileHash,
-			profileUsername
-		};
-
-		// insert profile into mysql
-		const result = await insertProfile(profile);
-
-		// create new mailgun message
+		// build new mailgun email
 		const emailComposer: MailComposer = new MailComposer(mailgunMessage)
 		emailComposer.compile().build((error: any, message: Buffer) => {
 			const mg = mailgun({apiKey: process.env.MAILGUN_API_KEY, domain: process.env.MAILGUN_DOMAIN});
@@ -66,7 +66,7 @@ export async function signUpProfileController (request: Request, response: Respo
 			console.log(message.toString("ascii"))
 
 			const compiledEmail = {
-				to: profileEmail,
+				to: signupEmail,
 				message: message.toString("ascii")
 			}
 
