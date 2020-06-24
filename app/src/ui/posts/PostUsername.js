@@ -10,8 +10,6 @@ export const PostUsername = ({profileId}) => {
 		return state.profiles ? state.profiles.find(profile => profileId === profile.profileId) : null
 	});
 
-	console.log(profile)
-
 	return (
 		<>
 			{profile ? profile.profileUsername : "???"}
