@@ -2,14 +2,13 @@ import {NextFunction, Request, Response} from "express";
 
 import {Status} from "../../utils/interfaces/status";
 import {Post} from "../../utils/interfaces/post";
+import {Profile} from "../../utils/interfaces/profile";
 
 import {insertPost} from "../../utils/post/insertPost";
 import {deletePost} from "../../utils/post/deletePost";
 import {updatePost} from "../../utils/post/updatePost";
 import {selectAllPosts} from "../../utils/post/selectAllPosts";
 import {selectPostByPostId} from "../../utils/post/selectPostByPostId";
-
-const {validationResult} = require('express-validator');
 
 /**
  * Handles POST request to insert a new Post into mysql
@@ -21,11 +20,11 @@ const {validationResult} = require('express-validator');
 export async function postPostController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
-		validationResult(request).throw();
+		const profile: Profile = request.session?.profile
+		const postProfileId = <string> profile.profileId
 
 		// grab the post data off the request body
 		const {
-			postProfileId,
 			postContent,
 			postTitle
 		} = request.body;
