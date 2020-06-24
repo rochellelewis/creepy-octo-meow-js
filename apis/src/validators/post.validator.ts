@@ -2,11 +2,6 @@
  * Validates and sanitizes post data from the end user
  **/
 export const postValidator = {
-	postProfileId: {
-		isUUID: {
-			errorMessage: 'profile id is invalid'
-		}
-	},
 	postContent: {
 		isLength: {
 			errorMessage: 'Meow is too long! Limit it to 2000 characters pls.',
