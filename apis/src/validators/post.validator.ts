@@ -19,3 +19,18 @@ export const postValidator = {
 		escape: true
 	}
 };
+
+export const postIdValidator = {
+	postId: {
+		isUUID: {
+			errorMessage: "please provide a valid post id"
+		},
+		trim: true,
+		in: ["params"]
+	}
+}
+
+export const putPostIdValidator = {
+	...postIdValidator,
+	...postValidator
+}
