@@ -16,6 +16,4 @@ SignUpRoute.route("/")
 	.post(asyncValidatorController(checkSchema(signUpValidator)), signUpProfileController);
 
 SignUpRoute.route("/activation/:activation")
-	// .get(asyncValidatorController(param("activation", "invalid activation link").isHexadecimal().notEmpty()), activationController) // this does not work
-	// .get(activationController) // this works
-	.get(asyncValidatorController(checkSchema(activationValidator)), activationController) // this works!
+	.get(asyncValidatorController(checkSchema(activationValidator)), activationController)
