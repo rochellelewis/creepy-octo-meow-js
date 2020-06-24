@@ -1,8 +1,11 @@
 import React, {useState} from "react";
+import { useDispatch } from 'react-redux'
+
 import {httpConfig} from "../../utils/http-config";
 import * as Yup from "yup";
 import {Formik} from "formik";
 
+import {fetchAllPostsAndProfiles} from '../../store/posts'
 import {PostFormContent} from "./PostFormContent";
 import { UseJwt } from '../../utils/jwt-helpers'
 // import {handleSessionTimeout} from "../../shared/misc/handle-session-timeout";
@@ -10,7 +13,9 @@ import { UseJwt } from '../../utils/jwt-helpers'
 export const PostForm = () => {
 
 	const [status, setStatus] = useState(null);
+	const dispatch = useDispatch()
 
+	// grab json web token
 	const jwt = UseJwt();
 
 	const post = {
@@ -30,7 +35,6 @@ export const PostForm = () => {
 	const submitPost = (values, {resetForm, setStatus}) => {
 		// grab jwt token to pass in headers on post request
 		const headers = {'authorization': jwt};
-
 		httpConfig.post("/apis/post/", values, {
 			headers: headers})
 			.then(reply => {
@@ -38,16 +42,9 @@ export const PostForm = () => {
 				setStatus({message, type});
 				if(reply.status === 200) {
 					resetForm();
-					setStatus({message, type});
-					/*TODO: find a better way to re-render the post component!*/
-					setTimeout(() => {
-						window.location.reload();
-					}, 1500);
+					dispatch(fetchAllPostsAndProfiles())
 				}
-				// if there's an issue with a $_SESSION mismatch with xsrf or jwt, alert user and do a sign out
-				if(reply.status === 401) {
-					// handleSessionTimeout();
-				}
+				setStatus({message, type});
 			});
 	};
 
