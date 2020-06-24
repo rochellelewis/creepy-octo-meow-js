@@ -1,5 +1,5 @@
 import {NextFunction, Request, Response} from 'express';
-import {JsonWebTokenError, TokenExpiredError, verify} from "jsonwebtoken";
+import {verify} from "jsonwebtoken";
 
 import {Status} from "../../utils/interfaces/status";
 import {Profile} from "../../utils/interfaces/profile";
@@ -28,4 +28,5 @@ export function isLoggedIn(request: Request, response: Response, next: NextFunct
 		: false;
 
 	return isJwtValid && isSessionActive(sessionProfile(request)) ? next() : response.json(status);
+
 }
