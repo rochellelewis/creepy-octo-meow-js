@@ -110,18 +110,18 @@ export const SignUpFormContent = (props) => {
 							</InputGroup.Text>
 						</InputGroup.Prepend>
 						<FormControl
-							id="signupConfirmPassword"
+							id="signupPasswordConfirm"
 							onChange={handleChange}
 							onBlur={handleBlur}
 							placeholder="Confirm Password"
 							type="password"
-							value={values.signupConfirmPassword}
+							value={values.signupPasswordConfirm}
 						/>
 					</InputGroup>
 					{
-						errors.signupConfirmPassword && touched.signupConfirmPassword && (
+						errors.signupPasswordConfirm && touched.signupPasswordConfirm && (
 							<div className="alert alert-danger">
-								{errors.signupConfirmPassword}
+								{errors.signupPasswordConfirm}
 							</div>
 						)
 					}
@@ -133,13 +133,15 @@ export const SignUpFormContent = (props) => {
 					</Button>
 				</Form.Group>
 
-				{/*for testing purposes only*/}
-				{/*<FormDebugger {...props}/>*/}
+
 
 			</Form>
 
 			{console.log(status)}
 			{status && (<div className={status.type}>{status.message}</div>)}
+
+			{/*for testing purposes only*/}
+			<FormDebugger {...props}/>
 		</>
 	)
 };

@@ -2,7 +2,7 @@
  * Validates and sanitizes sign up data from end user
  **/
 export const signUpValidator = {
-	profileUsername: {
+	signupUsername: {
 		escape: true,
 		trim: true,
 		isLength: {
@@ -10,14 +10,14 @@ export const signUpValidator = {
 			options: { min: 7, max: 32 }
 		}
 	},
-	profileEmail: {
+	signupEmail: {
 		isEmail: {
 			errorMessage: 'Please provide a valid email'
 		},
 		normalizeEmail: true,
 		trim: true
 	},
-	profilePassword: {
+	signupPassword: {
 		isLength: {
 			errorMessage: 'Password must be at least eight characters',
 			options: { min: 8 }
@@ -25,17 +25,17 @@ export const signUpValidator = {
 		trim: true,
 		escape: true
 	},
-	profilePasswordConfirm: {
+	signupPasswordConfirm: {
 		isLength: {
-			errorMessage: 'Password must be at least eight characters',
+			errorMessage: 'Password confirmation must be at least eight characters',
 			options: { min: 8 }
 		},
 		trim: true,
 		escape: true,
 		custom: {
 			options: (value:string, {req}:any) => {
-				if (value !== req.body.profilePassword) {
-					throw new Error("Passwords do not match")
+				if (value !== req.body.signupPassword) {
+					throw new Error("Passwords do not match :(")
 				} else {
 					return value
 				}

@@ -13,7 +13,7 @@ export const SignUpForm = () => {
 		signupEmail: "",
 		signupUsername: "",
 		signupPassword: "",
-		signupConfirmPassword: ""
+		signupPasswordConfirm: ""
 	};
 
 	const validator = Yup.object().shape({
@@ -26,7 +26,7 @@ export const SignUpForm = () => {
 		signupPassword: Yup.string()
 			.required("Password is required")
 			.min(6, "Password must be at least 6 characters"),
-		signupConfirmPassword: Yup.string()
+		signupPasswordConfirm: Yup.string()
 			.required("Confirm your password")
 	});
 
