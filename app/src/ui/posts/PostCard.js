@@ -71,6 +71,7 @@ export const PostCard = ({post}) => {
 											<PostUsername profileId={post.postProfileId} />
 										</Badge>
 									</h6>
+									{/* TODO: format date properly */}
 									{/*{formatDate.format(post.postDate)}*/}
 									{post.postDate}
 								</div>
