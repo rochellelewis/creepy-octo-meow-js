@@ -16,7 +16,8 @@ export async function selectProfileByProfileId(profileId : string) {
 
 		// return the rows from DB
 		const [rows] =  await mysqlConnection.execute(mySqlQuery, {profileId})
-		return rows
+		// @ts-ignore
+		return {...rows[0]}
 
 	} catch(error) {
 		console.log(error)
