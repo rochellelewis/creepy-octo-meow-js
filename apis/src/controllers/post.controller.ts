@@ -59,6 +59,15 @@ export async function deletePostController(request: Request, response: Response,
 		// grab the post id off the request parameters
 		const {postId} = request.params;
 
+		// TODO: do profileId check against postProfileId to verify permission to delete
+		// grab profile from session to verify user is allowed to delete this post
+		// const profile: Profile = request.session?.profile
+		// const profileId = <string> profile.profileId
+		// console.log("profileid: " + profileId);
+
+		// grab post by id
+		// const post = await selectPostByPostId(postId)
+
 		const result = await deletePost(postId)
 		return response.json({status: 200, data: null, message: result})
 

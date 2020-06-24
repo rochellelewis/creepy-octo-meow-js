@@ -8,7 +8,7 @@ import {
 } from "../controllers/post.controller";
 
 import {asyncValidatorController} from "../controllers/asyncValidator.controller";
-import {postValidator} from "../validators/post.validator";
+import {postIdValidator, postValidator, putPostIdValidator} from "../validators/post.validator";
 import {isLoggedIn} from "../controllers/isLoggedIn.controller";
 const {checkSchema} = require("express-validator");
 
@@ -18,8 +18,7 @@ PostRoute.route("/")
 	.get(getAllPostsController)
 	.post(isLoggedIn, asyncValidatorController(checkSchema(postValidator)), postPostController)
 
-// todo: this route may not be necessary? Maybe.
 PostRoute.route("/:postId")
 	.get(getPostByPostIdController)
-	.put(asyncValidatorController(checkSchema(postValidator)), putPostController)
-	.delete(deletePostController)
+	.put(isLoggedIn, asyncValidatorController(checkSchema(putPostIdValidator)), putPostController)
+	.delete(isLoggedIn, asyncValidatorController(checkSchema(postIdValidator)), deletePostController)
