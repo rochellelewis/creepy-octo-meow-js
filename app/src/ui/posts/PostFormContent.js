@@ -85,7 +85,7 @@ export const PostFormContent = (props) => {
 				</Card.Body>
 			</Card>
 
-			{console.log(status)}
+			{/*{console.log(status)}*/}
 			{status && (<div className={status.type}>{status.message}</div>)}
 		</>
 	)
