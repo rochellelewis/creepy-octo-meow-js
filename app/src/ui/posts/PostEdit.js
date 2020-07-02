@@ -1,10 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react'
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-export const PostEdit = ({postId}) => {
+export const PostEdit = (props) => {
+
+	// this is the post passed in via props
+	const {post} = props;
 
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
@@ -19,9 +22,12 @@ export const PostEdit = ({postId}) => {
 			{/* Modal Window / Edit Post Form */}
 			<Modal show={show} onHide={handleClose} centered>
 				<Modal.Header closeButton>
-					<Modal.Title>Editing Post #{postId}</Modal.Title>
+					<Modal.Title>Editing Post #{post.postId}</Modal.Title>
 				</Modal.Header>
-				<Modal.Body>Woohoo, you're editing this post in a modal!</Modal.Body>
+				<Modal.Body>
+					<h5>{post.postTitle}</h5>
+					<p>{post.postContent}</p>
+				</Modal.Body>
 				<Modal.Footer>
 					<Button variant="secondary" onClick={handleClose}>
 						Cancel

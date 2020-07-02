@@ -83,7 +83,7 @@ export const PostCard = ({post}) => {
 											<FontAwesomeIcon icon="trash-alt"/>
 										</Button>
 
-										<PostEdit postId={post.postId}/>
+										<PostEdit post={post}/>
 									</>
 								)}
 
