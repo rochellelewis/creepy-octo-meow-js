@@ -8,7 +8,7 @@ import {
 } from "../controllers/post.controller";
 
 import {asyncValidatorController} from "../controllers/asyncValidator.controller";
-import {postIdValidator, postValidator, putPostIdValidator} from "../validators/post.validator";
+import {postIdValidator, postValidator, putPostValidator} from "../validators/post.validator";
 import {isLoggedIn} from "../controllers/isLoggedIn.controller";
 const {checkSchema} = require("express-validator");
 
@@ -20,5 +20,5 @@ PostRoute.route("/")
 
 PostRoute.route("/:postId")
 	.get(getPostByPostIdController)
-	.put(isLoggedIn, asyncValidatorController(checkSchema(putPostIdValidator)), putPostController)
+	.put(isLoggedIn, asyncValidatorController(checkSchema(putPostValidator)), putPostController)
 	.delete(isLoggedIn, asyncValidatorController(checkSchema(postIdValidator)), deletePostController)

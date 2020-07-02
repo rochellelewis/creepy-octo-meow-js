@@ -30,7 +30,7 @@ export const postIdValidator = {
 	}
 }
 
-export const putPostIdValidator = {
+export const putPostValidator = {
 	...postIdValidator,
 	...postValidator
 }
