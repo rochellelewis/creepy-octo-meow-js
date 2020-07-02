@@ -9,11 +9,19 @@ const slice = createSlice({
   reducers: {
     getAllPosts: (posts, action) => {
       return action.payload
+    },
+    getPostByPostId: (posts, action) => {
+      return posts.push(action.payload)
     }
   }
 })
 
-export const {getAllPosts} = slice.actions
+export const {getAllPosts, getPostByPostId} = slice.actions
+
+export const fetchPostByPostId = (id) => async dispatch => {
+  const {data} = await httpConfig(`/apis/post/${id}`);
+  dispatch(getPostByPostId(data))
+}
 
 export const fetchAllPosts = () => async dispatch => {
   const {data} = await httpConfig(`/apis/post/`);
