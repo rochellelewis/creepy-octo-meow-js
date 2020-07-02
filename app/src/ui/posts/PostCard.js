@@ -61,7 +61,8 @@ export const PostCard = ({post}) => {
 				<Col xl={6}>
 					<Card className="mb-3 bg-transparent-90">
 						<Card.Header>
-							<h3 className="panel-title my-0">{post.postTitle}</h3>
+							{/* TODO: is there a better way around JSX double escaping/encoding??? */}
+							<h3 className="panel-title my-0" dangerouslySetInnerHTML={{ __html: post.postTitle }}/>
 						</Card.Header>
 						<Card.Body>
 							<div className="d-flex justify-content-end">
@@ -91,7 +92,8 @@ export const PostCard = ({post}) => {
 
 							</div>
 							<hr />
-							<Card.Text>{post.postContent}</Card.Text>
+							{/* TODO: is there a better way around JSX double escaping/encoding??? */}
+							<Card.Text dangerouslySetInnerHTML={{ __html: post.postContent }}/>
 						</Card.Body>
 					</Card>
 				</Col>
