@@ -46,15 +46,19 @@ export const PostCard = ({post}) => {
 		}
 	};
 
-	const formatDate = new Intl.DateTimeFormat('en-US', {
+	// set your preferred date format options here
+	const formatDateOptions = new Intl.DateTimeFormat('en-US', {
 		day: 'numeric',
 		month: 'numeric',
-		year: '2-digit',
+		year: 'numeric',
 		hour: 'numeric',
 		minute: 'numeric',
-		second: '2-digit',
-		timeZoneName: 'short'
+		second: '2-digit'
+		// timeZoneName: 'short'
 	});
+
+	// format the post date
+	const formattedDate = formatDateOptions.format(Date.parse(post.postDate))
 
 	return (
 		<>
@@ -72,9 +76,7 @@ export const PostCard = ({post}) => {
 											<PostUsername profileId={post.postProfileId} />
 										</Badge>
 									</h6>
-									{/* TODO: format date properly */}
-									{/*{formatDate.format(post.postDate)}*/}
-									{post.postDate}
+									{formattedDate}
 								</div>
 
 								{/* conditional render del & edit buttons if logged into account that created them! */}
