@@ -37,7 +37,7 @@ export const PostEditFormContent = (props) => {
                   id="postTitle"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  placeholder="Post Title"
+                  placeholder="Update Post Title"
                   type="text"
                   value={values.postTitle}
                 />
@@ -60,7 +60,7 @@ export const PostEditFormContent = (props) => {
                   rows="5"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  placeholder="Your opinion here..."
+                  placeholder="Update Post Content"
                   value={values.postContent}
                 />
               </InputGroup>

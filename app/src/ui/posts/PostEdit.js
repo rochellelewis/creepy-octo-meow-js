@@ -29,7 +29,7 @@ export const PostEdit = (props) => {
 	// grab json web token
 	const jwt = UseJwt();
 
-	const updatedPost = {
+	const updatedPostContent = {
 		postTitle: "",
 		postContent: ""
 	};
@@ -75,7 +75,7 @@ export const PostEdit = (props) => {
 
 					{/* EDIT POST FORM */}
 					<Formik
-						initialValues={post}
+						initialValues={updatedPostContent}
 						onSubmit={updatePost}
 						validationSchema={validator}
 					>
