@@ -20,8 +20,8 @@ export const DecodeCharacters = (text) => {
   }
 
   for(const [key, value] of Object.entries(entityCodes)) {
-    let re = new RegExp(value, "gi")
-    decodedText = decodedText.replace(re, key)
+    let entityCode = new RegExp(value, "gi")
+    decodedText = decodedText.replace(entityCode, key)
   }
 
   return decodedText
