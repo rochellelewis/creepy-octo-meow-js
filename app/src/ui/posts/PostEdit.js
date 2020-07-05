@@ -10,7 +10,7 @@ import {PostEditFormContent} from './PostEditFormContent'
 
 // rlewis's special helpers :D
 import { UseJwt } from '../../utils/jwt-helpers'
-import {DecodeCharacters} from '../../utils/decode-characters'
+import { DecodeCharacters } from '../../utils/decode-characters'
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -33,10 +33,10 @@ export const PostEdit = (props) => {
 	const jwt = UseJwt();
 
 	/*
-	* Set inital values to the post content, and de-encode special
-	* characters here first for proper output to front end.
-	* Post content will be re-encoded and sanitized on update
-	* with express-validator in the api.
+	* Set initial values to the post title/content, and de-encode
+	* special characters here first for proper output to front end.
+	* Post content will be re-encoded and sanitized on update with
+	* express-validator in the api.
 	* */
 	const updatedPostContent = {
 		postTitle: DecodeCharacters(post.postTitle),
