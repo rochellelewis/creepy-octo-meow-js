@@ -7,7 +7,10 @@ import {Formik} from "formik";
 
 import {fetchAllPostsAndProfiles} from '../../store/posts'
 import {PostEditFormContent} from './PostEditFormContent'
+
+// rlewis's special helpers :D
 import { UseJwt } from '../../utils/jwt-helpers'
+import {DecodeCharacters} from '../../utils/decode-characters'
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -29,9 +32,15 @@ export const PostEdit = (props) => {
 	// grab json web token
 	const jwt = UseJwt();
 
+	/*
+	* Set inital values to the post content, and de-encode special
+	* characters here first for proper output to front end.
+	* Post content will be re-encoded and sanitized on update
+	* with express-validator in the api.
+	* */
 	const updatedPostContent = {
-		postTitle: "",
-		postContent: ""
+		postTitle: DecodeCharacters(post.postTitle),
+		postContent: DecodeCharacters(post.postContent)
 	};
 
 	const validator = Yup.object().shape({
