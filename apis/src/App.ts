@@ -75,7 +75,7 @@ export class App {
 		this.app.use(IndexRoute);
 		this.app.use("/apis/profile", ProfileRoute);
 		this.app.use("/apis/post", PostRoute);
-		this.app.use("/apis/like", LikeRoute); // todo: this route isn't needed
+		this.app.use("/apis/like", LikeRoute);
 		this.app.use("/apis/signin", SignInRoute);
 		this.app.use("/apis/signup", SignUpRoute);
 		this.app.use("/apis/signout", SignOutRoute);
