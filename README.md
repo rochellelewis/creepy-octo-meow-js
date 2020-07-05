@@ -12,13 +12,16 @@ Demo app using the Deep Dive Bootcamp toolkit.
 "@fortawesome/free-regular-svg-icons": "^5.12.1",
 "@fortawesome/free-solid-svg-icons": "^5.8.1",
 "@fortawesome/react-fontawesome": "^0.1.4",
+"@reduxjs/toolkit": "^1.3.6",
 "axios": "^0.18.0",
 "bootstrap": "^4.3.1",
 "formik": "^1.5.4",
 "http-proxy-middleware": "^0.19.1",
+"jwt-decode": "^2.2.0",
+"lodash": "^4.17.15",
 "react": "^16.9.0",
-"react-dom": "^16.9.0",
 "react-bootstrap": "^1.0.0-beta.10",
+"react-dom": "^16.9.0",
 "react-redux": "^7.1.0",
 "react-router": "^5.0.1",
 "react-router-bootstrap": "^0.25.0",
@@ -26,7 +29,6 @@ Demo app using the Deep Dive Bootcamp toolkit.
 "react-scripts": "^3.1.1",
 "redux": "^4.0.4",
 "redux-thunk": "^2.3.0",
-"standard": "^14.3.4",
 "yup": "^0.27.0"
 ```
 3. run `npm install` in the /app directory
@@ -105,4 +107,11 @@ const Routing = () => (
 ReactDOM.render(<Routing/>, document.querySelector('#root'));
 ```
 ## Express Spinup - Adding Express To An Existing Project
-Coming Soon
+1. Add Dockerfile to /sql directory
+2. Add .env, .dockerignore, docker-compose.yml files to project root. Update your .gitignore
+3. Create an /apis directory, add the Dockerfile. This will be the location of your express back end, apis, etc.
+4. Add the package.json and tsconfig.json to /apis
+5. Add index.ts, database.ts, and App.ts to apis/src/
+6. npm install locally so everything resolves in IDE
+7. You can run this App locally: cd into /apis and npm run dev
+8. Upload all to your remote host and docker-compose up
