@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import {httpConfig} from "../../utils/http-config";
 import {UseJwt, UseJwtProfileId} from "../../utils/jwt-helpers";
+import { DecodeCharacters } from '../../utils/decode-characters';
 // import {handleSessionTimeout} from "../../shared/misc/handle-session-timeout";
 
 import {Like} from "../Like";
@@ -65,8 +66,9 @@ export const PostCard = ({post}) => {
 				<Col xl={6}>
 					<Card className="mb-3 bg-transparent-90">
 						<Card.Header>
-							{/* TODO: is there a better way around JSX double escaping/encoding??? */}
-							<h3 className="panel-title my-0" dangerouslySetInnerHTML={{ __html: post.postTitle }}/>
+							{/*<h3 className="panel-title my-0" dangerouslySetInnerHTML={{ __html: post.postTitle }}/>*/}
+							<h3 className="panel-title my-0">{DecodeCharacters(post.postTitle)}
+							</h3>
 						</Card.Header>
 						<Card.Body>
 							<div className="d-flex justify-content-end">
@@ -94,8 +96,8 @@ export const PostCard = ({post}) => {
 
 							</div>
 							<hr />
-							{/* TODO: is there a better way around JSX double escaping/encoding??? */}
-							<Card.Text dangerouslySetInnerHTML={{ __html: post.postContent }}/>
+							{/*<Card.Text dangerouslySetInnerHTML={{ __html: post.postContent }}/>*/}
+							<Card.Text>{DecodeCharacters(post.postContent)}</Card.Text>
 						</Card.Body>
 					</Card>
 				</Col>
