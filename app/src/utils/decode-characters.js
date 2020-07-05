@@ -13,10 +13,12 @@ export const DecodeCharacters = (text) => {
   const entityCodes = {
     "\'": "&quot;",
     "\"": "&#x27;",
-    "/": "&#x2F",
+    "/": "&#x2F;",
     "&": "&amp;",
     "<": "&lt;",
-    ">": "&gt;"
+    ">": "&gt;",
+    "`": "&#96;",
+    "\\": "&#x5C;"
   }
 
   for(const [key, value] of Object.entries(entityCodes)) {
