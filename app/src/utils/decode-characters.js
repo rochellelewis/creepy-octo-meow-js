@@ -6,8 +6,6 @@
 **/
 export const DecodeCharacters = (text) => {
 
-  // TODO: make this a proper React Hook using useState, useEffect?
-
   let decodedText = text;
 
   const entityCodes = {
