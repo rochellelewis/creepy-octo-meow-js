@@ -47,6 +47,7 @@ export const PostCard = ({post}) => {
 		}
 	};
 
+	// TODO: date formatting should ideally be a utility / helper function
 	// set your preferred date format options here
 	const formatDateOptions = new Intl.DateTimeFormat('en-US', {
 		day: 'numeric',
