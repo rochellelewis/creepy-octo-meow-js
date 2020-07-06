@@ -13,7 +13,7 @@ export const Footer = () => {
       <footer className="py-2 fixed-bottom">
         <Container fluid>
           <Row>
-            <Col className="text-center text-md-right">
+            <Col className="text-center text-md-left">
 							<span className="badge badge-light">
 								<FontAwesomeIcon icon={['fab','github']}/>&nbsp;
                 <a href="https://github.com/rlewis2892/creepy-octo-meow-js" className="text-dark" target="_blank" rel="noopener noreferrer">View on GitHub</a> | <Link className="text-dark" to="/about">About Us</Link>
