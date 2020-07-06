@@ -119,6 +119,7 @@ button.post-like-btn:disabled {
 
 button,
 .card,
+.badge,
 .modal-content {
   border-radius: 0 !important;
   border: none;

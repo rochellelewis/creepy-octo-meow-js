@@ -35,7 +35,7 @@ export const NavBar = () => {
 
   return (
     <>
-      <Navbar bg="light" expand="md" variant="light" fixed="top">
+      <Navbar bg="light" expand="md" variant="light">
           <Link to="/">
             <Navbar.Brand>=^ Octo Meow 8.0 ^=</Navbar.Brand>
           </Link>

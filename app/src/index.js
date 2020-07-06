@@ -44,7 +44,7 @@ const Routing = (store) => (
     <Provider store={store}>
       <BrowserRouter>
         <div className="sfooter-content">
-          <NavBar/>
+          {/*<NavBar/>*/}
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route exact path="/about" component={About}/>
