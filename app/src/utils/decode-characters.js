@@ -1,7 +1,9 @@
 /**
  * Helper function to decode special characters
- * sanitized/encoded using express-validator
+ * sanitized/encoded by express-validator
  *
+ * @param {string} text - sanitized/encoded text content from mysql.
+ * @return {string} decodedText - text content with special characters decoded for output to the application front end.
  * @author Rochelle Lewis rlewis37@cnm.edu
 **/
 export const DecodeCharacters = (text) => {
