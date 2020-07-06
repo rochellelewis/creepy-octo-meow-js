@@ -35,8 +35,7 @@ export const NavBar = () => {
 
   return (
     <>
-      <header>
-        <Navbar bg="light" expand="md" variant="light" fixed="top">
+      <Navbar bg="light" expand="md" variant="light" fixed="top">
           <Link to="/">
             <Navbar.Brand>=^ Octo Meow 8.0 ^=</Navbar.Brand>
           </Link>
@@ -71,7 +70,6 @@ export const NavBar = () => {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-      </header>
     </>
   )
 }
