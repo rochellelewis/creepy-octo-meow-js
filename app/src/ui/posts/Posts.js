@@ -26,8 +26,6 @@ import Form from "react-bootstrap/Form";
 import Modal from 'react-bootstrap/Modal'
 import Collapse from 'react-bootstrap/Collapse';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { Formik } from 'formik'
-import { PostEditFormContent } from './PostEditFormContent'
 
 export const Posts = () => {
 
@@ -84,6 +82,7 @@ export const Posts = () => {
 
   return (
     <>
+      {/* HEADER AND NAVBAR - INCLUDING MOBILE OPTIONS */}
       <header className="fixed-top">
         <NavBar/>
 
