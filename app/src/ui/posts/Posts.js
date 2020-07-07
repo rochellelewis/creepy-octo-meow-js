@@ -26,6 +26,8 @@ import Form from "react-bootstrap/Form";
 import Modal from 'react-bootstrap/Modal'
 import Collapse from 'react-bootstrap/Collapse';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { Formik } from 'formik'
+import { PostEditFormContent } from './PostEditFormContent'
 
 export const Posts = () => {
 
@@ -90,7 +92,7 @@ export const Posts = () => {
           <Container className="mobile-post-options py-4 bg-warning">
             <Row>
               <Col className="col-6 text-center">
-                <Button variant="outline-dark" className="btn-block btn-lg"><FontAwesomeIcon icon="edit" />&nbsp;Post</Button>
+                <Button variant="outline-dark" onClick={handleShow} className="btn-block btn-lg"><FontAwesomeIcon icon="edit" />&nbsp;Post</Button>
               </Col>
               <Col className="col-6 text-center">
                 <Button variant="outline-dark" className="btn-block btn-lg" onClick={() => setOpenSearch(!openSearch)}><FontAwesomeIcon icon="search" />&nbsp;Search</Button>
@@ -120,26 +122,21 @@ export const Posts = () => {
             {/* BEGIN FORM PANEL */}
             <Col md={4} className={`posts-form-panel position-fixed-md ${(jwt === null && "panel-position-reset")}`}>
 
-              {/* This nested ternary will render the PostForm only if jwt !== null,
+              {/* This nested ternary will render a PostForm only if jwt is not null,
 							otherwise show signin/signup links. Then render the post form in either
 							one of two different ways depending on the screen width.
 							This allows the rendering of this element to be responsive. */}
               {jwt !== null ? (
                 width < 768 ? (
                   /* MOBILE POST FORM */
-                    <div>foo</div>
-                  // <Card bg="light" className="mb-3">
-                  //   <Card.Body>
-                  //     <Accordion defaultActiveKey="1" className="d-md-none">
-                  //       <Accordion.Toggle as={Button} variant="primary" eventKey="0" className="btn-block mb-3">
-                  //         <FontAwesomeIcon icon="pencil-alt"/>&nbsp;Write A Post
-                  //       </Accordion.Toggle>
-                  //       <Accordion.Collapse eventKey="0">
-                  //         <PostForm/>
-                  //       </Accordion.Collapse>
-                  //     </Accordion>
-                  //   </Card.Body>
-                  // </Card>
+                  <Modal show={show} onHide={handleClose} centered>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Post A Meow</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <PostForm/>
+                    </Modal.Body>
+                  </Modal>
                 ) : (
                   /* DESKTOP POST FORM */
                   <Card bg="light" className="mb-3">
@@ -160,7 +157,7 @@ export const Posts = () => {
                 </Card>
               )}
 
-              {/* SEARCH FORM - SHOW ON MD SCREENS UP ONLY */}
+              {/* DESKTOP SEARCH FORM - SHOW ON MD SCREENS UP ONLY */}
               { width > 768 && (
                 <Card bg="light" className="mb-3">
                   <Card.Body>
@@ -188,6 +185,7 @@ export const Posts = () => {
               </Row>
             </Col>
           </Row>
+
 
         </Container>
       </main>
