@@ -54,7 +54,7 @@ const Routing = (store) => (
             <Route component={FourOhFour}/>
           </Switch>
         </div>
-        <Footer/>
+        {/*<Footer/>*/}
       </BrowserRouter>
     </Provider>
   </>
