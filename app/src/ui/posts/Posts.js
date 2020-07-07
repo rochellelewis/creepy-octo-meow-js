@@ -26,6 +26,7 @@ import Form from "react-bootstrap/Form";
 import Modal from 'react-bootstrap/Modal'
 import Collapse from 'react-bootstrap/Collapse';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { Footer } from '../shared/components/Footer'
 
 export const Posts = () => {
 
@@ -82,110 +83,117 @@ export const Posts = () => {
 
   return (
     <>
-      {/* HEADER AND NAVBAR - INCLUDING MOBILE OPTIONS */}
-      <header className="fixed-top">
-        <NavBar/>
+      <main className="mh-100 d-flex flex-column posts">
+        {/* HEADER AND NAVBAR - INCLUDING MOBILE OPTIONS */}
+        <header className="fixed-top">
+          <NavBar/>
 
-        {/* MOBILE POST OPTIONS - POST & SEARCH BUTTONS */}
-        { width < 768 && (
-          <Container className="mobile-post-options py-4 bg-warning">
-            <Row>
-              <Col className="col-6 text-center">
-                <Button variant="outline-dark" onClick={handleShow} className="btn-block btn-lg"><FontAwesomeIcon icon="edit" />&nbsp;Post</Button>
-              </Col>
-              <Col className="col-6 text-center">
-                <Button variant="outline-dark" className="btn-block btn-lg" onClick={() => setOpenSearch(!openSearch)}><FontAwesomeIcon icon="search" />&nbsp;Search</Button>
-              </Col>
-              <Col>
-                <Collapse in={openSearch}>
-                  <Form>
-                    <Form.Control type="text"
-                                  placeholder="Search"
-                                  id="search-text"
-                                  onChange={handleChange}
-                                  value={searchQuery}
-                                  className="mt-3"
-                    />
-                  </Form>
-                </Collapse>
-              </Col>
-            </Row>
-          </Container>
-        )}
-      </header>
-
-      <main className="my-5">
-        <Container fluid className="py-5">
-          <Row>
-
-            {/* BEGIN DESKTOP POST FORM PANEL */}
-            <Col md={4} className={`posts-form-panel position-fixed-md ${(jwt === null && "panel-position-reset")}`}>
-
-              {/* DESKTOP SEARCH FORM - SHOW ON MD SCREENS UP ONLY */}
-              { width > 768 && (
-                <Card bg="light" className="mb-3">
-                  <Card.Body>
+          {/* MOBILE POST OPTIONS - POST & SEARCH BUTTONS */}
+          { width < 768 && (
+            <Container className="mobile-post-options py-4 bg-warning">
+              <Row>
+                <Col className="col-6 text-center">
+                  <Button variant="outline-dark" onClick={handleShow} className="btn-block btn-lg"><FontAwesomeIcon icon="edit" />&nbsp;Post</Button>
+                </Col>
+                <Col className="col-6 text-center">
+                  <Button variant="outline-dark" className="btn-block btn-lg" onClick={() => setOpenSearch(!openSearch)}><FontAwesomeIcon icon="search" />&nbsp;Search</Button>
+                </Col>
+                <Col>
+                  <Collapse in={openSearch}>
                     <Form>
-                      <FormLabel className="h2">Search Posts</FormLabel>
                       <Form.Control type="text"
                                     placeholder="Search"
                                     id="search-text"
                                     onChange={handleChange}
                                     value={searchQuery}
+                                    className="mt-3"
                       />
                     </Form>
-                  </Card.Body>
-                </Card>
-              )}
+                  </Collapse>
+                </Col>
+              </Row>
+            </Container>
+          )}
+        </header>
 
-              {/* This nested ternary will render a PostForm only if jwt is not null,
-							otherwise show signin/signup links. Then render the post form only on the correct screen widths.
-							These conditionals using the UseWindowWidth helper function allow the rendering of elements to be responsive. */}
-              {jwt !== null ? (
-                width < 768 ? (
-                  /* MOBILE POST FORM - MODAL */
-                  <Modal show={show} onHide={handleClose} centered>
-                    <Modal.Header closeButton>
-                      <Modal.Title>Post A Meow</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                      <PostForm/>
-                    </Modal.Body>
-                  </Modal>
-                ) : (
-                  /* DESKTOP POST FORM */
+        <section className="my-5">
+          <Container fluid className="py-5">
+            <Row>
+
+              {/* BEGIN DESKTOP POST FORM PANEL */}
+              <Col md={4} className={`posts-form-panel position-fixed-md ${(jwt === null && "panel-position-reset")}`}>
+
+                {/* DESKTOP SEARCH FORM - SHOW ON MD SCREENS UP ONLY */}
+                { width > 768 && (
                   <Card bg="light" className="mb-3">
                     <Card.Body>
-                      <h2 className="mb-3 d-none d-md-block">Post A Meow</h2>
-                      <PostForm/>
+                      <Form>
+                        <FormLabel className="h2">Search Posts</FormLabel>
+                        <Form.Control type="text"
+                                      placeholder="Search"
+                                      id="search-text"
+                                      onChange={handleChange}
+                                      value={searchQuery}
+                        />
+                      </Form>
                     </Card.Body>
                   </Card>
-                )
-              ) : (
-                /* DISPLAY THIS IF NOT LOGGED IN */
-                <Card bg="light" className="mb-3">
-                  <Card.Body>
-                    <h2 className="mb-3">Please log in to post a meow.</h2>
-                    <Link to="/" className="btn btn-outline-dark mr-3">Sign In</Link>
-                    <Link to="/signup" className="btn btn-dark">Sign Up</Link>
-                  </Card.Body>
-                </Card>
-              )}
-            </Col>
-
-            {/* BEGIN POST ITEMS */}
-            <Col md={{span: 8, offset: 4}} className="posts-panel">
-              {/* create an inner bootstrap row for grid like card layout*/}
-              <Row>
-                {posts.map(post =>
-                  <PostCard post={post} key={post.postId} />
                 )}
-              </Row>
-            </Col>
-          </Row>
 
+                {/* This nested ternary will render a PostForm only if jwt is not null,
+							otherwise show signin/signup links. Then render the post form only on the correct screen widths.
+							These conditionals using the UseWindowWidth helper function allow the rendering of elements to be responsive. */}
+                {jwt !== null ? (
+                  width < 768 ? (
+                    /* MOBILE POST FORM - MODAL */
+                    <Modal show={show} onHide={handleClose} centered>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Post A Meow</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>
+                        <PostForm/>
+                      </Modal.Body>
+                    </Modal>
+                  ) : (
+                    /* DESKTOP POST FORM */
+                    <Card bg="light" className="mb-3">
+                      <Card.Body>
+                        <h2 className="mb-3 d-none d-md-block">Post A Meow</h2>
+                        <PostForm/>
+                      </Card.Body>
+                    </Card>
+                  )
+                ) : (
+                  /* DISPLAY THIS IF NOT LOGGED IN */
+                  <Card bg="light" className="mb-3">
+                    <Card.Body>
+                      <h2 className="mb-3">Please log in to post a meow.</h2>
+                      <Link to="/" className="btn btn-outline-dark mr-3">Sign In</Link>
+                      <Link to="/signup" className="btn btn-dark">Sign Up</Link>
+                    </Card.Body>
+                  </Card>
+                )}
 
-        </Container>
+                {/* FOOTER - DISPLAY HERE ONLY ON MD SCREENS */}
+                <section className="text-center text-md-left fixed-bottom d-none d-md-block">
+                  <Footer/>
+                </section>
+              </Col>
+
+              {/* BEGIN POST ITEMS */}
+              <Col md={{span: 8, offset: 4}} className="posts-panel">
+                {/* create an inner bootstrap row for grid like card layout*/}
+                <Row>
+                  {posts.map(post =>
+                    <PostCard post={post} key={post.postId} />
+                  )}
+                </Row>
+              </Col>
+            </Row>
+
+          </Container>
+        </section>
+
       </main>
     </>
   )
