@@ -86,7 +86,7 @@ export const Posts = () => {
       <header className="fixed-top">
         <NavBar/>
 
-        {/* show the mobile post option buttons only on small screens */}
+        {/* MOBILE POST OPTIONS - POST & SEARCH BUTTONS */}
         { width < 768 && (
           <Container className="mobile-post-options py-4 bg-warning">
             <Row>
@@ -118,16 +118,32 @@ export const Posts = () => {
         <Container fluid className="py-5">
           <Row>
 
-            {/* BEGIN FORM PANEL */}
+            {/* BEGIN DESKTOP POST FORM PANEL */}
             <Col md={4} className={`posts-form-panel position-fixed-md ${(jwt === null && "panel-position-reset")}`}>
 
+              {/* DESKTOP SEARCH FORM - SHOW ON MD SCREENS UP ONLY */}
+              { width > 768 && (
+                <Card bg="light" className="mb-3">
+                  <Card.Body>
+                    <Form>
+                      <FormLabel className="h2">Search Posts</FormLabel>
+                      <Form.Control type="text"
+                                    placeholder="Search"
+                                    id="search-text"
+                                    onChange={handleChange}
+                                    value={searchQuery}
+                      />
+                    </Form>
+                  </Card.Body>
+                </Card>
+              )}
+
               {/* This nested ternary will render a PostForm only if jwt is not null,
-							otherwise show signin/signup links. Then render the post form in either
-							one of two different ways depending on the screen width.
-							This allows the rendering of this element to be responsive. */}
+							otherwise show signin/signup links. Then render the post form only on the correct screen widths.
+							These conditionals using the UseWindowWidth helper function allow the rendering of elements to be responsive. */}
               {jwt !== null ? (
                 width < 768 ? (
-                  /* MOBILE POST FORM */
+                  /* MOBILE POST FORM - MODAL */
                   <Modal show={show} onHide={handleClose} centered>
                     <Modal.Header closeButton>
                       <Modal.Title>Post A Meow</Modal.Title>
@@ -155,28 +171,11 @@ export const Posts = () => {
                   </Card.Body>
                 </Card>
               )}
-
-              {/* DESKTOP SEARCH FORM - SHOW ON MD SCREENS UP ONLY */}
-              { width > 768 && (
-                <Card bg="light" className="mb-3">
-                  <Card.Body>
-                    <Form>
-                      <FormLabel className="h2">Search Posts</FormLabel>
-                      <Form.Control type="text"
-                                    placeholder="Search"
-                                    id="search-text"
-                                    onChange={handleChange}
-                                    value={searchQuery}
-                      />
-                    </Form>
-                  </Card.Body>
-                </Card>
-              )}
             </Col>
 
             {/* BEGIN POST ITEMS */}
             <Col md={{span: 8, offset: 4}} className="posts-panel">
-              {/* create an inner row for grid like layout*/}
+              {/* create an inner bootstrap row for grid like card layout*/}
               <Row>
                 {posts.map(post =>
                   <PostCard post={post} key={post.postId} />
