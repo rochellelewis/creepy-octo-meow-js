@@ -133,15 +133,13 @@ export const SignUpFormContent = (props) => {
 					</Button>
 				</Form.Group>
 
-
-
 			</Form>
 
-			{console.log(status)}
+			{/*{console.log(status)}*/}
 			{status && (<div className={status.type}>{status.message}</div>)}
 
 			{/*for testing purposes only*/}
-			<FormDebugger {...props}/>
+			{/*<FormDebugger {...props}/>*/}
 		</>
 	)
 };
