@@ -21,10 +21,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Accordion from "react-bootstrap/Accordion";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import FormLabel from "react-bootstrap/FormLabel";
 import Form from "react-bootstrap/Form";
+import Modal from 'react-bootstrap/Modal'
+import Collapse from 'react-bootstrap/Collapse';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export const Posts = () => {
 
@@ -39,6 +40,14 @@ export const Posts = () => {
 
   // state variables for search terms
   const [searchQuery, setSearchQuery] = useState('');
+
+  // state variable to control show/hide modal window
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // state variable to control show/hide mobile search
+  const [openSearch, setOpenSearch] = useState(false);
 
   // handle change event for search form
   const handleChange = event => {
@@ -75,6 +84,33 @@ export const Posts = () => {
     <>
       <header className="fixed-top">
         <NavBar/>
+
+        {/* show the mobile post option buttons only on small screens */}
+        { width < 768 && (
+          <Container className="mobile-post-options py-4 bg-warning">
+            <Row>
+              <Col className="col-6 text-center">
+                <Button variant="outline-dark" className="btn-block btn-lg"><FontAwesomeIcon icon="edit" />&nbsp;Post</Button>
+              </Col>
+              <Col className="col-6 text-center">
+                <Button variant="outline-dark" className="btn-block btn-lg" onClick={() => setOpenSearch(!openSearch)}><FontAwesomeIcon icon="search" />&nbsp;Search</Button>
+              </Col>
+              <Col>
+                <Collapse in={openSearch}>
+                  <Form>
+                    <Form.Control type="text"
+                                  placeholder="Search"
+                                  id="search-text"
+                                  onChange={handleChange}
+                                  value={searchQuery}
+                                  className="mt-3"
+                    />
+                  </Form>
+                </Collapse>
+              </Col>
+            </Row>
+          </Container>
+        )}
       </header>
 
       <main className="my-5">
@@ -91,18 +127,19 @@ export const Posts = () => {
               {jwt !== null ? (
                 width < 768 ? (
                   /* MOBILE POST FORM */
-                  <Card bg="light" className="mb-3">
-                    <Card.Body>
-                      <Accordion defaultActiveKey="1" className="d-md-none">
-                        <Accordion.Toggle as={Button} variant="primary" eventKey="0" className="btn-block mb-3">
-                          <FontAwesomeIcon icon="pencil-alt"/>&nbsp;Write A Post
-                        </Accordion.Toggle>
-                        <Accordion.Collapse eventKey="0">
-                          <PostForm/>
-                        </Accordion.Collapse>
-                      </Accordion>
-                    </Card.Body>
-                  </Card>
+                    <div>foo</div>
+                  // <Card bg="light" className="mb-3">
+                  //   <Card.Body>
+                  //     <Accordion defaultActiveKey="1" className="d-md-none">
+                  //       <Accordion.Toggle as={Button} variant="primary" eventKey="0" className="btn-block mb-3">
+                  //         <FontAwesomeIcon icon="pencil-alt"/>&nbsp;Write A Post
+                  //       </Accordion.Toggle>
+                  //       <Accordion.Collapse eventKey="0">
+                  //         <PostForm/>
+                  //       </Accordion.Collapse>
+                  //     </Accordion>
+                  //   </Card.Body>
+                  // </Card>
                 ) : (
                   /* DESKTOP POST FORM */
                   <Card bg="light" className="mb-3">
@@ -114,29 +151,31 @@ export const Posts = () => {
                 )
               ) : (
                 /* DISPLAY THIS IF NOT LOGGED IN */
-                <Card bg="light" className="mb-3 text-center">
+                <Card bg="light" className="mb-3">
                   <Card.Body>
-                    <h4 className="mb-3">Please log in to post a meow.</h4>
+                    <h2 className="mb-3">Please log in to post a meow.</h2>
                     <Link to="/" className="btn btn-outline-dark mr-3">Sign In</Link>
                     <Link to="/signup" className="btn btn-dark">Sign Up</Link>
                   </Card.Body>
                 </Card>
               )}
 
-              {/* SEARCH FORM */}
-              <Card bg="light" className="mb-3">
-                <Card.Body>
-                  <Form>
-                    <FormLabel className="h2">Search Posts</FormLabel>
-                    <Form.Control type="text"
-                      placeholder="Search"
-                      id="search-text"
-                      onChange={handleChange}
-                      value={searchQuery}
-                    />
-                  </Form>
-                </Card.Body>
-              </Card>
+              {/* SEARCH FORM - SHOW ON MD SCREENS UP ONLY */}
+              { width > 768 && (
+                <Card bg="light" className="mb-3">
+                  <Card.Body>
+                    <Form>
+                      <FormLabel className="h2">Search Posts</FormLabel>
+                      <Form.Control type="text"
+                                    placeholder="Search"
+                                    id="search-text"
+                                    onChange={handleChange}
+                                    value={searchQuery}
+                      />
+                    </Form>
+                  </Card.Body>
+                </Card>
+              )}
             </Col>
 
             {/* BEGIN POST ITEMS */}
