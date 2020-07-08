@@ -25,7 +25,7 @@ export const SignUpForm = () => {
 			.min(2, "Username must be at least 2 characters"),
 		signupPassword: Yup.string()
 			.required("Password is required")
-			.min(6, "Password must be at least 6 characters"),
+			.min(8, "Password must be at least 8 characters"),
 		signupPasswordConfirm: Yup.string()
 			.required("Confirm your password")
 	});
