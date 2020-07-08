@@ -128,7 +128,7 @@ export const Posts = () => {
                   <Card bg="light" className="mb-3">
                     <Card.Body>
                       <Form>
-                        <FormLabel className="h2">Search Posts</FormLabel>
+                        <FormLabel className="h4">Search Posts</FormLabel>
                         <Form.Control type="text"
                                       placeholder="Search"
                                       id="search-text"
