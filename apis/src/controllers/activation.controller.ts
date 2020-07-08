@@ -1,7 +1,7 @@
 import {NextFunction, Request, Response} from "express";
 
 import {Profile} from "../../utils/interfaces/profile";
-import {updateProfile} from "../../utils/profile/updateProfile";
+import {activateProfile} from "../../utils/profile/updateProfile";
 import {selectProfileByProfileActivationToken} from "../../utils/profile/selectProfileByProfileActivationToken";
 
 export async function activationController(request: Request, response: Response, nextFunction: NextFunction) {
@@ -10,7 +10,6 @@ export async function activationController(request: Request, response: Response,
 	const {activation} = request.params
 
 	try {
-
 		const profile =  await selectProfileByProfileActivationToken(activation)
 
 		const activationFailed = () => response.json({
@@ -20,8 +19,7 @@ export async function activationController(request: Request, response: Response,
 		});
 
 		const activationSucceeded = async (profile: Profile) => {
-			const updatedProfile = {...profile, profileActivationToken: null}
-			await updateProfile(updatedProfile)
+			await activateProfile(profile)
 			return response.json({
 				status: 200,
 				data: null,
