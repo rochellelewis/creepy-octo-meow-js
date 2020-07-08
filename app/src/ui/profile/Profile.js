@@ -11,6 +11,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import { ProfileEdit } from './ProfileEdit'
 
 export const Profile = ({match}) => {
 
@@ -25,6 +26,7 @@ export const Profile = ({match}) => {
   const effects = () => {
     dispatch(fetchProfileByProfileId(match.params.profileId));
   };
+
   const inputs = [match.params.profileId];
   useEffect(effects, inputs);
 
@@ -39,10 +41,14 @@ export const Profile = ({match}) => {
         <section className="d-flex align-items-center flex-grow-1">
           <Container fluid className="py-5">
             <Row>
-              <Col md="5">
+              <Col md="6">
                 <Card className="bg-transparent-90">
-                  <Card.Header>
-                    <h2 className="my-0">Hello, {profile && profile.profileUsername}!</h2>
+                  <Card.Header className="d-flex">
+                    <h2 className="my-0 flex-grow-1">Hello, {profile && profile.profileUsername}!</h2>
+
+                    {/* deal w/ component lifecycle issues - only render the ProfileEdit component when there is a profile ready to pass in */}
+                    {profile && <ProfileEdit profile={profile}/>}
+
                   </Card.Header>
                   <Card.Body>
                     <div><span className="font-weight-bold">Username</span>: {profile && profile.profileUsername}</div>

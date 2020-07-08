@@ -54,30 +54,12 @@ hr {
   }
 }
 
-/***
-* Flexbox Sticky Footer
-* http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
-***/
-
-/*corrects IE min-height bug*/
-html { display: flex;}
-body { width: 100%;}
-
-.sfooter {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.sfooter-content {
-  flex: 1 0 auto;
-}
-
 /* GLOBAL */
 /* this is how to apply a background image */
 #root {
-  background: url("ui/shared/img/bg-cat.jpg") no-repeat center left fixed;
-  background-size: cover;
+  /*background: url("ui/shared/img/bg-cat.jpg") no-repeat center left fixed;*/
+  /*background-size: cover;*/
+  background-color: #000;
 }
 
 /* HEADER */
