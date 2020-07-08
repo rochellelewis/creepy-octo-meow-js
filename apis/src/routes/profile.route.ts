@@ -2,6 +2,7 @@ import {Router} from "express";
 
 import {asyncValidatorController} from "../controllers/asyncValidator.controller";
 import {profileValidator} from "../validators/profile.validator";
+import {isLoggedIn} from "../controllers/isLoggedIn.controller";
 
 import {
 	getProfileByProfileActivationTokenController,
@@ -20,8 +21,9 @@ ProfileRoute.route("/")
 
 ProfileRoute.route("/:profileId")
 	.get(getProfileByProfileIdController)
-	.put(asyncValidatorController(checkSchema(profileValidator)), putProfileController)
+	.put(isLoggedIn, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
 
+// todo: correct this path, check controller and get method
 ProfileRoute.route("/profileEmail")
 	.post(getProfileByProfileEmailController)
 
