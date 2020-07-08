@@ -1,11 +1,11 @@
 import React, {useEffect} from "react";
 import {useSelector, useDispatch} from "react-redux";
 
-import {UseJwtProfileId} from "../utils/jwt-helpers";
-import {fetchProfileByProfileId} from '../store/profiles'
+import {UseJwtProfileId} from "../../utils/jwt-helpers";
+import {fetchProfileByProfileId} from '../../store/profiles'
 
-import { NavBar } from './shared/components/NavBar'
-import { Footer } from './shared/components/Footer'
+import { NavBar } from '../shared/components/NavBar'
+import { Footer } from '../shared/components/Footer'
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

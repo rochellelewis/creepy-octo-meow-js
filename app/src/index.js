@@ -14,7 +14,7 @@ import {Footer} from "./ui/shared/components/Footer";
 import {Home} from "./ui/Home";
 import {About} from "./ui/About";
 import {Posts} from "./ui/posts/Posts";
-import {Profile} from "./ui/Profile";
+import {Profile} from "./ui/profile/Profile";
 import {SignUp} from "./ui/signup/SignUp";
 import {FourOhFour} from "./ui/FourOhFour";
 
