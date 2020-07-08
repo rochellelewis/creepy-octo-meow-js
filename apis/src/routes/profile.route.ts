@@ -5,7 +5,6 @@ import {profileValidator} from "../validators/profile.validator";
 import {isLoggedIn} from "../controllers/isLoggedIn.controller";
 
 import {
-	getProfileByProfileActivationTokenController,
 	getProfileByProfileIdController,
 	putProfileController,
 	getAllProfilesController,
@@ -26,6 +25,3 @@ ProfileRoute.route("/:profileId")
 // todo: correct this path, check controller and get method
 ProfileRoute.route("/profileEmail")
 	.post(getProfileByProfileEmailController)
-
-ProfileRoute.route("/profileActivation/:profileActivationToken")
-	.get(getProfileByProfileActivationTokenController)
