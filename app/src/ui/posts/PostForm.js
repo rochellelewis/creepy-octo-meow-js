@@ -43,6 +43,9 @@ export const PostForm = () => {
 				if(reply.status === 200) {
 					resetForm();
 					dispatch(fetchAllPostsAndProfiles())
+					setTimeout(() => {
+						// todo: close modal window here
+					}, 750)
 				}
 				setStatus({message, type});
 			});
