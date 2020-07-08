@@ -32,7 +32,6 @@ export const ProfileEdit = (props) => {
 	* Set initial values to the existing profile data
 	* */
   const updatedProfileContent = {
-    profileActivationToken: profile.profileActivationToken,
     profileEmail: profile.profileEmail,
     profilePassword: "",
     profileUsername: profile.profileUsername
@@ -61,11 +60,12 @@ export const ProfileEdit = (props) => {
         let {message, type} = reply;
         setStatus({message, type});
         if(reply.status === 200) {
-          resetForm();
           dispatch(fetchProfileByProfileId(profile.profileId))
           setTimeout(() => {
             {handleClose()}
-          }, 750);
+            // todo: This is dirty. How to update state in parent component from here?
+            window.location.reload()
+          }, 1000);
         }
         setStatus({message, type});
       });

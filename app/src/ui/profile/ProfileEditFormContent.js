@@ -90,7 +90,7 @@ export const ProfileEditFormContent = (props) => {
               id="profilePassword"
               onChange={handleChange}
               onBlur={handleBlur}
-              placeholder="Enter New Password"
+              placeholder="Enter New or Current Password"
               type="password"
               value={values.profilePassword}
             />
@@ -115,7 +115,7 @@ export const ProfileEditFormContent = (props) => {
               id="profilePasswordConfirm"
               onChange={handleChange}
               onBlur={handleBlur}
-              placeholder="Confirm New Password"
+              placeholder="Confirm New or Current Password"
               type="password"
               value={values.profilePasswordConfirm}
             />
