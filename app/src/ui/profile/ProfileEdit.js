@@ -52,7 +52,7 @@ export const ProfileEdit = (props) => {
       .min(8, "Password must be at least 8 characters"),
   });
 
-  const updateProfile = (values, {resetForm, setStatus}) => {
+  const updateProfile = (values, {setStatus}) => {
     const headers = {'authorization': jwt};
     httpConfig.put(`/apis/profile/${profile.profileId}`, values, {
       headers: headers})

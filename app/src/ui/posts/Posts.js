@@ -6,8 +6,9 @@ import {useSelector, useDispatch} from "react-redux";
 import {NavBar} from '../shared/components/NavBar'
 import {PostForm} from "./PostForm";
 import {PostCard} from "./PostCard";
+import { Footer } from '../shared/components/Footer'
 
-// import helper utilities
+// import rlewis helpers :D
 import {UseWindowWidth} from "../../utils/window-width";
 import {UseJwt} from "../../utils/jwt-helpers";
 
@@ -26,7 +27,6 @@ import Form from "react-bootstrap/Form";
 import Modal from 'react-bootstrap/Modal'
 import Collapse from 'react-bootstrap/Collapse';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { Footer } from '../shared/components/Footer'
 
 export const Posts = () => {
 
