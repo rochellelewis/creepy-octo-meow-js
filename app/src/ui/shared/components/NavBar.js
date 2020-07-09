@@ -35,12 +35,12 @@ export const NavBar = () => {
 
   return (
     <>
-      <Navbar bg="light" expand="md" variant="light">
+      <Navbar bg="dark" expand="md" variant="dark">
           <Link to="/">
             <Navbar.Brand>=^ Octo Meow 8.0 ^=</Navbar.Brand>
           </Link>
           <Navbar.Text className="small font-italic d-none d-md-inline-block">A DDC React + Express Demo.</Navbar.Text>
-          <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
+          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
 
           <Navbar.Collapse>
             <Nav className="ml-auto">
@@ -53,7 +53,7 @@ export const NavBar = () => {
                       <FontAwesomeIcon icon="user" />&nbsp;&nbsp;My Profile
                     </Link>
                   </div>
-                  <div className="dropdown-divider"></div>
+                  <div className="dropdown-divider"/>
                   <div className="dropdown-item sign-out-dropdown">
                     <button className="btn btn-outline-dark" onClick={signOut}>
                       Sign Out&nbsp;&nbsp;<FontAwesomeIcon icon="sign-out-alt" />
@@ -63,7 +63,7 @@ export const NavBar = () => {
               )}
 
               <Link className="nav-link" to="/posts">
-                <Button variant="outline-dark" className="btn-block">
+                <Button variant="outline-light" className="btn-block">
                   <FontAwesomeIcon icon="cat" />&nbsp;Posts
                 </Button>
               </Link>
