@@ -82,6 +82,11 @@ div.dropdown-item.sign-out-dropdown:hover,
   margin-top: 60px;
 }
 
+/* border color for post cards */
+div.card.bg-dark .border-bottom {
+  border-color: rgba(0, 0, 0, 0.125) !important;
+}
+
 /* no pointer on disabled like button! */
 button.post-like-btn:disabled {
   cursor: unset;

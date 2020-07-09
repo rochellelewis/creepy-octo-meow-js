@@ -14,9 +14,9 @@ export const Footer = () => {
         <Container fluid>
           <Row>
             <Col>
-							<span className="badge badge-light">
+							<span className="badge badge-dark p-2">
 								<FontAwesomeIcon icon={['fab','github']}/>&nbsp;
-                <a href="https://github.com/rlewis2892/creepy-octo-meow-js" className="text-dark" target="_blank" rel="noopener noreferrer">View on GitHub</a> | <Link className="text-dark" to="/about">About Us</Link>
+                <a href="https://github.com/rlewis2892/creepy-octo-meow-js" className="text-light" target="_blank" rel="noopener noreferrer">View on GitHub</a> | <Link className="text-light" to="/about">About Us</Link>
 							</span>
             </Col>
           </Row>

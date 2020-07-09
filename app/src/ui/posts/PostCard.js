@@ -55,8 +55,8 @@ export const PostCard = ({post}) => {
 		year: 'numeric',
 		hour: 'numeric',
 		minute: 'numeric',
-		second: '2-digit'
-		// timeZoneName: 'short'
+		second: '2-digit',
+		timeZoneName: 'short'
 	});
 
 	// format the post date
@@ -65,41 +65,42 @@ export const PostCard = ({post}) => {
 	return (
 		<>
 				<Col xl={6}>
-					<Card className="mb-3 bg-transparent-90">
+					<Card className="mb-3 bg-dark text-light">
 						<Card.Header>
 							{/*<h3 className="panel-title my-0" dangerouslySetInnerHTML={{ __html: post.postTitle }}/>*/}
 							<h3 className="panel-title my-0">{DecodeCharacters(post.postTitle)}
 							</h3>
 						</Card.Header>
-						<Card.Body>
-							<div className="d-flex justify-content-end">
-								<div className="d-inline-block small text-muted mr-auto my-auto">
-									<h6 className="d-sm-inline-block">
-										<Badge className="p-1 mr-2" variant="secondary">By:&nbsp;
-											<PostUsername profileId={post.postProfileId} />
-										</Badge>
-									</h6>
-									{formattedDate}
+						<Card.Body className="border-bottom">
+							<div className="d-flex align-items-center">
+								<div className="flex-grow-1">
+									<Badge className="p-1 mr-2" variant="secondary">By:&nbsp;
+										<PostUsername profileId={post.postProfileId} />
+									</Badge>
 								</div>
 
 								{/* conditional render del & edit buttons if logged into account that created them! */}
 								{(profileId === post.postProfileId) && (
 									<>
-										<Button onClick={deletePost} variant="outline-secondary" size="sm" className="mr-2">
+										<Button onClick={deletePost} variant="outline-light" size="sm" className="mr-2">
 											<FontAwesomeIcon icon="trash-alt"/>
 										</Button>
-
 										<PostEdit post={post}/>
 									</>
 								)}
 
+								{/* like button! <3 */}
 								<Like profileId={profileId} postId={post.postId}/>
 
 							</div>
-							<hr />
+						</Card.Body>
+						<Card.Body>
 							{/*<Card.Text dangerouslySetInnerHTML={{ __html: post.postContent }}/>*/}
 							<Card.Text>{DecodeCharacters(post.postContent)}</Card.Text>
 						</Card.Body>
+						<Card.Footer className="py-1">
+							<span className="small text-muted font-italic">{formattedDate}</span>
+						</Card.Footer>
 					</Card>
 				</Col>
 		</>

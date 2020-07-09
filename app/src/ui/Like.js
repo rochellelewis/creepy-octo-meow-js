@@ -139,7 +139,7 @@ export const Like = ({profileId, postId}) => {
     <>
       <Button variant="outline-danger" size="sm" className={`post-like-btn ${(isLiked !== null ? isLiked : "")}`} disabled={!jwt && true} onClick={clickLike}>
         <FontAwesomeIcon icon="heart"/>&nbsp;
-        <Badge variant="danger">{likeCount}</Badge>
+        <Badge className="text-light">{likeCount}</Badge>
       </Button>
     </>
   )

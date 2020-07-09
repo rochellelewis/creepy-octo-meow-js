@@ -71,7 +71,7 @@ export const PostEdit = (props) => {
 
 	return (
 		<>
-			<Button onClick={handleShow} variant="outline-secondary" size="sm" className="mr-2">
+			<Button onClick={handleShow} variant="outline-light" size="sm" className="mr-2">
 				<FontAwesomeIcon icon="pencil-alt"/>
 			</Button>
 
