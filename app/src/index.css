@@ -12,104 +12,104 @@ h2, .h2,
 h3, .h3,
 h4, .h4,
 .navbar-brand {
-  font-family: 'Audiowide', sans-serif;
+	font-family: 'Audiowide', sans-serif;
 }
 
 button {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 hr {
-  border-color: rgba(0,0,0,0.15);
+	border-color: rgba(0,0,0,0.15);
 }
 
 /* UTILS */
 .mh-80 {
-  min-height: 80vh;
+	min-height: 80vh;
 }
 
 .mh-100 {
-  min-height: 100vh;
+	min-height: 100vh;
 }
 
 .bg-shadow-light {
-  background-color: rgba(255,255,255,0.15);
+	background-color: rgba(255,255,255,0.15);
 }
 
 .bg-shadow-dark {
-  background-color: rgba(0,0,0,0.3);
+	background-color: rgba(0,0,0,0.3);
 }
 
 .text-shadow-dark {
-  text-shadow: 1px 1px #000;
+	text-shadow: 1px 1px #000;
 }
 
 .bg-transparent-90 {
-  background-color: rgba(255,255,255,0.9);
+	background-color: rgba(255,255,255,0.9);
 }
 
 @media screen and (min-width: 768px) {
-  .position-fixed-md {
-    position: fixed;
-  }
+	.position-fixed-md {
+		position: fixed;
+	}
 }
 
 /* GLOBAL */
 /* this is how to apply a background image */
 #root {
-  /*background: url("ui/shared/img/bg-cat.jpg") no-repeat center left fixed;*/
-  /*background-size: cover;*/
-  background-color: #000;
+	/*background: url("ui/shared/img/bg-cat.jpg") no-repeat center left fixed;*/
+	/*background-size: cover;*/
+	background-color: #000;
 }
 
 /* HEADER */
 nav {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+	border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 div.dropdown-item.sign-out-dropdown:active,
 div.dropdown-item.sign-out-dropdown:hover,
 .dropdown-item.active, .dropdown-item:active {
-  background-color: transparent;
+	background-color: transparent;
 }
 
 /* POSTS */
 .posts-form-panel {
-  z-index: 999;
+	z-index: 999;
 }
 
 .posts-panel {
-  margin-top: 60px;
+	margin-top: 60px;
 }
 
 /* border color for post cards */
 div.card.bg-dark .border-bottom {
-  border-color: rgba(0, 0, 0, 0.125) !important;
+	border-color: rgba(0, 0, 0, 0.125) !important;
 }
 
 /* no pointer on disabled like button! */
 button.post-like-btn:disabled {
-  cursor: unset;
+	cursor: unset;
 }
 
 @media only screen and (min-width: 768px){
-  .posts-panel {
-    margin-top: 0;
-  }
+	.posts-panel {
+		margin-top: 0;
+	}
 }
 
 @media only screen and (max-width: 768px) {
-  .posts-form-panel.panel-position-reset {
-    position: static !important;
-  }
+	.posts-form-panel.panel-position-reset {
+		position: static !important;
+	}
 }
 
 button,
 .card,
 .badge,
 .modal-content {
-  border-radius: 0 !important;
-  border: none;
+	border-radius: 0 !important;
+	border: none;
 }
 
 /* remove box shadow on persistent button focus state */
@@ -117,5 +117,5 @@ button,
 .btn-outline-danger:focus, .btn-outline-danger.focus,
 .btn-outline-danger:not(:disabled):not(.disabled).active:focus,
 .btn-outline-danger:focus, .btn-outline-danger.focus {
-  box-shadow: none;
+	box-shadow: none;
 }
