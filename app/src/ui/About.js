@@ -21,9 +21,9 @@ export const About = () => {
         <section className="d-flex align-items-center flex-grow-1">
           <Container fluid className="py-5">
             <Row>
-              <Col md={6} lg={5}>
+              <Col md={6} lg={5} className="text-light">
                 <h1>About Us</h1>
-                <Card className="border-0 rounded-0 bg-transparent-90">
+                <Card className="bg-dark text-light">
                   <Card.Body>
                     <h4>We specialize in extraordinary meow experiences.</h4>
                     <hr/>
@@ -33,7 +33,7 @@ export const About = () => {
                 </Card>
                 <div className="my-2 text-right">
                   <span className="font-italic">Don't have an account?&nbsp;&nbsp;</span>
-                  <Link className="btn btn-primary btn-sm" to="/signup">Sign up today!</Link>
+                  <Link className="btn btn-warning btn-sm rounded-0" to="/signup">Sign up today!</Link>
                 </div>
               </Col>
             </Row>
