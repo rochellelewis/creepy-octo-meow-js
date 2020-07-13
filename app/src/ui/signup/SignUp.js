@@ -23,7 +23,7 @@ export const SignUp = () => {
           <Container fluid className="py-5">
             <Row>
               <Col md={6} lg={{span: 4, offset: 1}}>
-                <Card className="bg-transparent-90 border-0 rounded-0 h-100">
+                <Card className="bg-dark text-light h-100">
                   <Card.Header>
                     <h3>Sign Up!</h3>
                   </Card.Header>
@@ -33,7 +33,7 @@ export const SignUp = () => {
                 </Card>
               </Col>
               <Col md={6} lg={{span: 4, offset: 2}}>
-                <Card className="bg-transparent-90 border-0 rounded-0 h-100">
+                <Card className="bg-dark text-light h-100">
                   <Card.Header>
                     <h3>Privacy Notice:</h3>
                   </Card.Header>
