@@ -1,5 +1,5 @@
 /***
-* Meow App 7.0 Theme
+* Meow App 8.0 Theme
 * ...in progress :P
 * @author rlewis37@cnm.edu
 ***/
@@ -17,10 +17,6 @@ h4, .h4,
 
 button {
 	cursor: pointer;
-}
-
-hr {
-	border-color: rgba(0,0,0,0.15);
 }
 
 /* UTILS */
@@ -63,14 +59,22 @@ hr {
 }
 
 /* HEADER */
-nav {
-	border-bottom: 1px solid rgba(255,255,255,0.1);
-}
 
 div.dropdown-item.sign-out-dropdown:active,
 div.dropdown-item.sign-out-dropdown:hover,
 .dropdown-item.active, .dropdown-item:active {
 	background-color: transparent;
+}
+
+/* corrects react-bootstrap styling flaws */
+.dropdown-menu {
+	border-radius: 0;
+	background-color: #343a40;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+	color: inherit !important;
+	background-color: transparent !important;
 }
 
 /* POSTS */

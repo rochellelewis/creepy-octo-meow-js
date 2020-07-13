@@ -55,7 +55,7 @@ export const NavBar = () => {
                   </div>
                   <div className="dropdown-divider"/>
                   <div className="dropdown-item sign-out-dropdown">
-                    <button className="btn btn-outline-dark" onClick={signOut}>
+                    <button className="btn btn-outline-light" onClick={signOut}>
                       Sign Out&nbsp;&nbsp;<FontAwesomeIcon icon="sign-out-alt" />
                     </button>
                   </div>
