@@ -73,7 +73,7 @@ export const ProfileEdit = (props) => {
 
   return (
     <>
-      <Button onClick={handleShow} variant="outline-secondary">
+      <Button onClick={handleShow} variant="outline-light">
         <FontAwesomeIcon icon="pencil-alt"/>
       </Button>
 

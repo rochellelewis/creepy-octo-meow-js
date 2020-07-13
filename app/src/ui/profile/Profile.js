@@ -42,7 +42,7 @@ export const Profile = ({match}) => {
           <Container fluid className="py-5">
             <Row>
               <Col md="6">
-                <Card className="bg-transparent-90">
+                <Card className="bg-dark text-light">
                   <Card.Header className="d-flex">
                     <h2 className="my-0 flex-grow-1">Hello, {profile && profile.profileUsername}!</h2>
 
