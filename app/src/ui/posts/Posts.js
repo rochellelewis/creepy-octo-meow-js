@@ -83,7 +83,7 @@ export const Posts = () => {
 
   return (
     <>
-      <main className="mh-100 d-flex flex-column posts">
+      <main className="vh-100 d-flex flex-column posts">
         {/* HEADER AND NAVBAR - INCLUDING MOBILE OPTIONS */}
         <header className="fixed-top">
           <NavBar/>

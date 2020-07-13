@@ -10,7 +10,7 @@ import Col from "react-bootstrap/Col";
 export const FourOhFour = () => {
   return (
     <>
-      <main className="mh-100 d-flex flex-column">
+      <main className="vh-100 d-flex flex-column">
 
         <header>
           <NavBar/>
