@@ -42,10 +42,10 @@ export const Home = () => {
                   </>
                 ) : (
                   <div>
-                    <span className="h2 mr-2 mb-3 d-inline-block text-light">You're logged in!</span>
+                    <span className="h1 mr-2 mb-3 d-inline-block text-light">You're logged in!</span>
                     &nbsp;
                     <Link to="/posts">
-                      <Button className="btn-sm mb-2" variant="outline-light">Head to Posts&nbsp;&nbsp;
+                      <Button className="mb-2" variant="outline-light" size="lg">Head to Posts&nbsp;&nbsp;
                         <FontAwesomeIcon icon="arrow-right" />
                       </Button>
                     </Link>
