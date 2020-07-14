@@ -77,9 +77,8 @@ h4, .h4,
 
 /* apply background image and color here */
 #root {
-	/*background: url("ui/shared/img/bg-cat.jpg") no-repeat center left fixed;*/
-	/*background-size: cover;*/
-	background-color: #000;
+	background: url("ui/shared/img/nyan-cat.jpg") no-repeat top right fixed #000;
+	background-size: cover;
 }
 
 /***********************************************
