@@ -1,10 +1,65 @@
-/***
-* Meow App 8.0 Theme
-* ...in progress :P
-* @author rlewis37@cnm.edu
-***/
+/***********************************************
+* Meow App 8.0 Theme ...in progress :P
+*
+* @author Rochelle Lewis rlewis37@cnm.edu
+************************************************/
 
-/* GLOBAL */
+/***********************************************
+* AUTHOR UTILITY CLASSES
+************************************************/
+.vh-100 {
+	min-height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+	.position-fixed-md {
+		position: fixed;
+	}
+}
+
+/***********************************************
+* REACT BOOTSTRAP OVERRIDES
+************************************************/
+button {
+	cursor: pointer;
+}
+
+button,
+.card,
+.badge,
+.modal-content {
+	border-radius: 0 !important;
+	border: none;
+}
+
+/* no pointer on disabled like buttons! */
+button.post-like-btn:disabled {
+	cursor: unset;
+}
+
+/* corrects react-bootstrap styling flaws */
+.navbar-dark .dropdown-menu {
+	border-radius: 0;
+	background-color: #343a40;
+}
+
+.navbar-dark .dropdown-item:hover,
+.navbar-dark .dropdown-item:focus {
+	color: inherit !important;
+	background-color: transparent !important;
+}
+
+/* remove box shadow on persistent button focus state */
+.btn:focus, .btn.focus,
+.btn-outline-danger:focus, .btn-outline-danger.focus,
+.btn-outline-danger:not(:disabled):not(.disabled).active:focus,
+.btn-outline-danger:focus, .btn-outline-danger.focus {
+	box-shadow: none;
+}
+
+/***********************************************
+* MEOW APP CUSTOM THEME STYLES
+************************************************/
 @import url('https://fonts.googleapis.com/css?family=Audiowide');
 
 h1, .h1,
@@ -15,66 +70,30 @@ h4, .h4,
 	font-family: 'Audiowide', sans-serif;
 }
 
-button {
-	cursor: pointer;
-}
-
-/* UTILS */
-
-.vh-100 {
-	min-height: 100vh;
-}
-
-.bg-shadow-light {
-	background-color: rgba(255,255,255,0.15);
-}
-
-.bg-shadow-dark {
-	background-color: rgba(0,0,0,0.3);
-}
-
-.text-shadow-dark {
-	text-shadow: 1px 1px #000;
-}
-
-.bg-transparent-90 {
-	background-color: rgba(255,255,255,0.9);
-}
-
-@media screen and (min-width: 768px) {
-	.position-fixed-md {
-		position: fixed;
-	}
-}
-
-/* GLOBAL */
-/* this is how to apply a background image */
+/* apply background image and color here */
 #root {
 	/*background: url("ui/shared/img/bg-cat.jpg") no-repeat center left fixed;*/
 	/*background-size: cover;*/
 	background-color: #000;
 }
 
-/* HEADER */
-
+/***********************************************
+* NAVBAR / HEADER
+************************************************/
 div.dropdown-item.sign-out-dropdown:active,
 div.dropdown-item.sign-out-dropdown:hover,
 .dropdown-item.active, .dropdown-item:active {
 	background-color: transparent;
 }
 
-/* corrects react-bootstrap styling flaws */
-.dropdown-menu {
-	border-radius: 0;
-	background-color: #343a40;
+/***********************************************
+* POSTS
+************************************************/
+/* place background image and colors here */
+.posts-content-wrap {
+	background-color: #000;
 }
 
-.dropdown-item:hover, .dropdown-item:focus {
-	color: inherit !important;
-	background-color: transparent !important;
-}
-
-/* POSTS */
 .posts-form-panel {
 	z-index: 999;
 }
@@ -88,11 +107,6 @@ div.card.bg-dark .border-bottom {
 	border-color: rgba(0, 0, 0, 0.125) !important;
 }
 
-/* no pointer on disabled like button! */
-button.post-like-btn:disabled {
-	cursor: unset;
-}
-
 @media only screen and (min-width: 768px){
 	.posts-panel {
 		margin-top: 0;
@@ -103,20 +117,4 @@ button.post-like-btn:disabled {
 	.posts-form-panel.panel-position-reset {
 		position: static !important;
 	}
-}
-
-button,
-.card,
-.badge,
-.modal-content {
-	border-radius: 0 !important;
-	border: none;
-}
-
-/* remove box shadow on persistent button focus state */
-.btn:focus, .btn.focus,
-.btn-outline-danger:focus, .btn-outline-danger.focus,
-.btn-outline-danger:not(:disabled):not(.disabled).active:focus,
-.btn-outline-danger:focus, .btn-outline-danger.focus {
-	box-shadow: none;
 }

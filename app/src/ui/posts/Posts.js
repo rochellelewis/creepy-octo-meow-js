@@ -116,7 +116,7 @@ export const Posts = () => {
           )}
         </header>
 
-        <section className="my-5">
+        <section className="py-5 posts-content-wrap">
           <Container fluid className="py-5">
             <Row>
 
@@ -194,7 +194,6 @@ export const Posts = () => {
 
           </Container>
         </section>
-
       </main>
     </>
   )
