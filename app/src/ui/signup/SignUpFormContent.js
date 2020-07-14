@@ -128,7 +128,7 @@ export const SignUpFormContent = (props) => {
 				</Form.Group>
 
 				<Form.Group className="text-md-right">
-					<Button variant="primary" type="submit">
+					<Button variant="light" type="submit">
 						<FontAwesomeIcon icon="paw"/>&nbsp;Join Us!
 					</Button>
 				</Form.Group>

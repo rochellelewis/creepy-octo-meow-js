@@ -125,7 +125,7 @@ export const Posts = () => {
 
                 {/* DESKTOP SEARCH FORM - SHOW ON MD SCREENS UP ONLY */}
                 { width > 768 && (
-                  <Card bg="dark" className="mb-3">
+                  <Card className="mb-3 bg-black">
                     <Card.Body>
                       <Form>
                         <FormLabel className="h4 text-light">Search Posts</FormLabel>
@@ -156,7 +156,7 @@ export const Posts = () => {
                     </Modal>
                   ) : (
                     /* DESKTOP POST FORM */
-                    <Card bg="dark" variant="dark" className="mb-3">
+                    <Card variant="dark" className="mb-3 bg-black">
 
                       <Card.Body>
                         <h2 className="d-none d-md-block  text-light">Post A Meow</h2>
@@ -166,11 +166,11 @@ export const Posts = () => {
                   )
                 ) : (
                   /* DISPLAY THIS IF NOT LOGGED IN */
-                  <Card bg="dark" className="mb-3">
+                  <Card className="mb-3 bg-black">
                     <Card.Body>
-                      <h2 className="mb-3">Please log in to post a meow.</h2>
-                      <Link to="/" className="btn btn-outline-dark mr-3">Sign In</Link>
-                      <Link to="/signup" className="btn btn-dark">Sign Up</Link>
+                      <h2 className="mb-3 text-light rounded-0">Please log in to post a meow.</h2>
+                      <Link to="/" className="btn btn-outline-light mr-3 rounded-0">Sign In</Link>
+                      <Link to="/signup" className="btn btn-light">Sign Up</Link>
                     </Card.Body>
                   </Card>
                 )}

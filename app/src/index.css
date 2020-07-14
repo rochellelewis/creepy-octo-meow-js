@@ -24,6 +24,14 @@
 	}
 }
 
+.bg-dark-50 {
+	background-color: rgba(0,0,0,0.5) !important;
+}
+
+.bg-black {
+	background-color: #000;
+}
+
 /***********************************************
 * REACT BOOTSTRAP OVERRIDES
 ************************************************/
@@ -47,7 +55,7 @@ button.post-like-btn:disabled {
 /* corrects react-bootstrap styling flaws */
 .navbar-dark .dropdown-menu {
 	border-radius: 0;
-	background-color: #343a40;
+	background-color: #000;
 }
 
 .navbar-dark .dropdown-item:hover,
@@ -123,7 +131,8 @@ nav.navbar.navbar-dark {
 .welcome span.h1 {
 	font-family: 'Bungee Shade', 'Roboto', sans-serif;
 	font-size: 4rem;
-	text-shadow: -5px 5px rebeccapurple;
+	/*text-shadow: -4px 4px rebeccapurple;*/
+	/*color: yellow !important;*/
 }
 /***********************************************
 * POSTS
@@ -136,9 +145,16 @@ nav.navbar.navbar-dark {
 	margin-top: 60px;
 }
 
+.posts .card-header .panel-title {
+	/*color: magenta;*/
+}
+
 /* border color for post cards */
-div.card.bg-dark .border-bottom {
-	border-color: rgba(0, 0, 0, 0.125) !important;
+div.card.border,
+div.card-footer,
+div.card-header,
+div.card-body {
+	border-color: rgba(255,255,255, 0.125) !important;
 }
 
 @media only screen and (min-width: 768px){

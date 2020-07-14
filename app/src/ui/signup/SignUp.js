@@ -23,9 +23,9 @@ export const SignUp = () => {
           <Container fluid className="py-5">
             <Row>
               <Col md={6} lg={{span: 4, offset: 1}}>
-                <Card className="bg-dark text-light h-100">
+                <Card className="bg-dark-50 border text-light h-100">
                   <Card.Header>
-                    <h3>Sign Up!</h3>
+                    <h3 className="mb-0">Sign Up!</h3>
                   </Card.Header>
                   <Card.Body>
                     <SignUpForm/>
@@ -33,9 +33,9 @@ export const SignUp = () => {
                 </Card>
               </Col>
               <Col md={6} lg={{span: 4, offset: 2}}>
-                <Card className="bg-dark text-light h-100">
+                <Card className="bg-dark-50 text-light h-100">
                   <Card.Header>
-                    <h3>Privacy Notice:</h3>
+                    <h3 className="mb-0">Privacy Notice:</h3>
                   </Card.Header>
                   <Card.Body>
                     <p>This app has been created for public educational purposes. <span className="font-weight-bold">Profile usernames, email addresses, and posts created here will be publicly viewable via the API</span>, so please keep this in mind before you sign up.</p>
