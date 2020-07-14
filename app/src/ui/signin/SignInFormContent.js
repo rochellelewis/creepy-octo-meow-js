@@ -93,12 +93,6 @@ export const SignInFormContent = (props) => {
             {/*<FormDebugger {...props}/>*/}
 
           </Form>
-
-          <div className="my-2">
-            <span className="font-weight-light font-italic">Don't have an account?&nbsp;</span>
-            <Link to="/signup">Sign Up</Link>
-          </div>
-
         </Card.Body>
       </Card>
 
