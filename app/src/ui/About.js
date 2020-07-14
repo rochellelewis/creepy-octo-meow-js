@@ -12,7 +12,7 @@ import Card from "react-bootstrap/Card";
 export const About = () => {
   return (
     <>
-      <main className="vh-100 d-flex flex-column">
+      <main className="mh-100 d-flex flex-column">
 
         <header>
           <NavBar/>

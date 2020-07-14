@@ -32,7 +32,7 @@ export const Profile = ({match}) => {
 
   return (
     <>
-      <main className="vh-100 d-flex flex-column">
+      <main className="mh-100 d-flex flex-column">
 
         <header>
           <NavBar/>

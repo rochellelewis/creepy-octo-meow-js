@@ -7,7 +7,12 @@
 /***********************************************
 * AUTHOR UTILITY CLASSES
 ************************************************/
-.vh-100 {
+/* .mh-100 is a bootstrap class that we've modified here
+* for this layout.
+*
+* See: https://getbootstrap.com/docs/4.5/utilities/sizing/#relative-to-the-parent
+ */
+.mh-100 {
 	min-height: 100vh;
 }
 
@@ -89,11 +94,6 @@ div.dropdown-item.sign-out-dropdown:hover,
 /***********************************************
 * POSTS
 ************************************************/
-/* place background image and colors here */
-.posts-content-wrap {
-	background-color: #000;
-}
-
 .posts-form-panel {
 	z-index: 999;
 }

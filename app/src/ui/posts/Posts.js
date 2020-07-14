@@ -83,7 +83,7 @@ export const Posts = () => {
 
   return (
     <>
-      <main className="vh-100 d-flex flex-column posts">
+      <main className="mh-100 d-flex flex-column posts">
         {/* HEADER AND NAVBAR - INCLUDING MOBILE OPTIONS */}
         <header className="fixed-top">
           <NavBar/>
@@ -116,7 +116,7 @@ export const Posts = () => {
           )}
         </header>
 
-        <section className="py-5 posts-content-wrap">
+        <section className="py-5">
           <Container fluid className="py-5">
             <Row>
 
