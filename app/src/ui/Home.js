@@ -20,16 +20,16 @@ export const Home = () => {
 
   return (
     <>
-      <main className="mh-100 d-flex flex-column">
+      <main className="mh-100 d-flex flex-column welcome">
 
         <header>
           <NavBar/>
         </header>
 
         <section className="d-flex align-items-center flex-grow-1">
-          <Container fluid>
+          <Container>
             <Row>
-              <Col sm={6} lg={{span: 4, offset: 1}}>
+              <Col md={6}>
 
                 {/* only render the signin form if user does not have a jwt, otherwise output a message for logged in users */}
                 {jwt === null ? (

@@ -3,6 +3,8 @@
 *
 * @author Rochelle Lewis rlewis37@cnm.edu
 ************************************************/
+/*@import url('https://fonts.googleapis.com/css?family=Audiowide');*/
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee+Shade&family=Press+Start+2P&display=swap');
 
 /***********************************************
 * AUTHOR UTILITY CLASSES
@@ -65,8 +67,6 @@ button.post-like-btn:disabled {
 /***********************************************
 * MEOW APP CUSTOM THEME STYLES
 ************************************************/
-@import url('https://fonts.googleapis.com/css?family=Audiowide');
-
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -114,6 +114,17 @@ div.dropdown-item.sign-out-dropdown:hover,
 	background-color: transparent;
 }
 
+nav.navbar.navbar-dark {
+	background-color: rgba(0,0,0,1);
+}
+/***********************************************
+* HOME
+************************************************/
+.welcome span.h1 {
+	font-family: 'Bungee Shade', 'Roboto', sans-serif;
+	font-size: 4rem;
+	text-shadow: -5px 5px rebeccapurple;
+}
 /***********************************************
 * POSTS
 ************************************************/
