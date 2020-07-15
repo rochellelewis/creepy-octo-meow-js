@@ -10,7 +10,7 @@ import Col from "react-bootstrap/Col";
 export const FourOhFour = () => {
   return (
     <>
-      <main className="mh-100 d-flex flex-column">
+      <main className="mh-100 d-flex flex-column not-found">
 
         <header>
           <NavBar/>
@@ -20,7 +20,7 @@ export const FourOhFour = () => {
           <Container fluid>
             <Row>
               <Col>
-                <h1>404 Error: Y U NO FIND?</h1>
+                <h1 className="font-bungee-shade color-krylon-sun-yellow">404 Error: Y U NO FIND?</h1>
               </Col>
             </Row>
           </Container>
