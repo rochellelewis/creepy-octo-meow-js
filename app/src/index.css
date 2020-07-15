@@ -3,7 +3,6 @@
 *
 * @author Rochelle Lewis rlewis37@cnm.edu
 ************************************************/
-/*@import url('https://fonts.googleapis.com/css?family=Audiowide');*/
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee+Shade&family=Press+Start+2P&display=swap');
 
 /* some classic krylon spraypaint color variables :D */
@@ -23,14 +22,14 @@
 .font-press-start {
 	font-family: 'Press Start 2P', monospace;
 }
+
 /***********************************************
 * AUTHOR UTILITY CLASSES
 ************************************************/
-/* .mh-100 is a bootstrap class that we've modified here
-* for this layout.
-*
+/**
+* .mh-100 is a bootstrap class that we've modified here for this layout.
 * See: https://getbootstrap.com/docs/4.5/utilities/sizing/#relative-to-the-parent
- */
+**/
 .mh-100 {
 	min-height: 100vh;
 }
@@ -70,7 +69,7 @@
 }
 
 /***********************************************
-* BOOTSTRAP OVERRIDES
+* MEOW APP CUSTOM THEME STYLES
 ************************************************/
 
 /* only hard edges here */
@@ -86,38 +85,26 @@ a.btn,
 	border-radius: 0 !important;
 }
 
-button {
-	cursor: pointer;
-}
-
-/* no pointer on disabled like buttons! */
-button.post-like-btn:disabled {
-	cursor: unset;
-}
-
-/* remove box shadow on persistent button focus state */
-.btn:focus, .btn.focus,
-.btn-outline-danger:focus, .btn-outline-danger.focus,
-.btn-outline-danger:not(:disabled):not(.disabled).active:focus,
-.btn-outline-danger:focus, .btn-outline-danger.focus {
-	box-shadow: none;
-}
-
-/***********************************************
-* MEOW APP CUSTOM THEME STYLES
-************************************************/
 h1, .h1,
 h2, .h2,
 h3, .h3,
 h4, .h4,
 .navbar-brand {
-	font-family: 'Audiowide', sans-serif;
+	font-family: 'Audiowide', monospace, sans-serif;
 }
 
 /* apply background image and fallback color here */
 #root {
 	background: url("ui/shared/img/nyan-cat.jpg") no-repeat top right fixed #000;
 	background-size: cover;
+}
+
+/* border color for our dark cards */
+div.card.border,
+div.card-footer,
+div.card-header,
+div.card-body {
+	border-color: rgba(255,255,255, 0.125) !important;
 }
 
 /***********************************************
@@ -147,6 +134,10 @@ html {
 /***********************************************
 * NAVBAR / HEADER
 ************************************************/
+nav.navbar.navbar-dark {
+	background-color: rgba(0,0,0,1);
+}
+
 .navbar-dark .dropdown-menu {
 	background-color: #000;
 }
@@ -164,10 +155,6 @@ div.dropdown-item.sign-out-dropdown:hover,
 	background-color: transparent;
 }
 
-nav.navbar.navbar-dark {
-	background-color: rgba(0,0,0,1);
-}
-
 /***********************************************
 * HOME
 ************************************************/
@@ -176,6 +163,7 @@ nav.navbar.navbar-dark {
 	font-size: 4rem;
 	color: var(--krylon-sun-yellow) !important;
 }
+
 /***********************************************
 * POSTS
 ************************************************/
@@ -187,14 +175,7 @@ nav.navbar.navbar-dark {
 	margin-top: 60px;
 }
 
-/* border color for post cards */
-div.card.border,
-div.card-footer,
-div.card-header,
-div.card-body {
-	border-color: rgba(255,255,255, 0.125) !important;
-}
-
+/* custom form styles for the post panel */
 .posts-form-panel .form-control {
 	color: var(--krylon-seafoam);
 }
@@ -303,8 +284,40 @@ footer .badge-dark {
 }
 
 /***********************************************
+* SIGNUP
+************************************************/
+.signup .form-control,
+.signup .input-group-text {
+	background-color: rgba(0,0,0,0.75);
+	border-color: var(--krylon-seafoam);
+	color: var(--krylon-seafoam);
+}
+
+.signup .form-control:focus {
+	background-color: rgba(255,255,255,0.125);
+	border-color: var(--krylon-seafoam);
+	color: var(--krylon-seafoam);
+}
+
+/***********************************************
 * CUSTOM BUTTONS
 ************************************************/
+button {
+	cursor: pointer;
+}
+
+/* no pointer on disabled like buttons! */
+button.post-like-btn:disabled {
+	cursor: unset;
+}
+
+/* remove box shadow on persistent button focus state */
+.btn:focus, .btn.focus,
+.btn-outline-danger:focus, .btn-outline-danger.focus,
+.btn-outline-danger:not(:disabled):not(.disabled).active:focus,
+.btn-outline-danger:focus, .btn-outline-danger.focus {
+	box-shadow: none;
+}
 
 /* outline seafoam */
 .btn-outline-seafoam {
