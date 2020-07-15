@@ -72,8 +72,8 @@ export const PostFormContent = (props) => {
 				</Form.Group>
 
 				<Form.Group>
-					<Button variant="light" type="submit" className="mr-2">Meow!</Button>
-					<Button variant="outline-light" type="reset" onClick={handleReset}>Reset</Button>
+					<Button variant="seafoam" type="submit" className="mr-2">Meow!</Button>
+					<Button variant="outline-seafoam" type="reset" onClick={handleReset}>Reset</Button>
 				</Form.Group>
 
 				{/*for testing purposes only*/}

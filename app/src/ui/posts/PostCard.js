@@ -68,7 +68,7 @@ export const PostCard = ({post}) => {
 					<Card className="mb-3 bg-dark-50 border text-light">
 						<Card.Header>
 							{/*<h3 className="panel-title my-0" dangerouslySetInnerHTML={{ __html: post.postTitle }}/>*/}
-							<h3 className="panel-title my-0">{DecodeCharacters(post.postTitle)}
+							<h3 className="panel-title my-0 color-krylon-watermelon">{DecodeCharacters(post.postTitle)}
 							</h3>
 						</Card.Header>
 						<Card.Body className="border-bottom">

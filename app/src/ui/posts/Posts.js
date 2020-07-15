@@ -128,7 +128,7 @@ export const Posts = () => {
                   <Card className="mb-3 bg-black">
                     <Card.Body>
                       <Form>
-                        <FormLabel className="h4 text-light">Search Posts</FormLabel>
+                        <FormLabel className="h4 color-krylon-seafoam">Search Posts</FormLabel>
                         <Form.Control type="text"
                                       placeholder="Search"
                                       id="search-text"
@@ -157,9 +157,8 @@ export const Posts = () => {
                   ) : (
                     /* DESKTOP POST FORM */
                     <Card variant="dark" className="mb-3 bg-black">
-
                       <Card.Body>
-                        <h2 className="d-none d-md-block  text-light">Post A Meow</h2>
+                        <h2 className="d-none d-md-block color-krylon-seafoam">Post A Meow</h2>
                         <PostForm/>
                       </Card.Body>
                     </Card>
@@ -169,8 +168,8 @@ export const Posts = () => {
                   <Card className="mb-3 bg-black">
                     <Card.Body>
                       <h2 className="mb-3 color-krylon-seafoam">Please log in to post a meow.</h2>
-                      <Link to="/" className="btn btn-outline-light mr-3">Sign In</Link>
-                      <Link to="/signup" className="btn btn-light">Sign Up</Link>
+                      <Link to="/" className="btn btn-outline-seafoam mr-3">Sign In</Link>
+                      <Link to="/signup" className="btn btn-seafoam">Sign Up</Link>
                     </Card.Body>
                   </Card>
                 )}

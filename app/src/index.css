@@ -183,22 +183,12 @@ nav.navbar.navbar-dark {
 	margin-top: 60px;
 }
 
-.posts .card-header .panel-title {
-	color: var(--krylon-watermelon);
-}
-
 /* border color for post cards */
 div.card.border,
 div.card-footer,
 div.card-header,
 div.card-body {
 	border-color: rgba(255,255,255, 0.125) !important;
-}
-
-/* post form panel colors */
-.posts-form-panel .h4,
-.posts-form-panel h2 {
-	color: var(--krylon-seafoam) !important;
 }
 
 .posts-form-panel .form-control {
@@ -216,25 +206,6 @@ div.card-body {
 	color: var(--krylon-seafoam);
 }
 
-/* post form panel light btn styles */
-.posts-form-panel .btn-light {
-	background-color: var(--krylon-seafoam);
-	border-color: var(--krylon-seafoam);
-}
-
-.posts-form-panel .btn-outline-light {
-	color: var(--krylon-seafoam);
-	border-color: var(--krylon-seafoam);
-}
-
-.posts-form-panel .btn-outline-light:not(:disabled):not(.disabled):active,
-.posts-form-panel .btn-outline-light:not(:disabled):not(.disabled).active,
-.posts-form-panel .btn-outline-light:hover {
-	background-color: var(--krylon-seafoam);
-	border-color: var(--krylon-seafoam);
-	color: #000;
-}
-
 /* mobile post options */
 .mobile-post-options {
 	background-color: var(--krylon-seafoam);
@@ -247,39 +218,42 @@ div.card-body {
 }
 
 .mobile-post-options input#search-text::placeholder,
+.mobile-post-options input#search-text::-moz-placeholder,
+.mobile-post-options input#search-text::-webkit-input-placeholder,
 .mobile-post-options input#search-text::-ms-input-placeholder {
 	color: #fff !important;
 	opacity: 1 !important;
 }
 
 /* flip button colors on light modal window on mobile */
-#mobile-postform-modal button.btn-light {
+#mobile-postform-modal button.btn-seafoam {
 	background-color: #343a40;
 	border-color: #343a40;
 	color: #f8f9fa;
 }
 
-#mobile-postform-modal .btn-light:focus,
-#mobile-postform-modal .btn-light.focus {
+#mobile-postform-modal .btn-seafoam:focus,
+#mobile-postform-modal .btn-seafoam.focus {
 	color: #fff;
 	background-color: #23272b;
 	border-color: #1d2124;
 	box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
 }
 
-#mobile-postform-modal button.btn-outline-light {
+#mobile-postform-modal button.btn-outline-seafoam {
 	color: #343a40;
 	border-color: #343a40;
 }
 
-#mobile-postform-modal .btn-outline-dark:not(:disabled):not(.disabled):active,
-#mobile-postform-modal .btn-outline-dark:not(:disabled):not(.disabled).active {
+#mobile-postform-modal .btn-outline-seafoam:not(:disabled):not(.disabled):active,
+#mobile-postform-modal .btn-outline-seafoam:not(:disabled):not(.disabled).active {
 	color: #fff;
 	background-color: #343a40;
 	border-color: #343a40;
 }
 
-.btn-outline-light:focus, .btn-outline-light.focus {
+.btn-outline-seafoam:focus,
+.btn-outline-seafoam.focus {
 	box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5) !important;
 }
 
@@ -339,6 +313,25 @@ div.card-body {
 	background-color: var(--krylon-seafoam);
 	border-color: var(--krylon-seafoam);
 	color: #000;
+}
+
+/* solid seafoam */
+.btn-seafoam {
+	background-color: var(--krylon-seafoam);
+	color: #000;
+	border-color: var(--krylon-seafoam);
+}
+
+.btn-seafoam:active,
+.btn-seafoam:not(:disabled):not(.disabled):active {
+	color: #212529;
+	background-color: #dae0e5;
+	border-color: #d3d9df;
+}
+
+.btn-seafoam:active:focus,
+.btn-seafoam:not(:disabled):not(.disabled):active:focus {
+	box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
 }
 
 /* outline sun yellow */
