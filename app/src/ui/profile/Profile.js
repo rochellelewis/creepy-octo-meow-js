@@ -44,16 +44,16 @@ export const Profile = ({match}) => {
               <Col md="6">
                 <Card className="bg-dark-50">
                   <Card.Header className="d-flex">
-                    <h2 className="my-0 flex-grow-1">Hello, {profile && profile.profileUsername}!</h2>
+                    <h2 className="m-0 flex-grow-1 align-self-center color-krylon-sun-yellow font-press-start profile-username">Hello, {profile && profile.profileUsername}!</h2>
 
-                    {/* deal w/ component lifecycle issues - only render the ProfileEdit component when there is a profile ready to pass in */}
+                    {/* deal w/ component lifecycle issues - only render the ProfileEdit button/component when there is a profile ready to pass in */}
                     {profile && <ProfileEdit profile={profile}/>}
 
                   </Card.Header>
-                  <Card.Body>
+                  <Card.Body className="color-krylon-seafoam">
                     <div><span className="font-weight-bold">Username</span>: {profile && profile.profileUsername}</div>
 
-                    {/* only show the private profile data if the user's jwt profileId matches */}
+                    {/* only show private profile data if the user's jwt profileId matches!!! */}
                     {(profile && profile.profileId === currentProfileId) && (
                       <>
                         <div><span className="font-weight-bold">Your Profile Id</span>: {profile && profile.profileId}</div>
