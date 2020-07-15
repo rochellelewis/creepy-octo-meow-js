@@ -130,7 +130,7 @@ export const ProfileEditFormContent = (props) => {
         </Form.Group>
 
         <Form.Group>
-          <Button variant="primary" type="submit" className="mr-2">
+          <Button variant="dark" type="submit" className="mr-2">
             <FontAwesomeIcon icon="paw"/>&nbsp;Update!
           </Button>
           <Button variant="outline-dark" type="reset" onClick={handleReset}>Reset</Button>

@@ -172,7 +172,6 @@ nav.navbar.navbar-dark {
 
 .btn-outline-danger:not(:disabled):not(.disabled):active,
 .btn-outline-danger:not(:disabled):not(.disabled).active,
-.show > .btn-outline-danger.dropdown-toggle,
 .btn-outline-danger:hover {
 	background-color: var(--krylon-watermelon);
 	border-color: var(--krylon-watermelon);
@@ -284,4 +283,25 @@ div.card-body {
 	.posts-form-panel.panel-position-reset {
 		position: static !important;
 	}
+}
+
+/***********************************************
+* PROFILE
+************************************************/
+.profile .card-body,
+.profile .card-header h2 {
+	color: var(--krylon-sun-yellow);
+}
+
+.profile .card .btn-outline-light {
+	color: var(--krylon-sun-yellow);
+	border-color: var(--krylon-sun-yellow);
+}
+
+.profile .card .btn-outline-light:not(:disabled):not(.disabled):active,
+.profile .card .btn-outline-light:not(:disabled):not(.disabled).active,
+.profile .card .btn-outline-light:hover {
+	background-color: var(--krylon-sun-yellow);
+	border-color: var(--krylon-sun-yellow);
+	color: #000;
 }
