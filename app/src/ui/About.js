@@ -12,7 +12,7 @@ import Card from "react-bootstrap/Card";
 export const About = () => {
   return (
     <>
-      <main className="mh-100 d-flex flex-column">
+      <main className="mh-100 d-flex flex-column about">
 
         <header>
           <NavBar/>
@@ -21,11 +21,11 @@ export const About = () => {
         <section className="d-flex align-items-center flex-grow-1">
           <Container fluid className="py-5">
             <Row>
-              <Col md={6} lg={5} className="text-light">
-                <h1>About Us</h1>
-                <Card className="bg-black text-light bg-dark-50 border mb-3">
+              <Col lg={6} className="text-light">
+                <h1 className="mb-4 font-bungee-shade color-krylon-sun-yellow">About Us</h1>
+                <Card className="bg-dark-50 border mb-3">
                   <Card.Header>
-                    <h4 className="mb-0">We specialize in extraordinary meow experiences.</h4>
+                    <h4 className="mb-0 color-krylon-seafoam">We specialize in extraordinary meow experiences.</h4>
                   </Card.Header>
                   <Card.Body>
                     <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
@@ -34,7 +34,7 @@ export const About = () => {
                 </Card>
                 <div className="my-2 text-right">
                   <span className="font-italic">Don't have an account?&nbsp;&nbsp;</span>
-                  <Link className="btn btn-outline-light rounded-0" to="/signup">Sign up today!</Link>
+                  <Link className="btn btn-outline-seafoam" to="/signup">Sign up today!</Link>
                 </div>
               </Col>
             </Row>

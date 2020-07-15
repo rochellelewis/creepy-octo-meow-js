@@ -16,6 +16,9 @@
 	--krylon-purple: #2E1745;
 }
 
+.font-bungee-shade {
+	font-family: 'Bungee Shade', 'Roboto', sans-serif;
+}
 /***********************************************
 * AUTHOR UTILITY CLASSES
 ************************************************/
@@ -61,6 +64,7 @@
 		position: fixed;
 	}
 }
+
 /***********************************************
 * BOOTSTRAP OVERRIDES
 ************************************************/
@@ -320,6 +324,45 @@ div.card-body {
 .profile .card .btn-outline-light:not(:disabled):not(.disabled):active,
 .profile .card .btn-outline-light:not(:disabled):not(.disabled).active,
 .profile .card .btn-outline-light:hover {
+	background-color: var(--krylon-sun-yellow);
+	border-color: var(--krylon-sun-yellow);
+	color: #000;
+}
+
+/***********************************************
+* ABOUT
+************************************************/
+.about h1 {
+	font-size: 3.5rem;
+}
+
+/***********************************************
+* CUSTOM BUTTONS
+************************************************/
+
+/* outline seafoam */
+.btn-outline-seafoam {
+	color: var(--krylon-seafoam);
+	border-color: var(--krylon-seafoam);
+}
+
+.btn-outline-seafoam:not(:disabled):not(.disabled):active,
+.btn-outline-seafoam:not(:disabled):not(.disabled).active,
+.btn-outline-seafoam:hover {
+	background-color: var(--krylon-seafoam);
+	border-color: var(--krylon-seafoam);
+	color: #000;
+}
+
+/* outline sun yellow */
+.btn-outline-sun-yellow {
+	color: var(--krylon-sun-yellow);
+	border-color: var(--krylon-sun-yellow);
+}
+
+.btn-outline-sun-yellow:not(:disabled):not(.disabled):active,
+.btn-outline-sun-yellow:not(:disabled):not(.disabled).active,
+.btn-outline-sun-yellow:hover {
 	background-color: var(--krylon-sun-yellow);
 	border-color: var(--krylon-sun-yellow);
 	color: #000;
