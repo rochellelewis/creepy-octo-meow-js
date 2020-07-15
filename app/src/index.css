@@ -187,19 +187,6 @@ nav.navbar.navbar-dark {
 	color: var(--krylon-watermelon);
 }
 
-/* like button theme */
-.btn-outline-danger {
-	color: var(--krylon-watermelon);
-	border-color: var(--krylon-watermelon);
-}
-
-.btn-outline-danger:not(:disabled):not(.disabled):active,
-.btn-outline-danger:not(:disabled):not(.disabled).active,
-.btn-outline-danger:not(:disabled):hover {
-	background-color: var(--krylon-watermelon);
-	border-color: var(--krylon-watermelon);
-}
-
 /* border color for post cards */
 div.card.border,
 div.card-footer,
@@ -366,4 +353,19 @@ div.card-body {
 	background-color: var(--krylon-sun-yellow);
 	border-color: var(--krylon-sun-yellow);
 	color: #000;
+}
+
+/* outline watermelon */
+.btn-outline-watermelon,
+.btn-outline-watermelon:disabled {
+	color: var(--krylon-watermelon);
+	border-color: var(--krylon-watermelon);
+}
+
+.btn-outline-watermelon:not(:disabled):not(.disabled):active,
+.btn-outline-watermelon:not(:disabled):not(.disabled).active,
+.btn-outline-watermelon:not(:disabled):hover {
+	background-color: var(--krylon-watermelon);
+	border-color: var(--krylon-watermelon);
+	color: #fff;
 }
