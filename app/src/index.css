@@ -28,12 +28,6 @@
 	min-height: 100vh;
 }
 
-@media screen and (min-width: 768px) {
-	.position-fixed-md {
-		position: fixed;
-	}
-}
-
 .bg-dark-50 {
 	background-color: rgba(0,0,0,0.5) !important;
 }
@@ -42,12 +36,38 @@
 	background-color: #000;
 }
 
+.color-krylon-watermelon {
+	color: var(--krylon-watermelon) !important;
+}
+.color-krylon-seafoam {
+	color: var(--krylon-seafoam) !important;
+}
+.color-krylon-sun-yellow {
+	color: var(--krylon-sun-yellow) !important;
+}
+.color-krylon-global-blue {
+	color: var(--krylon-global-blue) !important;
+}
+.color-krylon-rich-plum {
+	color: var(--krylon-rich-plum) !important;
+}
+.color-krylon-purple {
+	color: var(--krylon-purple) !important;
+}
+
+/* sets position: fixed on md breakpoint */
+@media screen and (min-width: 768px) {
+	.position-fixed-md {
+		position: fixed;
+	}
+}
 /***********************************************
 * BOOTSTRAP OVERRIDES
 ************************************************/
 
 /* only hard edges here */
 button,
+a.btn,
 .card,
 .badge,
 .modal-content,
@@ -143,10 +163,9 @@ nav.navbar.navbar-dark {
 /***********************************************
 * HOME
 ************************************************/
-.welcome span.h1 {
+.welcome .h1 {
 	font-family: 'Bungee Shade', 'Roboto', sans-serif;
 	font-size: 4rem;
-	/*text-shadow: -4px 4px var(--krylon-global-blue);*/
 	color: var(--krylon-sun-yellow) !important;
 }
 /***********************************************
@@ -172,7 +191,7 @@ nav.navbar.navbar-dark {
 
 .btn-outline-danger:not(:disabled):not(.disabled):active,
 .btn-outline-danger:not(:disabled):not(.disabled).active,
-.btn-outline-danger:hover {
+.btn-outline-danger:not(:disabled):hover {
 	background-color: var(--krylon-watermelon);
 	border-color: var(--krylon-watermelon);
 }

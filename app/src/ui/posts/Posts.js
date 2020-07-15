@@ -168,8 +168,8 @@ export const Posts = () => {
                   /* DISPLAY THIS IF NOT LOGGED IN */
                   <Card className="mb-3 bg-black">
                     <Card.Body>
-                      <h2 className="mb-3 text-light rounded-0">Please log in to post a meow.</h2>
-                      <Link to="/" className="btn btn-outline-light mr-3 rounded-0">Sign In</Link>
+                      <h2 className="mb-3 color-krylon-seafoam">Please log in to post a meow.</h2>
+                      <Link to="/" className="btn btn-outline-light mr-3">Sign In</Link>
                       <Link to="/signup" className="btn btn-light">Sign Up</Link>
                     </Card.Body>
                   </Card>

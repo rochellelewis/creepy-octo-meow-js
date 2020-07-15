@@ -34,16 +34,19 @@ export const Home = () => {
                 {/* only render the signin form if user does not have a jwt, otherwise output a message for logged in users */}
                 {jwt === null ? (
                   <>
-                    <SignInForm/>
-                    <div className="px-3">
-                      <span className="font-weight-light font-italic text-muted">Don't have an account?&nbsp;</span>
-                      <Link to="/signup">Sign Up</Link>
-                    </div>
+                    <Row>
+                      <Col lg={8}>
+                        <SignInForm/>
+                        <div>
+                          <span className="font-weight-light font-italic text-muted">Don't have an account?&nbsp;</span>
+                          <Link className="color-krylon-seafoam" to="/signup">Sign Up</Link>
+                        </div>
+                      </Col>
+                    </Row>
                   </>
                 ) : (
                   <div>
-                    <span className="h1 mr-2 mb-3 d-inline-block text-light">You're logged in!</span>
-                    &nbsp;
+                    <div className="h1 mb-4">You're logged in!</div>
                     <Link to="/posts">
                       <Button className="mb-2" variant="outline-light" size="lg">Head to Posts&nbsp;&nbsp;
                         <FontAwesomeIcon icon="arrow-right" />
