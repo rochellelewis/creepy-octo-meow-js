@@ -90,7 +90,7 @@ export const Posts = () => {
 
           {/* MOBILE POST OPTIONS - POST & SEARCH BUTTONS */}
           { width < 768 && (
-            <Container className="mobile-post-options py-4 bg-warning">
+            <Container className="mobile-post-options py-4">
               <Row>
                 <Col className="col-6 text-center">
                   <Button variant="outline-dark" onClick={handleShow} className="btn-block btn-lg"><FontAwesomeIcon icon="edit" />&nbsp;Post</Button>
@@ -146,7 +146,7 @@ export const Posts = () => {
                 {jwt !== null ? (
                   width < 768 ? (
                     /* MOBILE POST FORM - MODAL */
-                    <Modal show={show} onHide={handleClose} centered>
+                    <Modal id="mobile-postform-modal" show={show} onHide={handleClose} centered>
                       <Modal.Header closeButton>
                         <Modal.Title>Post A Meow</Modal.Title>
                       </Modal.Header>

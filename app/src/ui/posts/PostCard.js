@@ -74,7 +74,7 @@ export const PostCard = ({post}) => {
 						<Card.Body className="border-bottom">
 							<div className="d-flex align-items-center">
 								<div className="flex-grow-1">
-									<Badge className="p-1 mr-2" variant="secondary">By:&nbsp;
+									<Badge className="p-2 mr-2" variant="dark">By:&nbsp;
 										<PostUsername profileId={post.postProfileId} />
 									</Badge>
 								</div>
@@ -82,7 +82,7 @@ export const PostCard = ({post}) => {
 								{/* conditional render del & edit buttons if logged into account that created them! */}
 								{(profileId === post.postProfileId) && (
 									<>
-										<Button onClick={deletePost} variant="outline-light" size="sm" className="mr-2">
+										<Button onClick={deletePost} variant="outline-secondary" size="sm" className="mr-2">
 											<FontAwesomeIcon icon="trash-alt"/>
 										</Button>
 										<PostEdit post={post}/>

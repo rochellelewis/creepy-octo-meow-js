@@ -6,6 +6,16 @@
 /*@import url('https://fonts.googleapis.com/css?family=Audiowide');*/
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee+Shade&family=Press+Start+2P&display=swap');
 
+/* some classic krylon spraypaint color variables :D */
+:root {
+	--krylon-watermelon: #D23B68;
+	--krylon-seafoam: #9AD7DB;
+	--krylon-sun-yellow: #F9D71C;
+	--krylon-global-blue: #4352B0;
+	--krylon-rich-plum: #7A0569;
+	--krylon-purple: #2E1745;
+}
+
 /***********************************************
 * AUTHOR UTILITY CLASSES
 ************************************************/
@@ -33,35 +43,28 @@
 }
 
 /***********************************************
-* REACT BOOTSTRAP OVERRIDES
+* BOOTSTRAP OVERRIDES
 ************************************************/
-button {
-	cursor: pointer;
-}
 
+/* only hard edges here */
 button,
 .card,
 .badge,
-.modal-content {
+.modal-content,
+.form-control,
+.input-group-text,
+.alert,
+.dropdown-menu {
 	border-radius: 0 !important;
-	border: none;
+}
+
+button {
+	cursor: pointer;
 }
 
 /* no pointer on disabled like buttons! */
 button.post-like-btn:disabled {
 	cursor: unset;
-}
-
-/* corrects react-bootstrap styling flaws */
-.navbar-dark .dropdown-menu {
-	border-radius: 0;
-	background-color: #000;
-}
-
-.navbar-dark .dropdown-item:hover,
-.navbar-dark .dropdown-item:focus {
-	color: inherit !important;
-	background-color: transparent !important;
 }
 
 /* remove box shadow on persistent button focus state */
@@ -83,7 +86,7 @@ h4, .h4,
 	font-family: 'Audiowide', sans-serif;
 }
 
-/* apply background image and color here */
+/* apply background image and fallback color here */
 #root {
 	background: url("ui/shared/img/nyan-cat.jpg") no-repeat top right fixed #000;
 	background-size: cover;
@@ -116,6 +119,17 @@ html {
 /***********************************************
 * NAVBAR / HEADER
 ************************************************/
+.navbar-dark .dropdown-menu {
+	background-color: #000;
+}
+
+/* this corrects a react bootstrap fuckup */
+.navbar-dark .dropdown-item:hover,
+.navbar-dark .dropdown-item:focus {
+	color: inherit !important;
+	background-color: transparent !important;
+}
+
 div.dropdown-item.sign-out-dropdown:active,
 div.dropdown-item.sign-out-dropdown:hover,
 .dropdown-item.active, .dropdown-item:active {
@@ -125,14 +139,15 @@ div.dropdown-item.sign-out-dropdown:hover,
 nav.navbar.navbar-dark {
 	background-color: rgba(0,0,0,1);
 }
+
 /***********************************************
 * HOME
 ************************************************/
 .welcome span.h1 {
 	font-family: 'Bungee Shade', 'Roboto', sans-serif;
 	font-size: 4rem;
-	/*text-shadow: -4px 4px rebeccapurple;*/
-	/*color: yellow !important;*/
+	/*text-shadow: -4px 4px var(--krylon-global-blue);*/
+	color: var(--krylon-sun-yellow) !important;
 }
 /***********************************************
 * POSTS
@@ -146,7 +161,21 @@ nav.navbar.navbar-dark {
 }
 
 .posts .card-header .panel-title {
-	/*color: magenta;*/
+	color: var(--krylon-watermelon);
+}
+
+/* like button theme */
+.btn-outline-danger {
+	color: var(--krylon-watermelon);
+	border-color: var(--krylon-watermelon);
+}
+
+.btn-outline-danger:not(:disabled):not(.disabled):active,
+.btn-outline-danger:not(:disabled):not(.disabled).active,
+.show > .btn-outline-danger.dropdown-toggle,
+.btn-outline-danger:hover {
+	background-color: var(--krylon-watermelon);
+	border-color: var(--krylon-watermelon);
 }
 
 /* border color for post cards */
@@ -155,6 +184,94 @@ div.card-footer,
 div.card-header,
 div.card-body {
 	border-color: rgba(255,255,255, 0.125) !important;
+}
+
+/* post form panel colors */
+.posts-form-panel .h4,
+.posts-form-panel h2 {
+	color: var(--krylon-seafoam) !important;
+}
+
+.posts-form-panel .form-control {
+	color: var(--krylon-seafoam);
+}
+
+.posts-form-panel .form-control {
+	background-color: rgba(255,255,255,0.125);
+	border-color: rgba(255,255,255,0.175);
+}
+
+.posts-form-panel .form-control:focus {
+	/*background-color: rgba(255,255,255,0.175);*/
+	border-color: var(--krylon-seafoam);
+	color: var(--krylon-seafoam);
+}
+
+/* post form panel light btn styles */
+.posts-form-panel .btn-light {
+	background-color: var(--krylon-seafoam);
+	border-color: var(--krylon-seafoam);
+}
+
+.posts-form-panel .btn-outline-light {
+	color: var(--krylon-seafoam);
+	border-color: var(--krylon-seafoam);
+}
+
+.posts-form-panel .btn-outline-light:not(:disabled):not(.disabled):active,
+.posts-form-panel .btn-outline-light:not(:disabled):not(.disabled).active,
+.posts-form-panel .btn-outline-light:hover {
+	background-color: var(--krylon-seafoam);
+	border-color: var(--krylon-seafoam);
+	color: #000;
+}
+
+/* mobile post options */
+.mobile-post-options {
+	background-color: var(--krylon-seafoam);
+}
+
+.mobile-post-options input#search-text {
+	background-color: rgba(0,0,0,0.6);
+	border-color: rgba(0,0,0,0.7);
+	color: #fff;
+}
+
+.mobile-post-options input#search-text::placeholder,
+.mobile-post-options input#search-text::-ms-input-placeholder {
+	color: #fff !important;
+	opacity: 1 !important;
+}
+
+/* flip button colors on light modal window on mobile */
+#mobile-postform-modal button.btn-light {
+	background-color: #343a40;
+	border-color: #343a40;
+	color: #f8f9fa;
+}
+
+#mobile-postform-modal .btn-light:focus,
+#mobile-postform-modal .btn-light.focus {
+	color: #fff;
+	background-color: #23272b;
+	border-color: #1d2124;
+	box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
+}
+
+#mobile-postform-modal button.btn-outline-light {
+	color: #343a40;
+	border-color: #343a40;
+}
+
+#mobile-postform-modal .btn-outline-dark:not(:disabled):not(.disabled):active,
+#mobile-postform-modal .btn-outline-dark:not(:disabled):not(.disabled).active {
+	color: #fff;
+	background-color: #343a40;
+	border-color: #343a40;
+}
+
+.btn-outline-light:focus, .btn-outline-light.focus {
+	box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5) !important;
 }
 
 @media only screen and (min-width: 768px){
