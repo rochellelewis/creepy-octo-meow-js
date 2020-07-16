@@ -73,6 +73,10 @@
 	word-break: break-word;
 	word-wrap: break-word;
 }
+
+.small-75 {
+	font-size: 75% !important;
+}
 /***********************************************
 * MEOW APP CUSTOM THEME STYLES
 ************************************************/
@@ -256,10 +260,6 @@ div.dropdown-item.sign-out-dropdown:hover,
 .btn-outline-seafoam:focus,
 .btn-outline-seafoam.focus {
 	box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5) !important;
-}
-
-.posts .card-footer span {
-	font-size: 70%;
 }
 
 @media only screen and (min-width: 768px){
