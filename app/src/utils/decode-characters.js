@@ -11,8 +11,8 @@ export const DecodeCharacters = (text) => {
   let decodedText = text;
 
   const entityCodes = {
-    "\'": "&quot;",
-    "\"": "&#x27;",
+    "\'": "&#x27;",
+    "\"": "&quot;",
     "/": "&#x2F;",
     "&": "&amp;",
     "<": "&lt;",
