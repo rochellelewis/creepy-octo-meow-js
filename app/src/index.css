@@ -301,8 +301,8 @@ footer .badge-dark {
 .signup .form-control,
 .signup .input-group-text {
 	background-color: rgba(0,0,0,0.75);
-	border-color: var(--krylon-seafoam);
-	color: var(--krylon-seafoam);
+	border-color: #fff;
+	color: #fff;
 }
 
 .signup .form-control:focus {

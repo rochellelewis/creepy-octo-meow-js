@@ -25,7 +25,7 @@ export const SignUp = () => {
               <Col md={6} lg={{span: 4, offset: 1}}>
                 <Card className="bg-dark-50 border h-100">
                   <Card.Header>
-                    <h3 className="mb-0 color-krylon-seafoam">Sign Up!</h3>
+                    <h3 className="mb-0 text-light">Sign Up!</h3>
                   </Card.Header>
                   <Card.Body>
                     <SignUpForm/>
