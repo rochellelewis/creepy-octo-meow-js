@@ -71,7 +71,7 @@ export const PostCard = ({post}) => {
 							<h3 className="panel-title my-0 color-krylon-watermelon">{DecodeCharacters(post.postTitle)}
 							</h3>
 						</Card.Header>
-						<Card.Body className="border-bottom">
+						<Card.Body className="p-2 border-bottom">
 							<div className="d-flex align-items-center">
 								<div className="flex-grow-1">
 									<Badge className="p-2 mr-2" variant="dark">By:&nbsp;
@@ -94,12 +94,12 @@ export const PostCard = ({post}) => {
 
 							</div>
 						</Card.Body>
-						<Card.Body>
+						<Card.Body className="text-justify">
 							{/*<Card.Text dangerouslySetInnerHTML={{ __html: post.postContent }}/>*/}
 							<Card.Text>{DecodeCharacters(post.postContent)}</Card.Text>
 						</Card.Body>
-						<Card.Footer className="py-1">
-							<span className="small text-muted font-italic">{formattedDate}</span>
+						<Card.Footer className="p-2 d-flex">
+							<span className="text-muted font-italic">{formattedDate}</span>
 						</Card.Footer>
 					</Card>
 				</Col>
