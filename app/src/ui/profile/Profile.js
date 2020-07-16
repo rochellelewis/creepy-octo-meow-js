@@ -41,16 +41,16 @@ export const Profile = ({match}) => {
         <section className="d-flex align-items-center flex-grow-1">
           <Container fluid className="py-5">
             <Row>
-              <Col md="6">
-                <Card className="bg-dark-50">
+              <Col md="7">
+                <Card className="bg-dark-50 border">
                   <Card.Header className="d-flex">
-                    <h2 className="m-0 flex-grow-1 align-self-center color-krylon-sun-yellow font-press-start profile-username">Hello, {profile && profile.profileUsername}!</h2>
+                    <h1 className="m-0 flex-grow-1 align-self-center color-krylon-sun-yellow break-word">Hello, {profile && profile.profileUsername}!</h1>
 
                     {/* deal w/ component lifecycle issues - only render the ProfileEdit button/component when there is a profile ready to pass in */}
                     {profile && <ProfileEdit profile={profile}/>}
 
                   </Card.Header>
-                  <Card.Body className="color-krylon-seafoam">
+                  <Card.Body className="text-light">
                     <div><span className="font-weight-bold">Username</span>: {profile && profile.profileUsername}</div>
 
                     {/* only show private profile data if the user's jwt profileId matches!!! */}

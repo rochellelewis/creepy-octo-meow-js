@@ -68,6 +68,11 @@
 	}
 }
 
+/* this is preferable to bootstrap's out of date word-wrap class */
+.break-word {
+	word-break: break-word;
+	word-wrap: break-word;
+}
 /***********************************************
 * MEOW APP CUSTOM THEME STYLES
 ************************************************/
@@ -263,14 +268,6 @@ div.dropdown-item.sign-out-dropdown:hover,
 	.posts-form-panel.panel-position-reset {
 		position: static !important;
 	}
-}
-
-/***********************************************
-* PROFILE
-************************************************/
-.profile-username {
-	font-size: 1.3rem;
-	word-break: break-word;
 }
 
 /***********************************************
