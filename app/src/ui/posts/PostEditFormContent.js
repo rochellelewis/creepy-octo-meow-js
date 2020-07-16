@@ -55,7 +55,7 @@ export const PostEditFormContent = (props) => {
             <FormControl
               id="postContent"
               as="textarea"
-              rows="5"
+              rows="8"
               onChange={handleChange}
               onBlur={handleBlur}
               placeholder="Update Post Content"
