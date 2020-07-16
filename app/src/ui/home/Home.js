@@ -1,11 +1,12 @@
 import React from "react"
 import {Link} from "react-router-dom";
 
-import {SignInForm} from './signin/SignInForm'
-import { NavBar } from './shared/components/NavBar'
-import { Footer } from './shared/components/Footer'
+import './Home.css';
+import {SignInForm} from '../signin/SignInForm'
+import { NavBar } from '../shared/navbar/NavBar'
+import { Footer } from '../shared/footer/Footer'
 
-import {UseJwt} from "../utils/jwt-helpers";
+import {UseJwt} from "../../utils/jwt-helpers";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

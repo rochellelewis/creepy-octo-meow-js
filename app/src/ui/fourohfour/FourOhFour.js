@@ -1,7 +1,8 @@
 import React from "react"
 
-import { Footer } from './shared/components/Footer'
-import { NavBar } from './shared/components/NavBar'
+import './FourOhFour.css'
+import { Footer } from '../shared/footer/Footer'
+import { NavBar } from '../shared/navbar/NavBar'
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

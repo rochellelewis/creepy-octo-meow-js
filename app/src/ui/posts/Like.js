@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
 import _ from "lodash";
-import {httpConfig} from "../utils/http-config";
-import {UseJwt} from "../utils/jwt-helpers";
+import {httpConfig} from "../../utils/http-config";
+import {UseJwt} from "../../utils/jwt-helpers";
 // import {handleSessionTimeout} from "../shared/misc/handle-session-timeout";
 
 // import {isEmpty} from "../shared/misc/js-object-helpers";

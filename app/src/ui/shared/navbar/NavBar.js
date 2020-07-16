@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 
 import {UseJwt, UseJwtProfileId, UseJwtUsername} from "../../../utils/jwt-helpers";
 
+import './NavBar.css';
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";

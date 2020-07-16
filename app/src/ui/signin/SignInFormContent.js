@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-import {FormDebugger} from "../shared/components/FormDebugger";
+import {FormDebugger} from "../shared/FormDebugger";
 
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";

@@ -1,6 +1,6 @@
 import React from "react";
 
-import {FormDebugger} from "../shared/components/FormDebugger";
+import {FormDebugger} from "../shared/FormDebugger";
 
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";

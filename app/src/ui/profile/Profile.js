@@ -4,8 +4,8 @@ import {useSelector, useDispatch} from "react-redux";
 import {UseJwtProfileId} from "../../utils/jwt-helpers";
 import {fetchProfileByProfileId} from '../../store/profiles'
 
-import { NavBar } from '../shared/components/NavBar'
-import { Footer } from '../shared/components/Footer'
+import { NavBar } from '../shared/navbar/NavBar'
+import { Footer } from '../shared/footer/Footer'
 import { ProfileEdit } from './ProfileEdit'
 
 import Container from "react-bootstrap/Container";

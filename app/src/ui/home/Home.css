@@ -1,0 +1,8 @@
+/***********************************************
+* HOME
+************************************************/
+.welcome .h1 {
+	font-family: 'Bungee Shade', 'Roboto', sans-serif;
+	font-size: 4rem;
+	color: var(--krylon-sun-yellow) !important;
+}

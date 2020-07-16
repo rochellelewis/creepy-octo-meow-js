@@ -6,7 +6,7 @@ import {UseJwt, UseJwtProfileId} from "../../utils/jwt-helpers";
 import { DecodeCharacters } from '../../utils/decode-characters';
 // import {handleSessionTimeout} from "../../shared/misc/handle-session-timeout";
 
-import {Like} from "../Like";
+import {Like} from "./Like";
 import {PostEdit} from "./PostEdit";
 import {PostUsername} from "./PostUsername";
 

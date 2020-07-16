@@ -1,11 +1,12 @@
 /***********************************************
-* Meow App 8.0 Theme ...in progress :P
+* Meow App 8.0 Theme ...in progress, forever :P
+* Main Stylesheet
 *
 * @author Rochelle Lewis rlewis37@cnm.edu
 ************************************************/
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee+Shade&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee+Shade&display=swap');
 
-/* some classic krylon spraypaint color variables :D */
+/* some classic krylon spraypaint color variables for our meow theme :D */
 :root {
 	--krylon-watermelon: #D23B68;
 	--krylon-seafoam: #9AD7DB;
@@ -15,19 +16,11 @@
 	--krylon-purple: #2E1745;
 }
 
-.font-bungee-shade {
-	font-family: 'Bungee Shade', 'Roboto', sans-serif;
-}
-
-.font-press-start {
-	font-family: 'Press Start 2P', monospace;
-}
-
 /***********************************************
 * AUTHOR UTILITY CLASSES
 ************************************************/
 /**
-* .mh-100 is a bootstrap class that we've modified here for this layout.
+* .mh-100 is a bootstrap class that we've modified/boosted here for this layout.
 * See: https://getbootstrap.com/docs/4.5/utilities/sizing/#relative-to-the-parent
 **/
 .mh-100 {
@@ -61,11 +54,8 @@
 	color: var(--krylon-purple) !important;
 }
 
-/* sets position: fixed on md breakpoint */
-@media screen and (min-width: 768px) {
-	.position-fixed-md {
-		position: fixed;
-	}
+.font-bungee-shade {
+	font-family: 'Bungee Shade', 'Roboto', sans-serif;
 }
 
 /* this is preferable to bootstrap's out of date word-wrap class */
@@ -77,9 +67,23 @@
 .small-75 {
 	font-size: 75% !important;
 }
+
+/* sets position: fixed on md breakpoint */
+@media screen and (min-width: 768px) {
+	.position-fixed-md {
+		position: fixed;
+	}
+}
+
 /***********************************************
 * MEOW APP CUSTOM THEME STYLES
 ************************************************/
+
+/* apply background image and fallback color here */
+#root {
+	background: url("ui/shared/img/nyan-cat.jpg") no-repeat top right fixed #000;
+	background-size: cover;
+}
 
 /* only hard edges here */
 button,
@@ -102,12 +106,6 @@ h4, .h4,
 	font-family: 'Audiowide', monospace, sans-serif;
 }
 
-/* apply background image and fallback color here */
-#root {
-	background: url("ui/shared/img/nyan-cat.jpg") no-repeat top right fixed #000;
-	background-size: cover;
-}
-
 /* border color for our dark cards */
 div.card.border,
 div.card-footer,
@@ -117,202 +115,7 @@ div.card-body {
 }
 
 /***********************************************
-* DARK THEME SCROLLBAR!
-* Author: @subfauna
-* See: https://codepen.io/subfauna/pen/CLtmF
-************************************************/
-html {
-	scrollbar-face-color: #646464;
-	scrollbar-base-color: #646464;
-	scrollbar-3dlight-color: #646464;
-	scrollbar-highlight-color: #646464;
-	scrollbar-track-color: #000;
-	scrollbar-arrow-color: #000;
-	scrollbar-shadow-color: #646464;
-	scrollbar-dark-shadow-color: #646464;
-}
-
-::-webkit-scrollbar { width: 8px; height: 3px;}
-::-webkit-scrollbar-button {  background-color: #666; }
-::-webkit-scrollbar-track {  background-color: #646464;}
-::-webkit-scrollbar-track-piece { background-color: #000;}
-::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
-::-webkit-scrollbar-corner { background-color: #646464;}
-::-webkit-resizer { background-color: #666;}
-
-/***********************************************
-* NAVBAR / HEADER
-************************************************/
-nav.navbar.navbar-dark {
-	background-color: rgba(0,0,0,1);
-}
-
-.navbar-dark .navbar-nav .nav-link {
-	font-family: monospace;
-	font-size: 1rem;
-	color: #fff;
-}
-
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link:focus {
-	color: var(--krylon-seafoam);
-}
-
-.navbar-dark .dropdown-menu {
-	background-color: #000;
-}
-
-/* this corrects a react bootstrap fuckup */
-.navbar-dark .dropdown-item:hover,
-.navbar-dark .dropdown-item:focus {
-	color: inherit !important;
-	background-color: transparent !important;
-}
-
-div.dropdown-item.sign-out-dropdown:active,
-div.dropdown-item.sign-out-dropdown:hover,
-.dropdown-item.active, .dropdown-item:active {
-	background-color: transparent;
-}
-
-/***********************************************
-* HOME
-************************************************/
-.welcome .h1 {
-	font-family: 'Bungee Shade', 'Roboto', sans-serif;
-	font-size: 4rem;
-	color: var(--krylon-sun-yellow) !important;
-}
-
-/***********************************************
-* POSTS
-************************************************/
-.posts-form-panel {
-	z-index: 999;
-}
-
-.posts-panel {
-	margin-top: 60px;
-}
-
-/* custom form styles for the post panel */
-.posts-form-panel .form-control {
-	color: var(--krylon-seafoam);
-}
-
-.posts-form-panel .form-control {
-	background-color: rgba(255,255,255,0.125);
-	border-color: rgba(255,255,255,0.175);
-}
-
-.posts-form-panel .form-control:focus {
-	/*background-color: rgba(255,255,255,0.175);*/
-	border-color: var(--krylon-seafoam);
-	color: var(--krylon-seafoam);
-}
-
-/* mobile post options */
-.mobile-post-options {
-	background-color: var(--krylon-seafoam);
-}
-
-.mobile-post-options input#search-text {
-	background-color: rgba(0,0,0,0.6);
-	border-color: rgba(0,0,0,0.7);
-	color: #fff;
-}
-
-.mobile-post-options input#search-text::placeholder,
-.mobile-post-options input#search-text::-moz-placeholder,
-.mobile-post-options input#search-text::-webkit-input-placeholder,
-.mobile-post-options input#search-text::-ms-input-placeholder {
-	color: #fff !important;
-	opacity: 1 !important;
-}
-
-/* flip button colors on light modal window on mobile */
-#mobile-postform-modal button.btn-seafoam {
-	background-color: #343a40;
-	border-color: #343a40;
-	color: #f8f9fa;
-}
-
-#mobile-postform-modal .btn-seafoam:focus,
-#mobile-postform-modal .btn-seafoam.focus {
-	color: #fff;
-	background-color: #23272b;
-	border-color: #1d2124;
-	box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
-}
-
-#mobile-postform-modal button.btn-outline-seafoam {
-	color: #343a40;
-	border-color: #343a40;
-}
-
-#mobile-postform-modal .btn-outline-seafoam:not(:disabled):not(.disabled):active,
-#mobile-postform-modal .btn-outline-seafoam:not(:disabled):not(.disabled).active {
-	color: #fff;
-	background-color: #343a40;
-	border-color: #343a40;
-}
-
-.btn-outline-seafoam:focus,
-.btn-outline-seafoam.focus {
-	box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5) !important;
-}
-
-@media only screen and (min-width: 768px){
-	.posts-panel {
-		margin-top: 0;
-	}
-}
-
-@media only screen and (max-width: 768px) {
-	.posts-form-panel.panel-position-reset {
-		position: static !important;
-	}
-}
-
-/***********************************************
-* ABOUT
-************************************************/
-.about h1 {
-	font-size: 3.5rem;
-}
-
-/***********************************************
-* FOOTER
-************************************************/
-footer .badge-dark {
-	background-color: var(--krylon-purple);
-}
-
-/***********************************************
-* 404
-************************************************/
-.not-found h1 {
-	font-size: 4rem;
-}
-
-/***********************************************
-* SIGNUP
-************************************************/
-.signup .form-control,
-.signup .input-group-text {
-	background-color: rgba(0,0,0,0.75);
-	border-color: #fff;
-	color: #fff;
-}
-
-.signup .form-control:focus {
-	background-color: rgba(255,255,255,0.125);
-	border-color: var(--krylon-seafoam);
-	color: var(--krylon-seafoam);
-}
-
-/***********************************************
-* CUSTOM BUTTONS
+* CUSTOM MEOW BUTTONS
 ************************************************/
 button {
 	cursor: pointer;
@@ -392,3 +195,27 @@ button.post-like-btn:disabled {
 	border-color: var(--krylon-watermelon);
 	color: #fff;
 }
+
+/***********************************************
+* DARK THEME SCROLLBAR!
+* Author: @subfauna
+* See: https://codepen.io/subfauna/pen/CLtmF
+************************************************/
+html {
+	scrollbar-face-color: #646464;
+	scrollbar-base-color: #646464;
+	scrollbar-3dlight-color: #646464;
+	scrollbar-highlight-color: #646464;
+	scrollbar-track-color: #000;
+	scrollbar-arrow-color: #000;
+	scrollbar-shadow-color: #646464;
+	scrollbar-dark-shadow-color: #646464;
+}
+
+::-webkit-scrollbar { width: 8px; height: 3px;}
+::-webkit-scrollbar-button {  background-color: #666; }
+::-webkit-scrollbar-track {  background-color: #646464;}
+::-webkit-scrollbar-track-piece { background-color: #000;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #646464;}
+::-webkit-resizer { background-color: #666;}

@@ -3,10 +3,10 @@ import {Link} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
 
 // import child components
-import {NavBar} from '../shared/components/NavBar'
+import {NavBar} from '../shared/navbar/NavBar'
 import {PostForm} from "./PostForm";
 import {PostCard} from "./PostCard";
-import { Footer } from '../shared/components/Footer'
+import { Footer } from '../shared/footer/Footer'
 
 // import rlewis helpers :D
 import {UseWindowWidth} from "../../utils/window-width";
@@ -17,6 +17,7 @@ import {fetchAllLikes} from "../../store/likes";
 import {fetchAllPostsAndProfiles} from '../../store/posts';
 
 // import bootstrap stuff
+import './Posts.css';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";

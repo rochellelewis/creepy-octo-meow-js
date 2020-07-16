@@ -1,0 +1,15 @@
+/***********************************************
+* SIGNUP
+************************************************/
+.signup .form-control,
+.signup .input-group-text {
+	background-color: rgba(0,0,0,0.75);
+	border-color: #fff;
+	color: #fff;
+}
+
+.signup .form-control:focus {
+	background-color: rgba(255,255,255,0.125);
+	border-color: var(--krylon-seafoam);
+	color: var(--krylon-seafoam);
+}

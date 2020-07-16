@@ -9,14 +9,14 @@ import reducer from "./store";
 import 'bootstrap/dist/css/bootstrap.css';
 
 import "./index.css";
-import {NavBar} from "./ui/shared/components/NavBar";
-import {Footer} from "./ui/shared/components/Footer";
-import {Home} from "./ui/Home";
-import {About} from "./ui/About";
+import {NavBar} from "./ui/shared/navbar/NavBar";
+import {Footer} from "./ui/shared/footer/Footer";
+import {Home} from "./ui/home/Home";
+import {About} from "./ui/about/About";
 import {Posts} from "./ui/posts/Posts";
 import {Profile} from "./ui/profile/Profile";
 import {SignUp} from "./ui/signup/SignUp";
-import {FourOhFour} from "./ui/FourOhFour";
+import {FourOhFour} from "./ui/fourohfour/FourOhFour";
 
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {far} from "@fortawesome/free-regular-svg-icons";

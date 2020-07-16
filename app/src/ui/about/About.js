@@ -1,8 +1,9 @@
 import React from "react"
 import {Link} from "react-router-dom";
 
-import { NavBar } from './shared/components/NavBar'
-import { Footer } from './shared/components/Footer'
+import './About.css'
+import { NavBar } from '../shared/navbar/NavBar'
+import { Footer } from '../shared/footer/Footer'
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
