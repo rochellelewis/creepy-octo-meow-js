@@ -117,16 +117,17 @@ div.card-body {
 /***********************************************
 * CUSTOM MEOW BUTTONS
 ************************************************/
+/* we actually gotta set this for react bootstrap? huh. */
 button {
 	cursor: pointer;
 }
 
-/* no pointer on disabled like buttons! */
-button.post-like-btn:disabled {
+/* no pointer on disabled buttons! */
+button:disabled {
 	cursor: unset;
 }
 
-/* remove box shadow on persistent button focus state */
+/* remove persistent box shadow on pesky button focus state */
 .btn:focus, .btn.focus,
 .btn-outline-danger:focus, .btn-outline-danger.focus,
 .btn-outline-danger:not(:disabled):not(.disabled).active:focus,
