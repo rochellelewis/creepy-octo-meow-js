@@ -47,6 +47,7 @@ export const Profile = ({match}) => {
                     <h1 className="m-0 flex-grow-1 align-self-center color-krylon-sun-yellow break-word">Hello, {profile && profile.profileUsername}!</h1>
 
                     {/* deal w/ component lifecycle issues - only render the ProfileEdit button/component when there is a profile ready to pass in */}
+                    {/* todo: restrict showing this button unless profileId matches current jwt */}
                     {profile && <ProfileEdit profile={profile}/>}
 
                   </Card.Header>
