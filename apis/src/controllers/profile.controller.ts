@@ -20,6 +20,8 @@ import {setHash} from "../../utils/auth.utils";
 export async function putProfileController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
+		// todo: restrict profile edits using session profile id
+
 		// grab the profile id off of the request parameters
 		const {profileId} = request.params;
 

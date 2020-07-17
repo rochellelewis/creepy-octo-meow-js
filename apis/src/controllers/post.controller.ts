@@ -20,6 +20,7 @@ import {selectPostByPostId} from "../../utils/post/selectPostByPostId";
 export async function postPostController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
+		// todo: restrict posting to activated accounts only
 		const profile: Profile = request.session?.profile
 		const postProfileId = <string> profile.profileId
 
@@ -85,6 +86,8 @@ export async function deletePostController(request: Request, response: Response,
  **/
 export async function putPostController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
+
+		// todo: restrict editing post only to account that originally posted
 
 		// grab the post id off of the request parameters
 		const {postId} = request.params;
