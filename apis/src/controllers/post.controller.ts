@@ -20,9 +20,19 @@ import {selectPostByPostId} from "../../utils/post/selectPostByPostId";
 export async function postPostController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
-		// todo: restrict posting to activated accounts only
+		// grab profile data off of session
 		const profile: Profile = request.session?.profile
 		const postProfileId = <string> profile.profileId
+		const activationToken = <string> profile.profileActivationToken
+
+		// no posting allowed from non activated accounts
+		if(activationToken !== null) {
+			return response.json({
+				status: 418, // attempting to brew coffee with a teapot?
+				data: null,
+				message: "Please check your email and activate your account before attempting to meow."
+			});
+		}
 
 		// grab the post data off the request body
 		const {
@@ -43,7 +53,7 @@ export async function postPostController(request: Request, response: Response, n
 		return response.json({status: 200, data: null, message: result})
 
 	} catch(error) {
-		console.log(error)
+		return response.json({status: error.status, data: error.data, message: error.message})
 	}
 }
 
