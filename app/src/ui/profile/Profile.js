@@ -46,9 +46,8 @@ export const Profile = ({match}) => {
                   <Card.Header className="d-flex">
                     <h1 className="m-0 flex-grow-1 align-self-center color-krylon-sun-yellow break-word">Hello, {profile && profile.profileUsername}!</h1>
 
-                    {/* deal w/ component lifecycle issues - only render the ProfileEdit button/component when there is a profile ready to pass in */}
-                    {/* todo: restrict showing this button unless profileId matches current jwt */}
-                    {profile && <ProfileEdit profile={profile}/>}
+                    {/* Only show the profile edit button if: there is a profile, AND that profileId matches the profileId from the JWT. Whew! */}
+                    {profile && (currentProfileId === profile.profileId) && <ProfileEdit profile={profile}/>}
 
                   </Card.Header>
                   <Card.Body className="text-light">
