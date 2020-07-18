@@ -1,15 +1,15 @@
 import React from "react";
 import { useDispatch } from 'react-redux'
-
 import {httpConfig} from "../../utils/http-config";
+
+// rlewis special helpers :D
 import {UseJwt, UseJwtProfileId} from "../../utils/jwt-helpers";
 import { DecodeCharacters } from '../../utils/decode-characters';
-// import {handleSessionTimeout} from "../../shared/misc/handle-session-timeout";
+import { handleSessionTimeout } from '../../utils/session-timeout'
 
 import {Like} from "./Like";
 import {PostEdit} from "./PostEdit";
 import {PostUsername} from "./PostUsername";
-
 import {fetchAllPostsAndProfiles} from '../../store/posts'
 
 import Col from "react-bootstrap/Col";
@@ -17,7 +17,6 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { useSelector } from 'react-redux'
 
 export const PostCard = ({post}) => {
 
@@ -38,8 +37,11 @@ export const PostCard = ({post}) => {
 				headers})
 				.then(reply => {
 					let {message, type} = reply;
+
 					if(reply.status === 200) {
 						dispatch(fetchAllPostsAndProfiles())
+					} else if(reply.status === 400) {
+						handleSessionTimeout()
 					} else {
 						window.confirm(message)
 					}
@@ -79,7 +81,7 @@ export const PostCard = ({post}) => {
 									</Badge>
 								</div>
 
-								{/* conditional render del & edit buttons if logged into account that created them! */}
+								{/* conditional render del & edit buttons if logged into account that created the post! */}
 								{(profileId === post.postProfileId) && (
 									<>
 										<Button onClick={deletePost} variant="outline-secondary" size="sm" className="mr-2">
