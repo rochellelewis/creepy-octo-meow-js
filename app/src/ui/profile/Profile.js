@@ -59,7 +59,7 @@ export const Profile = ({match}) => {
                       <>
                         <div><span className="font-weight-bold">Your Profile Id</span>:&nbsp;{profile.profileId}</div>
                         <div><span className="font-weight-bold">Your Email Address</span>:&nbsp;{profile.profileEmail}</div>
-                        <div><span className="font-weight-bold">Account Activated?</span>&nbsp;{profile.profileActivationToken ? (<span>NO!&nbsp;<Button size="sm">FOO</Button></span>) : "YES!"}</div>
+                        <div><span className="font-weight-bold">Account Activated?</span>&nbsp;{profile.profileActivationToken ? ("NO! Please check your email to activate your account.") : "YES! It's all good!"}</div>
                       </>
                     )}
 
