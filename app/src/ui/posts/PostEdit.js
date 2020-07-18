@@ -15,6 +15,7 @@ import { DecodeCharacters } from '../../utils/decode-characters'
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { handleSessionTimeout } from '../../utils/session-timeout'
 
 export const PostEdit = (props) => {
 
@@ -59,12 +60,20 @@ export const PostEdit = (props) => {
 			.then(reply => {
 				let {message, type} = reply;
 				setStatus({message, type});
+
+				// if successful
 				if(reply.status === 200) {
 					dispatch(fetchAllPostsAndProfiles())
 					setTimeout(() => {
 						{handleClose()}
 					}, 750);
 				}
+
+				// if isLoggedIn.controller returns a 400, alert user and do a log out
+				if(reply.status === 400) {
+					handleSessionTimeout()
+				}
+
 				setStatus({message, type});
 			});
 	};
