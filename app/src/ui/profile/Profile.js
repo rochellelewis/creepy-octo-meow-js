@@ -12,6 +12,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import Button from 'react-bootstrap/Button'
 
 export const Profile = ({match}) => {
 
@@ -56,8 +57,9 @@ export const Profile = ({match}) => {
                     {/* only show private profile data if the user's jwt profileId matches!!! */}
                     {(profile && profile.profileId === currentProfileId) && (
                       <>
-                        <div><span className="font-weight-bold">Your Profile Id</span>: {profile && profile.profileId}</div>
-                        <div><span className="font-weight-bold">Your Email Address</span>: {profile && profile.profileEmail}</div>
+                        <div><span className="font-weight-bold">Your Profile Id</span>:&nbsp;{profile.profileId}</div>
+                        <div><span className="font-weight-bold">Your Email Address</span>:&nbsp;{profile.profileEmail}</div>
+                        <div><span className="font-weight-bold">Account Activated?</span>&nbsp;{profile.profileActivationToken ? (<span>NO!&nbsp;<Button size="sm">FOO</Button></span>) : "YES!"}</div>
                       </>
                     )}
 
