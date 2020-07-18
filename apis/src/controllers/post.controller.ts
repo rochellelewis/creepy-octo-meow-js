@@ -105,32 +105,46 @@ export async function deletePostController(request: Request, response: Response,
 export async function putPostController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
-		// todo: restrict editing post only to account that originally posted
+		// grab profile data off of session
+		const profile: Profile = request.session?.profile
+		const sessionProfileId = <string> profile.profileId
 
 		// grab the post id off of the request parameters
 		const {postId} = request.params;
 
-		// grab the post data off the request body
+		// grab the post by postId and get the postProfileId to verfiy user access
+		const post = await selectPostByPostId(postId)
+		const postProfileId = <string> post.postProfileId
+
+		// verify postProfileId matches sessionProfileId before a user attempts to edit a post
+		if(sessionProfileId !== postProfileId) {
+			return response.json({
+				status: 403, // forbidden!
+				data: null,
+				message: "You're not allowed to change this meow!"
+			});
+		}
+
+		// grab the updated post data off the request body
 		const {
-			postProfileId,
 			postContent,
 			postTitle
 		} = request.body;
 
-		// create the Post to be updated
-		const post: Post = {
+		// create the new updated Post object
+		const updatedPost: Post = {
 			postId,
-			postProfileId,
+			postProfileId, // ids won't ever get updated in mysql, but we need them here for the object regardless.
 			postContent,
-			postDate: new Date,
+			postDate: new Date, // update the postDate on change!
 			postTitle
 		}
 
-		const result = await updatePost(post)
+		const result = await updatePost(updatedPost)
 		return response.json({status: 200, data: null, message: result})
 
 	} catch(error) {
-		console.log(error)
+		return response.json({status: error.status, data: error.data, message: error.message})
 	}
 }
 
