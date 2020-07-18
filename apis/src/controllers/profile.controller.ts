@@ -20,14 +20,34 @@ import {setHash} from "../../utils/auth.utils";
 export async function putProfileController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
-		// todo: restrict profile edits using session profile id
-
 		// grab the profile id off of the request parameters
 		const {profileId} = request.params;
 
-		// grab the profile data off of the request body
+		// grab profile data off of user session
+		const sessionProfile: Profile = request.session?.profile
+		const sessionProfileId = <string> sessionProfile.profileId
+		const activationToken = <string> sessionProfile.profileActivationToken
+
+		// disallow profile editing if the account is unverified
+		if(activationToken !== null) {
+			return response.json({
+				status: 418, // attempting to brew coffee with a teapot?
+				data: null,
+				message: "Please check your email and activate your account before attempting to edit your profile."
+			});
+		}
+
+		// verify the profileId from the session matches the profileId that the user is attempting to edit
+		if(sessionProfileId !== profileId) {
+			return response.json({
+				status: 403, // forbidden!
+				data: null,
+				message: "Hey! You're not allowed to edit this account!"
+			});
+		}
+
+		// grab the updated profile data off of the request body
 		const {
-			profileActivationToken,
 			profileEmail,
 			profilePassword,
 			profileUsername
@@ -37,19 +57,19 @@ export async function putProfileController(request: Request, response: Response,
 		const profileHash = await setHash(profilePassword);
 
 		// create the Profile object to be inserted
-		const profile: Profile = {
+		const updatedProfile: Profile = {
 			profileId,
-			profileActivationToken,
+			profileActivationToken: null, // this won't get updated in mysql, but is needed to create this Profile object
 			profileEmail,
 			profileHash,
 			profileUsername
 		}
 
-		const result = await updateProfile(profile)
+		const result = await updateProfile(updatedProfile)
 		return response.json({status: 200, data: null, message: result})
 
 	} catch(error) {
-		console.log(error)
+		return response.json({status: error.status, data: error.data, message: error.message})
 	}
 }
 
