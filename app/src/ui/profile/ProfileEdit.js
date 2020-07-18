@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import {Formik} from "formik";
 
 import { UseJwt } from '../../utils/jwt-helpers'
+import { handleSessionTimeout } from '../../utils/session-timeout'
 import { fetchProfileByProfileId } from '../../store/profiles'
 
 import Button from "react-bootstrap/Button";
@@ -59,6 +60,8 @@ export const ProfileEdit = (props) => {
       .then(reply => {
         let {message, type} = reply;
         setStatus({message, type});
+
+        // if successful
         if(reply.status === 200) {
           dispatch(fetchProfileByProfileId(profile.profileId))
           setTimeout(() => {
@@ -67,6 +70,12 @@ export const ProfileEdit = (props) => {
             window.location.reload()
           }, 1000);
         }
+
+        // if isLoggedIn.controller returns a 400, alert user and do a log out
+        if(reply.status === 400) {
+          handleSessionTimeout()
+        }
+
         setStatus({message, type});
       });
   };
