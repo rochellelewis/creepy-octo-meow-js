@@ -2,7 +2,9 @@ import {connect} from "../../src/database";
 import {Profile} from "../interfaces/profile";
 
 /**
- * Updates an existing profile. This method does not update the profileActivationToken for account activation, but only allows a user to update their relevant account fields.
+ * Updates an existing profile. This method does not update the
+ * profileActivationToken for account activation, but only allows
+ * a user to update their relevant account fields.
  *
  * @param {Profile} profile to be updated
  **/
@@ -21,7 +23,9 @@ export async function updateProfile(profile: Profile) {
 }
 
 /**
- * Activates a new user profile by setting the activation token to null after sign up. This method only updates the profileActivationToken value.
+ * Activates a new user profile by setting the activation
+ * token to null after sign up. This method only updates
+ * the profileActivationToken value.
  *
  * @param {Profile} profile to be updated
  **/
