@@ -2,10 +2,8 @@ import React, {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
 import _ from "lodash";
 import {httpConfig} from "../../utils/http-config";
-import {UseJwt} from "../../utils/jwt-helpers";
-// import {handleSessionTimeout} from "../shared/misc/handle-session-timeout";
 
-// import {isEmpty} from "../shared/misc/js-object-helpers";
+import {UseJwt} from "../../utils/jwt-helpers";
 
 import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
@@ -46,15 +44,14 @@ export const Like = ({profileId, postId}) => {
   *
   * "active" is a Bootstrap class that makes the buttons red.
   *
-  * We're using a custom function isEmpty() to check for an empty object.
-  * See: js-object-helpers.js
+  * We're using the lodash function isEmpty() to check for an empty object.
+  * See: https://lodash.com/docs/#isEmpty
   * */
   const initializeLikes = (profileId) => {
     const profileLikes = likes.filter(like => like.likeProfileId === profileId);
     const liked = profileLikes.find(function(o) {return o.likePostId === postId});
 
     // if liked object is not empty make the like button red
-    // return (isEmpty(liked) === false && setIsLiked("active"));
     return (_.isEmpty(liked) === false) && setIsLiked("active");
   };
 
@@ -97,13 +94,16 @@ export const Like = ({profileId, postId}) => {
       headers: headers})
       .then(reply => {
         let {message, type} = reply;
+
+        // if successful
         if(reply.status === 200) {
           toggleLike();
           setLikeCount(likeCount + 1);
         }
-        // if there's an issue with a $_SESSION mismatch with xsrf or jwt, alert user and do a sign out
-        if(reply.status === 401) {
-          // handleSessionTimeout();
+
+        // if isLoggedIn.controller returns a 400, alert user but don't do an auto signout. That might be a bit intense in this case.
+        if(reply.status === 400) {
+          alert("Session Inactive. Please log in again.")
         }
       });
   };
@@ -117,13 +117,16 @@ export const Like = ({profileId, postId}) => {
       headers, data})
       .then(reply => {
         let {message, type} = reply;
+
+        // if successful
         if(reply.status === 200) {
           toggleLike();
           setLikeCount(likeCount > 0 ? likeCount - 1 : 0);
         }
-        // if there's an issue with a $_SESSION mismatch with xsrf or jwt, alert user and do a sign out
-        if(reply.status === 401) {
-          // handleSessionTimeout();
+
+        // if isLoggedIn.controller returns a 400, alert user but don't do an auto signout. That might be a bit intense in this case.
+        if(reply.status === 400) {
+          alert("Session Inactive. Please log in again.")
         }
       });
   };
