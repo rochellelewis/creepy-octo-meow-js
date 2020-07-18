@@ -67,23 +67,31 @@ export async function postPostController(request: Request, response: Response, n
 export async function deletePostController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
 
+		// grab profile data off of session
+		const profile: Profile = request.session?.profile
+		const sessionProfileId = <string> profile.profileId
+
 		// grab the post id off the request parameters
 		const {postId} = request.params;
 
-		// TODO: do profileId check against postProfileId to verify permission to delete
-		// grab profile from session to verify user is allowed to delete this post
-		// const profile: Profile = request.session?.profile
-		// const profileId = <string> profile.profileId
-		// console.log("profileid: " + profileId);
+		// grab post by postId and the postProfileId to verfiy user access
+		const post = await selectPostByPostId(postId)
+		const postProfileId = <string> post.postProfileId
 
-		// grab post by id
-		// const post = await selectPostByPostId(postId)
+		// verify postProfileId matches sessionProfileId before a user attempts to delete a post
+		if(sessionProfileId !== postProfileId) {
+			return response.json({
+				status: 403, // forbidden!
+				data: null,
+				message: "You're not allowed to delete this meow!"
+			});
+		}
 
 		const result = await deletePost(postId)
 		return response.json({status: 200, data: null, message: result})
 
 	} catch(error) {
-		console.log(error)
+		return response.json({status: error.status, data: error.data, message: error.message})
 	}
 }
 
