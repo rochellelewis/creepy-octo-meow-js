@@ -1,14 +1,15 @@
 import React, {useState} from "react";
 import { useDispatch } from 'react-redux'
-
 import {httpConfig} from "../../utils/http-config";
 import * as Yup from "yup";
 import {Formik} from "formik";
 
+// rlewis helpers :D
+import { UseJwt } from '../../utils/jwt-helpers'
+import { handleSessionTimeout } from '../../utils/session-timeout'
+
 import {fetchAllPostsAndProfiles} from '../../store/posts'
 import {PostFormContent} from "./PostFormContent";
-import { UseJwt } from '../../utils/jwt-helpers'
-// import {handleSessionTimeout} from "../../shared/misc/handle-session-timeout";
 
 export const PostForm = () => {
 
@@ -40,13 +41,21 @@ export const PostForm = () => {
 			.then(reply => {
 				let {message, type} = reply;
 				setStatus({message, type});
+
+				// if successful
 				if(reply.status === 200) {
 					resetForm();
 					dispatch(fetchAllPostsAndProfiles())
 					setTimeout(() => {
-						// todo: close modal window here
+						// todo: close mobile post form modal window here
 					}, 750)
 				}
+
+				// if isLoggedIn.controller returns a 400, alert user and do a log out
+				if(reply.status === 400) {
+					handleSessionTimeout()
+				}
+
 				setStatus({message, type});
 			});
 	};
