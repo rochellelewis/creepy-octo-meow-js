@@ -19,11 +19,11 @@ CREATE TABLE profile (
 CREATE TABLE post (
 	postId BINARY(16) NOT NULL,
 	postProfileId BINARY(16) NOT NULL,
-	postContent VARCHAR(2000) NOT NULL,
+	postContent VARCHAR(300) NOT NULL,
 	postDate DATETIME(6) NOT NULL,
 	postTitle VARCHAR(64) NOT NULL,
 	INDEX (postProfileId),
-	FOREIGN KEY (postProfileId) REFERENCES profile(profileId),
+	FOREIGN KEY (postProfileId) REFERENCES profile(profileId) ON DELETE CASCADE, -- ON DELETE CASCADE: delete child records if corresponding parent record is deleted
 	PRIMARY KEY (postId)
 );
 
@@ -33,6 +33,6 @@ CREATE TABLE `like` (
 	INDEX (likePostId),
 	INDEX (likeProfileId),
 	FOREIGN KEY (likePostId) REFERENCES post(postId) ON DELETE CASCADE,
-	FOREIGN KEY (likeProfileId) REFERENCES profile(profileId),
+	FOREIGN KEY (likeProfileId) REFERENCES profile(profileId) ON DELETE CASCADE,
 	PRIMARY KEY (likePostId, likeProfileId)
 )
