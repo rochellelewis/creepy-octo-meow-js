@@ -6,7 +6,6 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 
 export const PostEditFormContent = (props) => {
 
@@ -58,7 +57,7 @@ export const PostEditFormContent = (props) => {
               rows="8"
               onChange={handleChange}
               onBlur={handleBlur}
-              placeholder="Update Post Content"
+              placeholder="Update Post Content (300 characters max)"
               value={values.postContent}
             />
           </InputGroup>

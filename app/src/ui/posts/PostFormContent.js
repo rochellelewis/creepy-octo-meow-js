@@ -6,7 +6,6 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 
 export const PostFormContent = (props) => {
 
@@ -58,7 +57,7 @@ export const PostFormContent = (props) => {
 							rows="5"
 							onChange={handleChange}
 							onBlur={handleBlur}
-							placeholder="Your opinion here..."
+							placeholder="Meow here... (300 characters max)"
 							value={values.postContent}
 						/>
 					</InputGroup>

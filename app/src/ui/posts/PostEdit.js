@@ -50,7 +50,7 @@ export const PostEdit = (props) => {
 			.max(64, "No titles longer than 64 characters."),
 		postContent: Yup.string()
 			.required("U gonna post something?")
-			.max(2000, "2000 characters max per meow.")
+			.max(300, "300 characters max per meow.")
 	});
 
 	const updatePost = (values, {setStatus}) => {
