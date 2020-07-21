@@ -22,7 +22,7 @@ export async function postPostController(request: Request, response: Response, n
 
 		// grab profile data off of session
 		const profile: Profile = request.session?.profile
-		const postProfileId = <string> profile.profileId
+		const sessionProfileId = <string> profile.profileId
 		const activationToken = <string> profile.profileActivationToken
 
 		// no posting allowed from non activated accounts
@@ -43,7 +43,7 @@ export async function postPostController(request: Request, response: Response, n
 		// create the Post to be inserted
 		const post: Post = {
 			postId: null,
-			postProfileId,
+			postProfileId: sessionProfileId,
 			postContent,
 			postDate: new Date,
 			postTitle
