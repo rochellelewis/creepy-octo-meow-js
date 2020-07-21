@@ -4,8 +4,8 @@
 export const postValidator = {
 	postContent: {
 		isLength: {
-			errorMessage: 'Meow is too long! Limit it to 2000 characters pls.',
-			options: { max: 2000 }
+			errorMessage: 'Meow is too long! Limit it to 300 characters pls.',
+			options: { max: 300 }
 		},
 		trim: true,
 		escape: true
