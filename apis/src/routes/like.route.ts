@@ -16,12 +16,14 @@ const {checkSchema} = require("express-validator");
 
 export const LikeRoute = Router()
 
+// todo: add isLoggedIn validation here
 // this is all the app requires:
 LikeRoute.route("/")
 	.get(getAllLikesController)
 	.post(asyncValidatorController(checkSchema(likeValidator)), postLikeController)
 	.delete(asyncValidatorController(checkSchema(likeValidator)), deleteLikeController)
 
+// todo: check and remove these two below
 // This just looks ridiculous... it's an example :P
 LikeRoute.route("/post/:likePostId")
 	.get(getLikesByLikePostIdController)
