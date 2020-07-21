@@ -101,8 +101,8 @@ export const Like = ({profileId, postId}) => {
           setLikeCount(likeCount + 1);
         }
 
-        // if isLoggedIn.controller returns a 400, alert user but don't do an auto signout. That might be a bit intense in this case.
-        if(reply.status === 400) {
+        // if post request is not 200 OK successful, alert user but don't do an auto signout. That might be a bit much in this case.
+        else {
           alert("Session Inactive. Please log in again.")
         }
       });
@@ -124,8 +124,8 @@ export const Like = ({profileId, postId}) => {
           setLikeCount(likeCount > 0 ? likeCount - 1 : 0);
         }
 
-        // if isLoggedIn.controller returns a 400, alert user but don't do an auto signout. That might be a bit intense in this case.
-        if(reply.status === 400) {
+        // if delete request is not 200 OK successful, alert user but don't do an auto signout. That might be a bit much in this case.
+        else {
           alert("Session Inactive. Please log in again.")
         }
       });
