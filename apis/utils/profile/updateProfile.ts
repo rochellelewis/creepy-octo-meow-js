@@ -19,6 +19,7 @@ export async function updateProfile(profile: Profile) {
 
 	} catch(error) {
 		console.log(error)
+		return JSON.stringify(error)
 	}
 }
 
@@ -40,5 +41,6 @@ export async function activateProfile(profile: Profile) {
 
 	} catch(error) {
 		console.log(error)
+		return JSON.stringify(error)
 	}
 }

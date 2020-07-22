@@ -114,6 +114,11 @@ div.card-body {
 	border-color: rgba(255,255,255, 0.125) !important;
 }
 
+div.alert {
+	word-break: break-word;
+	word-wrap: break-word;
+}
+
 /***********************************************
 * CUSTOM MEOW BUTTONS
 ************************************************/
@@ -210,7 +215,6 @@ html {
 	scrollbar-track-color: #000;
 	scrollbar-arrow-color: #000;
 	scrollbar-shadow-color: #646464;
-	scrollbar-dark-shadow-color: #646464;
 }
 
 ::-webkit-scrollbar { width: 8px; height: 3px;}

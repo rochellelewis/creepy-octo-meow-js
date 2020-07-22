@@ -68,7 +68,7 @@ export const ProfileEdit = (props) => {
             {handleClose()}
             // todo: This is dirty. How to update state in parent component from here?
             window.location.reload()
-          }, 1000);
+          }, 2500);
         }
 
         // if isLoggedIn.controller returns a 400, alert user and do a log out
