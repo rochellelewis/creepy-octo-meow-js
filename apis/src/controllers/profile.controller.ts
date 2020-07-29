@@ -9,6 +9,7 @@ import {selectProfileByProfileId} from "../../utils/profile/selectProfileByProfi
 import {selectAllProfiles} from "../../utils/profile/selectAllProfiles";
 import {selectProfileByProfileEmail} from "../../utils/profile/selectProfileByProfileEmail";
 import {setHash} from "../../utils/auth.utils";
+import {deleteProfile} from "../../utils/profile/deleteProfile";
 
 /**
  * Handles PUT request to update a profile in mysql
@@ -74,6 +75,40 @@ export async function putProfileController(request: Request, response: Response,
 }
 
 /**
+ * Handles DELETE request to delete a Profile from mysql
+ *
+ * @param request
+ * @param response
+ * @param nextFunction
+ **/
+export async function deleteProfileController(request: Request, response: Response, nextFunction: NextFunction) {
+	try {
+
+		// grab profile data off of session
+		const profile: Profile = request.session?.profile
+		const sessionProfileId = <string> profile.profileId
+
+		// grab the profileId off the request body
+		const {profileId} = request.body;
+
+		// verify the profileId from the session matches the profileId that the user is attempting to delete
+		if(sessionProfileId !== profileId) {
+			return response.json({
+				status: 403, // forbidden!
+				data: null,
+				message: "Hey! You're not allowed to delete this account!"
+			});
+		}
+
+		const result = await deleteProfile(profileId)
+		return response.json({status: 200, data: null, message: result})
+
+	} catch(error) {
+		return response.json({status: error.status, data: error.data, message: error.message})
+	}
+}
+
+/**
  * Handles GET request to select a profile by activation token
  *
  * @param request
@@ -130,9 +165,7 @@ export async function getProfileByProfileEmailController(request: Request, respo
 	try {
 
 		// grab the profile id off the request parameters
-		// const {profileEmail} = request.params;
 		const {profileEmail} = request.body;
-
 
 		const data = await selectProfileByProfileEmail(profileEmail)
 		console.log(data)
