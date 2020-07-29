@@ -9,8 +9,6 @@ import reducer from "./store";
 import 'bootstrap/dist/css/bootstrap.css';
 
 import "./index.css";
-import {NavBar} from "./ui/shared/navbar/NavBar";
-import {Footer} from "./ui/shared/footer/Footer";
 import {Home} from "./ui/home/Home";
 import {About} from "./ui/about/About";
 import {Posts} from "./ui/posts/Posts";
@@ -43,7 +41,6 @@ const Routing = (store) => (
   <>
     <Provider store={store}>
       <BrowserRouter>
-          {/*<NavBar/>*/}
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route exact path="/about" component={About}/>
@@ -52,7 +49,6 @@ const Routing = (store) => (
             <Route exact path="/profile/:profileId" component={Profile} profileId=":profileId"/>
             <Route component={FourOhFour}/>
           </Switch>
-        {/*<Footer/>*/}
       </BrowserRouter>
     </Provider>
   </>
