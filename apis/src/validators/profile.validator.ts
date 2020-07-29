@@ -50,3 +50,12 @@ export const profileValidator = {
 		}
 	}
 };
+
+export const profileIdValidator = {
+	profileId: {
+		isUUID: {
+			errorMessage: "please provide a valid profile id"
+		},
+		trim: true
+	}
+}
