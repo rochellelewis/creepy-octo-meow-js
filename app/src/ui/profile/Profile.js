@@ -36,6 +36,20 @@ export const Profile = ({match}) => {
   const currentProfileId = UseJwtProfileId();
 
   /**
+   * Handles the GET request to resend the activation email
+   **/
+  const resendActivationEmail = () => {
+    const headers = {'authorization': jwt};
+    const token = profile.profileActivationToken;
+
+    httpConfig.post("/apis/signup/resend/", {activation: token}, {headers: headers})
+      .then(reply => {
+        let {message, type} = reply;
+        window.alert(message)
+      });
+  };
+
+  /**
    * Handles the DELETE request to delete a profile
    **/
   const deleteProfile = () => {
@@ -120,6 +134,13 @@ export const Profile = ({match}) => {
                         <div><span className="font-weight-bold">Your Profile Id</span>:&nbsp;{profile.profileId}</div>
                         <div><span className="font-weight-bold">Your Email Address</span>:&nbsp;{profile.profileEmail}</div>
                         <div><span className="font-weight-bold">Account Activated?</span>&nbsp;{profile.profileActivationToken ? ("NO! Please check your email to activate your account.") : "YES! It's all good!"}</div>
+
+                        {/* only show the resend activation option if the account is still unactivated! */}
+                        { profile.profileActivationToken !== null && (
+                          <Button onClick={resendActivationEmail} variant="outline-seafoam" size="sm" className="mt-2">
+                            <FontAwesomeIcon icon="envelope"/>&nbsp;&nbsp;Resend Activation Email
+                          </Button>
+                        ) }
                       </>
                     )}
 
