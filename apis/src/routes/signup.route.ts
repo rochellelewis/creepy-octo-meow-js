@@ -15,10 +15,7 @@ export const SignUpRoute = Router()
 SignUpRoute.route("/")
 	.post(asyncValidatorController(checkSchema(signUpValidator)), signUpProfileController);
 
-// route handles profile activation on initial sign up
+// route handles profile activation on initial sign up (GET) AND resending activation email (POST)
 SignUpRoute.route("/activation/:activation")
 	.get(asyncValidatorController(checkSchema(activationValidator)), activationController)
-
-// route for user to request resending the activation email
-SignUpRoute.route("/resend")
 	.post(asyncValidatorController(checkSchema(activationValidator)), resendActivationEmailController)

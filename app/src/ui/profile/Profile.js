@@ -42,7 +42,7 @@ export const Profile = ({match}) => {
     const headers = {'authorization': jwt};
     const token = profile.profileActivationToken;
 
-    httpConfig.post("/apis/signup/resend/", {activation: token}, {headers: headers})
+    httpConfig.post(`/apis/signup/activation/${token}`, {activation: token}, {headers: headers})
       .then(reply => {
         let {message, type} = reply;
         window.alert(message)

@@ -36,7 +36,7 @@ export async function resendActivationEmailController (request: Request, respons
 		}
 
 		// set base path for account activation link
-		const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}activation/${activation}`;
+		const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}`;
 
 		// create a formatted message for the activation email
 		const message = `<h2>Welcome to Creepy Octo Meow v8.0!</h2>
