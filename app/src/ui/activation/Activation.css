@@ -1,0 +1,8 @@
+.activation h1 {
+	font-size: 3.5rem;
+}
+
+.activation .badge {
+	text-shadow: 1px 1px 1px black;
+	font-weight: normal;
+}
