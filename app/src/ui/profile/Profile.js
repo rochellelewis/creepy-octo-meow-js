@@ -36,7 +36,7 @@ export const Profile = ({match}) => {
   const currentProfileId = UseJwtProfileId();
 
   /**
-   * Handles the GET request to resend the activation email
+   * Handles the POST request to resend the activation email
    **/
   const resendActivationEmail = () => {
     const headers = {'authorization': jwt};
