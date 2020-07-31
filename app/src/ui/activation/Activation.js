@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from 'react'
 
 import "./Activation.css"
 import { Footer } from '../shared/footer/Footer'
@@ -11,11 +11,22 @@ import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 import Badge from "react-bootstrap/Badge";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useDispatch } from 'react-redux'
+import { fetchProfileByProfileId } from '../../store/profiles'
 
 export const Activation = ({match}) => {
 
   //dispatch activation api get request using match params
   //output reply onto page
+
+  const dispatch = useDispatch();
+
+  const effects = () => {
+    dispatch();
+  };
+
+  const inputs = [match.params.activation];
+  useEffect(effects, inputs);
 
   return (
     <>
