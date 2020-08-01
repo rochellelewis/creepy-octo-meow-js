@@ -1,0 +1,19 @@
+.activation .badge {
+	font-weight: normal;
+}
+
+.badge-danger {
+	background-color: var(--krylon-watermelon);
+	text-shadow: 1px 1px 1px black;
+}
+
+.badge-success {
+	background-color: var(--krylon-seafoam);
+	color: #000;
+}
+
+@media only screen and (min-width: 1200px) {
+	.activation h1 {
+		font-size: 3.5rem;
+	}
+}
