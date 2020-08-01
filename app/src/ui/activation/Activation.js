@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { httpConfig } from '../../utils/http-config'
 
 import "./Activation.css"
 import { Footer } from '../shared/footer/Footer'
@@ -8,25 +10,39 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from 'react-bootstrap/Card'
-import { Link } from 'react-router-dom'
 import Badge from "react-bootstrap/Badge";
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useDispatch } from 'react-redux'
-import { fetchProfileByProfileId } from '../../store/profiles'
+
 
 export const Activation = ({match}) => {
-
-  //dispatch activation api get request using match params
-  //output reply onto page
+  //console.log(match.params.activation)
 
   const dispatch = useDispatch();
 
+  // run activation GET request on page load
   const effects = () => {
-    dispatch();
+    getActivation();
   };
 
-  const inputs = [match.params.activation];
+  const inputs = [];
   useEffect(effects, inputs);
+
+  /* State variables to hold activation reply */
+  const [status, setStatus] = useState(null);
+  const [message, setMessage] = useState(null);
+
+  /*
+  * Handle GET request for user activation
+  * */
+  const getActivation = () => {
+    httpConfig.get(`/apis/signup/activation/${match.params.activation}`)
+      .then(reply => {
+        let {message, type} = reply;
+        setStatus(reply.status)
+        setMessage(reply.message)
+      })
+  }
 
   return (
     <>
@@ -38,21 +54,28 @@ export const Activation = ({match}) => {
 
         <section className="d-flex align-items-center flex-grow-1">
           <Container fluid>
-            <Row>
-              <Col lg={5}>
-                <h1 className="font-bungee-shade color-krylon-sun-yellow">Meow Account Activation</h1>
+            <Row className="align-items-center">
+              <Col lg={5} className="mb-3">
+                <h1 className="font-bungee-shade color-krylon-sun-yellow break-word">Meow Account Activation</h1>
               </Col>
 
-              <Col lg={7} className="text-light">
-                <Card className="bg-dark-50 border mb-3">
-                  <Card.Header>
-                    <h4 className="">Activation Message HEreActivation Message HEreActivation Message HEreActivation Message HEre&nbsp;&nbsp;
-                      <Badge variant="success">Status: 200 OK!</Badge>
-                      <Badge variant="danger">Status: 404 Not Found!</Badge>
-                    </h4>
-                  </Card.Header>
+              <Col lg={7} className="text-light mb-3">
+                <Card className="bg-dark-50 border">
                   <Card.Body>
-                    <Link className="btn btn-outline-light" to="/">Log In!&nbsp;&nbsp;<FontAwesomeIcon icon="sign-in-alt"/></Link>
+                    <h4>{message}</h4>
+                    <h4>
+                      {/* badge for 200 OK success */}
+                      {status === 200 && (<Badge variant="success">Status: {status} OK!</Badge>)}
+
+                      {/* badge for 400 / null token */}
+                      {status === 400 &&
+                      (<Badge variant="danger">Status: {status}&nbsp; Bad Request!</Badge>)}
+
+                      {/* badge for 418 / invalid token */}
+                      {status === 418 &&
+                      (<Badge variant="danger">Status:&nbsp;{status}&nbsp;I'm a Teapot!</Badge>)}
+                    </h4>
+                    <Link className="btn btn-outline-light mt-2" to="/">Log In!&nbsp;&nbsp;<FontAwesomeIcon icon="sign-in-alt"/></Link>
                   </Card.Body>
                 </Card>
               </Col>
