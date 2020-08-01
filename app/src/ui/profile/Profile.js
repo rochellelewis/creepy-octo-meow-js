@@ -3,10 +3,12 @@ import {useSelector, useDispatch} from "react-redux";
 import { httpConfig } from '../../utils/http-config'
 
 import { UseJwt, UseJwtProfileId } from '../../utils/jwt-helpers'
-import {fetchProfileByProfileId} from '../../store/profiles'
-import { ProfileEdit } from './ProfileEdit'
 import { handleSessionTimeout } from '../../utils/session-timeout'
 
+// this profile action/reducer is separate from the one used for posts. This ensures no stale data is coming back from the store.
+import {fetchProfileByProfileIdProfilePage} from '../../store/profile'
+
+import { ProfileEdit } from './ProfileEdit'
 import { NavBar } from '../shared/navbar/NavBar'
 import { Footer } from '../shared/footer/Footer'
 
@@ -22,14 +24,14 @@ export const Profile = ({match}) => {
   const dispatch = useDispatch();
 
   const effects = () => {
-    dispatch(fetchProfileByProfileId(match.params.profileId));
+    dispatch(fetchProfileByProfileIdProfilePage(match.params.profileId));
   };
 
   const inputs = [match.params.profileId];
   useEffect(effects, inputs);
 
   // Return the profile from the redux store
-  const profile = useSelector(state => (state.profiles ? state.profiles[0] : null));
+  const profile = useSelector(state => (state.profile ? state.profile[0] : null));
 
   // grab the jwt and jwt profile id for the logged in user
   const jwt = UseJwt();
@@ -70,7 +72,7 @@ export const Profile = ({match}) => {
 
           // if delete profile is successful
           if(reply.status === 200) {
-            dispatch(fetchProfileByProfileId(match.params.profileId))
+            dispatch(fetchProfileByProfileIdProfilePage(match.params.profileId))
             window.confirm(message)
 
             // logout user
