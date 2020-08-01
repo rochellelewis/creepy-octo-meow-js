@@ -41,8 +41,11 @@ export async function signUpProfileController (request: Request, response: Respo
 		// insert profile into mysql
 		const result = await insertProfile(profile);
 
-		// set base path for account activation link
-		const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}activation/${profileActivationToken}`;
+		// set base path for account activation link - development
+		// const basePath = `${request.protocol}://${request.get('host')}${request.originalUrl}activation/${profileActivationToken}`;
+
+		// base path for live deployment
+		const basePath = `${request.protocol}://${request.get('host')}/activation/${profileActivationToken}`;
 
 		// create a formatted message for the activation email
 		const message = `<h2>Welcome to Creepy Octo Meow v8.0!</h2>
