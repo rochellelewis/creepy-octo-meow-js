@@ -15,6 +15,7 @@ import {Posts} from "./ui/posts/Posts";
 import {Profile} from "./ui/profile/Profile";
 import {SignUp} from "./ui/signup/SignUp";
 import {FourOhFour} from "./ui/fourohfour/FourOhFour";
+import {Activation} from './ui/activation/Activation'
 
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {far} from "@fortawesome/free-regular-svg-icons";
@@ -47,6 +48,7 @@ const Routing = (store) => (
             <Route exact path="/posts" component={Posts}/>
             <Route exact path="/signup" component={SignUp}/>
             <Route exact path="/profile/:profileId" component={Profile} profileId=":profileId"/>
+            <Route exact path="/activation/:activation" component={Activation} token=":activation"/>
             <Route component={FourOhFour}/>
           </Switch>
       </BrowserRouter>
