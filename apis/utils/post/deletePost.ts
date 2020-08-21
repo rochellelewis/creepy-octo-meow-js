@@ -1,4 +1,3 @@
-import {Post} from "../interfaces/post";
 import {connect} from "../../src/database";
 
 /**
