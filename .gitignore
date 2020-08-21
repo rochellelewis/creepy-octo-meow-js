@@ -3,6 +3,7 @@
 .env
 /node_modules
 /dist
+/build
 
 /.sync-config.cson
 /app/node_modules
