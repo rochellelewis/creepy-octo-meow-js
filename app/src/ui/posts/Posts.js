@@ -89,32 +89,35 @@ export const Posts = () => {
         <header className="fixed-top">
           <NavBar/>
 
-          {/* MOBILE POST OPTIONS - POST & SEARCH BUTTONS */}
-          { width < 768 && (
-            <Container className="mobile-post-options py-4">
-              <Row>
-                <Col className="col-6 text-center">
-                  <Button variant="outline-dark" onClick={handleShow} className="btn-block btn-lg"><FontAwesomeIcon icon="edit" />&nbsp;Post</Button>
-                </Col>
-                <Col className="col-6 text-center">
-                  <Button variant="outline-dark" className="btn-block btn-lg" onClick={() => setOpenSearch(!openSearch)}><FontAwesomeIcon icon="search" />&nbsp;Search</Button>
-                </Col>
-                <Col>
-                  <Collapse in={openSearch}>
-                    <Form>
-                      <Form.Control type="text"
-                                    placeholder="Search"
-                                    id="search-text"
-                                    onChange={handleChange}
-                                    value={searchQuery}
-                                    className="mt-3"
-                      />
-                    </Form>
-                  </Collapse>
-                </Col>
-              </Row>
-            </Container>
+          {/* MOBILE POST OPTIONS - POST & SEARCH BUTTONS - ONLY IF LOGGED IN */}
+          { jwt !== null && (
+             width < 768 && (
+              <Container className="mobile-post-options py-4">
+                <Row>
+                  <Col className="col-6 text-center">
+                    <Button variant="outline-dark" onClick={handleShow} className="btn-block btn-lg"><FontAwesomeIcon icon="edit" />&nbsp;Post</Button>
+                  </Col>
+                  <Col className="col-6 text-center">
+                    <Button variant="outline-dark" className="btn-block btn-lg" onClick={() => setOpenSearch(!openSearch)}><FontAwesomeIcon icon="search" />&nbsp;Search</Button>
+                  </Col>
+                  <Col>
+                    <Collapse in={openSearch}>
+                      <Form>
+                        <Form.Control type="text"
+                                      placeholder="Search"
+                                      id="search-text"
+                                      onChange={handleChange}
+                                      value={searchQuery}
+                                      className="mt-3"
+                        />
+                      </Form>
+                    </Collapse>
+                  </Col>
+                </Row>
+              </Container>
+            )
           )}
+
         </header>
 
         <section className="py-5">
