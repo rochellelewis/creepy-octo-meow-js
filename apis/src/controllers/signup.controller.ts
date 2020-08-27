@@ -54,7 +54,7 @@ export async function signUpProfileController (request: Request, response: Respo
 
 		// create mailgun message
 		const mailgunMessage = {
-			from: `Mailgun Sandbox <postmaster@${process.env.MAILGUN_DOMAIN}>`,
+			from: `Octo Meow 8.0 <postmaster@${process.env.MAILGUN_DOMAIN}>`,
 			to: signupEmail,
 			subject: "Octo Meow Account Activation",
 			text: 'Test email text',
