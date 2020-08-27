@@ -49,7 +49,7 @@ export async function resendActivationEmailController (request: Request, respons
 
 		// create mailgun message
 		const mailgunMessage = {
-			from: `Mailgun Sandbox <postmaster@${process.env.MAILGUN_DOMAIN}>`,
+			from: `Octo Meow 8.0 <postmaster@${process.env.MAILGUN_DOMAIN}>`,
 			to: profileEmail,
 			subject: "Octo Meow Account Activation",
 			text: 'Test email text',
