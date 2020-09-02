@@ -144,6 +144,18 @@ export async function getProfileByProfileIdController(request: Request, response
 		// grab the profile id off the request parameters
 		const {profileId} = request.params;
 
+		// lock access to view profile data to the signed in account only
+		const profile: Profile = request.session?.profile ?? "Nobody signed in!"
+		const sessionProfileId = <string> profile.profileId
+
+		if(sessionProfileId !== profileId) {
+			return response.json({
+				status: 403, // forbidden!
+				data: null,
+				message: "You are not allowed to view this profile data."
+			});
+		}
+
 		const data = await selectProfileByProfileId(profileId)
 		console.log(data)
 		const status: Status = {status: 200, data, message: null}
