@@ -39,7 +39,7 @@ export const SignUp = () => {
                     <h3 className="mb-0">Privacy Notice:</h3>
                   </Card.Header>
                   <Card.Body>
-                    <p>This app has been created for public educational purposes. <span className="font-weight-bold">Profile usernames, email addresses, and posts created here will be publicly accessible and viewable via our API REST endpoints</span>, so please keep this in mind before you sign up.</p>
+                    <p>This app has been created for public educational purposes. <span className="font-weight-bold">Profile usernames and posts created here will be publicly accessible and viewable via our API REST endpoints</span>, so please keep this in mind before you sign up.</p>
                     <p>Our codebase has been released under <a className="color-krylon-sun-yellow" href="https://github.com/rlewis2892/creepy-octo-meow-js/blob/master/LICENSE" target="_blank">Apache License 2.0</a>, and is available on <a className="color-krylon-sun-yellow" href="https://github.com/rlewis2892/creepy-octo-meow-js" target="_blank">GitHub</a>. Have an issue? Hit us up over there.</p>
                     <p>We will never spam you, nor use any data here for nefarious purposes. Promise. But we can't promise the same for others.</p>
                     <p>If you'd like to generate an anonymous private email address to use here, give <a className="color-krylon-sun-yellow" href="https://www.sharklasers.com" target="_blank">Sharklasers</a> a try!</p>
