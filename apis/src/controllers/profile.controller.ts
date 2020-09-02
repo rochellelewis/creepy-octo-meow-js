@@ -186,6 +186,20 @@ export async function getProfileByProfileEmailController(request: Request, respo
  **/
 export async function getAllProfilesController(request: Request, response: Response, nextFunction: NextFunction) {
 	try {
+
+		// lock access to this request to sister.octo.meow only! See .env
+		const profile: Profile = request.session?.profile ?? "Nobody signed in!"
+		const sessionProfileId = <string> profile.profileId
+		const adminId = process.env.ADMIN_ID;
+
+		if(sessionProfileId !== adminId) {
+			return response.json({
+				status: 403, // forbidden!
+				data: null,
+				message: "Only boss sister.octo.meow can GET all the meow profile data :P"
+			});
+		}
+
 		const data = await selectAllProfiles()
 		console.log(data)
 
