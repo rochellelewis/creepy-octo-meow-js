@@ -8,7 +8,6 @@ import {
 	getProfileByProfileIdController,
 	putProfileController,
 	getAllProfilesController,
-	getProfileByProfileEmailController,
 	deleteProfileController
 } from "../controllers/profile.controller";
 
@@ -23,7 +22,3 @@ ProfileRoute.route("/:profileId")
 	.get(getProfileByProfileIdController)
 	.put(isLoggedIn, asyncValidatorController(checkSchema(profileValidator)), putProfileController)
 	.delete(isLoggedIn, asyncValidatorController(checkSchema(profileIdValidator)), deleteProfileController)
-
-// todo: correct this path, check controller and get method
-ProfileRoute.route("/profileEmail")
-	.post(getProfileByProfileEmailController)
