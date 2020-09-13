@@ -41,10 +41,12 @@ export async function resendActivationEmailController (request: Request, respons
 		// set base path for account activation link - live deployment
 		const basePath = `${request.protocol}://${request.get('host')}/activation/${activation}`;
 
+		// create a formatted message for the activation email
+		const plaintextMessage = `Welcome to Creepy Octo Meow v8.0! In order to start posting meows of cats you must activate your account here: ${basePath}`
 
 		// create a formatted message for the activation email
-		const message = `<h2>Welcome to Creepy Octo Meow v8.0!</h2>
-<p>In order to start posting meows of cats you must confirm your account here:</p>
+		const formattedMessage = `<h2>Welcome to Creepy Octo Meow v8.0!</h2>
+<p>In order to start posting meows of cats you must activate your account here:</p>
 <p><a href="${basePath}">${basePath}</a></p>`
 
 		// create mailgun message
@@ -52,8 +54,9 @@ export async function resendActivationEmailController (request: Request, respons
 			from: `Octo Meow 8.0 <postmaster@${process.env.MAILGUN_DOMAIN}>`,
 			to: profileEmail,
 			subject: "Octo Meow Account Activation",
-			text: 'Test email text',
-			html: message
+			text: plaintextMessage,
+			html: formattedMessage,
+			"o:dkim": 'yes'
 		}
 
 		// build new mailgun email
